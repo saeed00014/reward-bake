@@ -1,0 +1,89 @@
+.Header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 12rem;
+  height: 100vh;
+  background-color: black;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1.5rem;
+  width: 100%;
+}
+
+.logo h1 {
+  margin: .5rem 0;
+  font-size: 2.5rem;
+  color: aquamarine;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.navLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1.3rem;
+  margin-top: 2.5rem;
+}
+
+.navLink li {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-right: 1rem;
+  cursor: pointer;
+}
+
+.navLink a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgb(194, 194, 194);
+  text-decoration: none;
+  font-size: 1.2rem;
+  height: 2.3rem;
+  width: 100%;
+  padding-left: 2rem;
+  gap: .8rem;
+}
+
+.navLink li a *:nth-child(1) {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 1.5rem;
+  width: 2.5rem;
+}
+
+.navLink li:nth-child(1) a *:nth-child(1) {
+  font-size: 1.9rem;
+}
+
+.navLink li:hover,
+.navLink li:hover a {
+  background-color: rgb(43, 43, 43);
+  color: white;
+}

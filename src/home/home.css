@@ -1,0 +1,250 @@
+.homeSection {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  padding-left: 12rem;
+}
+
+.homeTitle {
+  display: flex;
+  justify-content: center;
+  color: black;
+  padding-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  font-size: 3rem;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.homeContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 2rem;
+  color: black;
+  width: 100%;
+  max-width: 90rem;
+  gap: 1.5rem;
+}
+
+.homeProgressDetails {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.356);
+  border-radius: 3rem;
+  overflow: hidden;
+  height: 20rem;
+  width: 35rem;
+  padding: 2rem 3rem;
+}
+
+.homeShowList {
+  padding-top: 1.5rem;
+}
+
+.homeProgressDetails h1 {
+  margin-bottom: 1rem;
+}
+
+.homeProgressDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.homeProgress {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.356);
+  border-radius: 3rem;
+  overflow: hidden;
+  height: 20rem;
+  width: 35rem;
+}
+
+.homeProgress h1 {
+  padding: 1.5rem 3rem 0 3rem;
+}
+
+.homeMouthState {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 0;
+  width: 100%;
+}
+
+.homeMouth {
+  padding-right: .5rem;
+}
+
+.homeMouth span {
+  position: relative;
+  width: 100%;
+  margin-top: .8rem;
+  height: .8rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+
+.homeMouth span i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: aquamarine;
+}
+
+.homeMouthState div div {
+  display: flex;
+  flex-direction: column;
+}
+
+.homeMouthChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid black;
+  border-radius: 100%;
+}
+
+.homeChartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 15rem;
+
+}
+
+.homeChart {
+  height: 15rem;
+
+  overflow: hidden;
+}
+
+.homeChartDis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 40%;
+  height: 100%;
+  padding-bottom: 3rem;
+}
+
+.homeChartDis h3 {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1.5rem;
+}
+
+.homeChartDis h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+  height: 1rem;
+  background-color: green;
+}
+
+.homeChartDis h3:nth-child(2)::before {
+  background-color: orange;
+}
+
+.homeChartDis h3:nth-child(3)::before {
+  background-color: gray;
+}
+
+.homeChartDis h3:nth-child(4)::before {
+  background-color: brown;
+}
+
+.homeChart * {
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+.homeProgress small {
+  margin-top: -3rem;
+  padding-left: 4.5rem;
+  width: max-content;
+}
+
+.homeMouthChart div {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid black;
+  border-radius: 100%;
+}
+
+.homeMouthstateDis {
+  display: flex;
+  width: 25%;
+}
+
+.homeListContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 90rem;
+  padding: 0 2rem;
+}
+
+.homeListContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.homeListContent h3 {
+  display: inline-block;
+  width: 100%;
+  color: black;
+}
+
+.homeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.homeList li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 2rem;
+  border: 1px solid black;
+  color: black;
+}
+
+
+
+@media only screen and (min-width: 540px) and (max-width: 1080px) {
+
+}
+
+@media only screen and (max-width: 540px) {
+  .homeContainer {
+    width: 95%;
+  }
+}

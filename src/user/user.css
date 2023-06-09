@@ -1,0 +1,66 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.user h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1.8rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid ;
+}
+
+.userContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 55%;
+}
+
+.userContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 3rem;
+}
+
+.userDetails {
+  display: flex;
+  gap: 1rem;
+}
+
+.userDetails * {
+  margin: 0;
+}
+
+.userOption {
+  display: flex;
+  gap: 1rem;
+}
+
+.userOption span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid aquamarine;
+  padding: .2rem 1rem;
+  max-width: 2rem;
+}
+
+.addUser {
+  width: 140px;
+  height: 35px;
+  background: none;
+  color: white;
+  border: 1px solid aquamarine;
+}

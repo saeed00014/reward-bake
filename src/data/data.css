@@ -1,0 +1,52 @@
+.data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.dataContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 50rem;
+}
+
+.dataContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dataForgeName {
+  display:inline-block;
+}
+
+.dataInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dataInfoContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dataInfoContent div {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.dataInfoContent h3 {
+  display: flex;
+  justify-content: flex-start;
+  min-width: 3rem;
+}
+
+.dataInfoContent:nth-child(2) {
+  background-color: rgb(9, 73, 52);
+}

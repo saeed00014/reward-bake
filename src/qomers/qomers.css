@@ -1,0 +1,26 @@
+.qomers {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100vw;
+  padding-left: 12rem;
+}
+
+.qomers h1 {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+  padding-top: .57rem;
+  width: 100%;
+  color: black;
+}
+
+.qomersContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100vh;
+}
