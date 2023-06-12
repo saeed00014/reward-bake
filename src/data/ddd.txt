@@ -1,0 +1,199 @@
+import React, { useEffect, useState } from 'react'
+
+import './data.css'
+
+import axios, {isCancel, AxiosError} from 'axios'
+import { forges } from '../forges'
+
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
+import { TiTick } from 'react-icons/ti'
+
+import { useDispatch } from 'react-redux'
+import { allList, editData, findData } from '../store/stateSlice'
+import { useSelector } from 'react-redux'
+
+import { LuEdit } from 'react-icons/lu'
+
+
+const DataPage = () => {
+  const dispatch = useDispatch()
+  const [query, setQuery] = useState('')
+  
+  const list = useSelector((state) => state.list)
+  
+  useEffect (() => {
+    const handleGetForges = async () => {
+      const ress = await axios.get('http://localhost:3004/forges') 
+      
+      dispatch(allList(ress.data))
+    }
+    
+    handleGetForges()
+    
+  }, [])
+  
+  
+  return (
+    <section className="data">
+        <h1 className='dataTitle'>DataBase</h1>
+        <div>
+          <input onChange={(e) => setQuery(e.target.value)} type="text" />
+        </div>
+      <div className="dataContainer">
+        {list.allList && 
+          list.allList.map((forge) => {
+            return (
+              <div className="dataContent">
+              <h3 className='dataForgeName'>{forge[0].name}</h3>
+              <div className="dataInfoContainer">
+              {forge[1].filter((info) => info.state.includes(query))
+                .map((info) => {
+                  const [tick, setTick] = useState(false)
+                  const [bookMark, setBookMark] = useState(false)
+                  const [stateForgeOne, setStateForgeOne] = useState(false)
+
+                  const styles = {
+                    backgroundColor: `${info.state}`
+                  }
+                  return (
+                  <>
+                  {stateForgeOne && 
+                  <div className='infoEditContainer'>
+                    <div className='infoEditContent'>
+                      <h3 className='infoEditTitle'>Forge Mouth : {forge[0].name}{info.num}</h3>
+                      <div className='infoEdit'>
+                        <div className='infoEditInput'>
+                          <div>
+                            <label htmlFor="name">Name : </label>
+                            <input type="text" value={info.name} id='name' />  
+                          </div>
+                          <div>
+                            <label htmlFor="qty">Quantity : </label>
+                            <input type="text" value={info.quantity} id='qty' />  
+                          </div>
+                          <div>
+                            <label htmlFor="state">State : </label>
+                            <input type="text" value={info.state} id='state' />  
+                          </div>
+                        </div> 
+                        <div className='infoEditBookmark'>
+                          <i onClick={() => setBookMark(!bookMark)}>
+                            <p>Mark</p>
+                            <AiFillStar className={bookMark ? 'infoBookMark' : 'infoNoBookMark'} />
+                            <AiOutlineStar className='bookMarkBorder'/>
+                          </i>
+                          <i onClick={() => setTick(!tick)}>
+                            <p>Checked</p>
+                            {tick && <TiTick />}
+                          </i>
+                        </div>
+                      </div>
+                      <div className='editDetails'>
+                      <label htmlFor="area">add details :</label>
+                      <textarea name="" id="area" cols="27" rows="6" placeholder={info.dis}></textarea>
+                      </div>
+                      <div className='editButton'>
+                        <small className='editLeadDatabase'>find in database</small>
+                        <div>
+                          <button onClick={() => setStateForgeOne(false)} after-show = {stateForgeOne.toString()}>cancel</button>
+                          <button>save</button>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    }
+                  <div onClick={() => setShowDetails(!showDetails)} style={styles} className="dataInfoContent">
+                  <div className='dataInfo'>
+                    <h3>{info.num}</h3>
+                    <h3>{info.name}</h3>
+                    <h3>{info.quantity}</h3>
+                    <h3>{info.state}</h3>
+                    <i onClick={() => setStateForgeOne(true)}><LuEdit />Edit</i>
+                  </div>
+                  <div className='dataEdit'>
+                    <p>{info.dis}</p>
+                  </div>
+                </div>
+                </>
+              )
+              })}
+              {forge[2].filter((info) => info.state.includes(query))
+                .map((info) => {
+                  const [tick, setTick] = useState(false)
+                  const [bookMark, setBookMark] = useState(false)
+                  const [stateForgeOne, setStateForgeOne] = useState(false)
+                  const styles = {
+                    backgroundColor: `${info.state}`
+                  }
+                  return (
+                  <>
+                  {stateForgeOne && 
+                  <div className='infoEditContainer'>
+                    <div className='infoEditContent'>
+                      <h3 className='infoEditTitle'>Forge Mouth : {forge[0].name}{info.num}</h3>
+                      <div className='infoEdit'>
+                        <div className='infoEditInput'>
+                          <div>
+                            <label htmlFor="name">Name : </label>
+                            <input type="text" value={info.name} id='name' />  
+                          </div>
+                          <div>
+                            <label htmlFor="qty">Quantity : </label>
+                            <input type="text" value={info.quantity} id='qty' />  
+                          </div>
+                          <div>
+                            <label htmlFor="state">State : </label>
+                            <input type="text" value={info.state} id='state' />  
+                          </div>
+                        </div> 
+                        <div className='infoEditBookmark'>
+                          <i onClick={() => setBookMark(!bookMark)}>
+                            <p>Mark</p>
+                            <AiFillStar className={bookMark ? 'infoBookMark' : 'infoNoBookMark'} />
+                            <AiOutlineStar className='bookMarkBorder'/>
+                          </i>
+                          <i onClick={() => setTick(!tick)}>
+                            <p>Checked</p>
+                            {tick && <TiTick />}
+                          </i>
+                        </div>
+                      </div>
+                      <div className='editDetails'>
+                      <label htmlFor="area">add details :</label>
+                      <textarea name="" id="area" cols="27" rows="6"></textarea>
+                      </div>
+                      <div className='editButton'>
+                        <small className='editLeadDatabase'>find in database</small>
+                        <div>
+                          <button onClick={() => setStateForgeOne(false)} after-show = {stateForgeOne.toString()}>cancel</button>
+                          <button>save</button>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    }
+                  <div style={styles} className="dataInfoContent">
+                    <div className='dataInfo'>
+                      <h3>{info.num}</h3>
+                      <h3>{info.name}</h3>
+                      <h3>{info.quantity}</h3>
+                      <h3>{info.state}</h3>
+                      <i onClick={() => setStateForgeOne(true)}><LuEdit />Edit</i>
+                    </div>
+                    <div className='dataEdit'>
+                      <p>{info.dis}</p>
+                    </div>
+                </div>
+                </>
+              )
+              })}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+
+export default DataPage

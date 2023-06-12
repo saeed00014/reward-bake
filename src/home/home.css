@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   padding-left: 12rem;
+  padding-bottom: 5rem;
 }
 
 .homeTitle {
@@ -199,35 +200,95 @@
 
 .homeListContainer {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
   max-width: 90rem;
   padding: 0 2rem;
+  gap: 1rem 5%;
+}
+
+.homeListContainer p {
+  color: black;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .homeListContent {
+  position: relative;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 100%;
-}
-
-.homeListContent h3 {
-  display: inline-block;
-  width: 100%;
-  color: black;
-}
-
-.homeList {
-  display: flex;
-  flex-wrap: wrap;
+  width: max-content;
   gap: 1rem;
 }
 
-.homeList li {
+.homeListContent h3 {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 7rem;
+  height: 2rem;
+  color: black;
+  cursor: pointer;
+  overflow: visible;
+  border: 1px solid black;
+  padding: .2rem .5rem;
+}
+
+.homeListContent h3::after {
+  content: '';
+  position: absolute;
+  display: flex;
+  top: 1rem;
+  right: .5rem;
+  width: .5rem;
+  height: 0.1rem;
+  background-color: blueviolet;
+  color: black;
+  transform: rotate(45deg);
+}
+
+.homeListContent h3::before {
+  content: '';
+  position: absolute;
+  display: flex;
+  top: 1rem;
+  right: .9rem;
+  width: .5rem;
+  height: 0.1rem;
+  background-color: blueviolet;
+  color: black;
+  transform: rotate(-45deg);
+}
+
+.homeListContent h3[flash-rev= 'true']::after {
+  transform: rotate(-45deg);
+}
+
+.homeListContent h3[flash-rev= 'true']::before {
+  transform: rotate(45deg);
+}
+
+.homeList {
+  display: none;
+}
+
+.showList {
+  display: flex;
+  flex-wrap: wrap;
+  width: clamp(4rem, 78vw, 95rem);
+  gap: 1rem;
+  margin-left: 1rem;
+}
+
+.showList li {
   display: flex;
   justify-content: center;
   align-items: center;

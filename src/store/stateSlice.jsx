@@ -5,10 +5,13 @@ const initialState = {
   cooking: 0,
   off: 0,
   empty: 0,
+  allList: '',
   doneList: [''],
   cookingList: [''],
   offList: [''],
-  emptyList: ['']
+  emptyList: [''],
+  findData: [''],
+  editData: '',
 }
 
 const cookStateSlice = createSlice ({
@@ -28,6 +31,11 @@ const cookStateSlice = createSlice ({
         state.off = state.off + 1
       }
     },
+    allList(state, action) {
+      const all = action.payload
+      state.allList = all
+
+    },
     addList(state, action) {
       const newState = action.payload.state
       const newNum = action.payload.num
@@ -43,6 +51,19 @@ const cookStateSlice = createSlice ({
         state.offList.push({'state': `${newState}`,'num': `${newNum}`})
       }
     },
+    findData(state, action) {
+      const value = action.payload
+      value ? state.findData = value : state.findData = ''
+      value.map((val) => {
+        const name = val.name
+        state.findData.push({'name': `gg`})
+      })
+      console.log(state.findData)
+    },
+    editData(state, action) {
+      const isEdit = action.payload
+      state.editData = isEdit
+    },
     cleareState(state, action) {
       state.done = 0
       state.doneList = []
@@ -56,6 +77,6 @@ const cookStateSlice = createSlice ({
   }
 })
 
-export const {manageState, addList, cleareState} = cookStateSlice.actions
+export const {manageState, addList, cleareState, allList, findData, editData} = cookStateSlice.actions
 
 export default cookStateSlice

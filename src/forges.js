@@ -12,7 +12,7 @@ export const forges = [
         dis: 'this is an old forge whit a heigher cook time'
       },
       {
-        num: 2,
+        num: 1,
         name: 'metal',
         quantity: '1300kg',
         state: 'green',

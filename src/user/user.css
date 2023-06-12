@@ -4,17 +4,20 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
+  padding-left: 12rem;
 }
 
-.user h1 {
+.userTitle {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  font-size: 1.8rem;
+  font-size: 3rem;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
+  padding-top: 1.5rem;
   border-bottom: 1px solid ;
+  color: black;
 }
 
 .userContainer {
@@ -23,7 +26,8 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 2rem;
-  width: 55%;
+  width: 70%;
+  max-width: 40rem;
 }
 
 .userContent {
@@ -31,36 +35,68 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 3rem;
+  gap: 10%;
 }
 
 .userDetails {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
   gap: 1rem;
 }
 
 .userDetails * {
   margin: 0;
+  color: black;
 }
 
 .userOption {
   display: flex;
   gap: 1rem;
+  min-width: 8rem;
 }
 
-.userOption span {
+.userOption button {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid aquamarine;
-  padding: .2rem 1rem;
-  max-width: 2rem;
+  border: 1px solid rgb(0, 0, 0);
+  padding: .3rem .8rem;
+  color: black;
+  background-color: transparent;
 }
 
 .addUser {
   width: 140px;
   height: 35px;
   background: none;
-  color: white;
-  border: 1px solid aquamarine;
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.userForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: black;
+  gap: 1rem;
+}
+
+.userForm div {
+  display: flex;
+  gap: .5rem;
+}
+
+.userForm div label {
+  width: 3rem;
+}
+
+.userForm div input {
+  width: 80%;
+}
+
+.userForm input:nth-child(3) {
+  width: 7.7rem;
+  height: 2rem;
 }

@@ -14,15 +14,20 @@ import { PureComponent } from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 
 const HomePage = () => {
+  const [done1, setDone1] = useState(true)
+  const [cooking1, setCooking1] = useState(false)
+  const [off1, setOff1] = useState(false)
+  const [empty1, setEmpty1] = useState(false)
+
   const cookState = useSelector((state) => state.cookState)
   const list = useSelector((state) => state.list)
 
   console.log(list)
 
-  const done = Math.trunc(cookState.done/2/88*100)
-  const cooking = Math.trunc(cookState.cooking/2/88*100)
-  const off = Math.trunc(cookState.off/2/88*100)
-  const empty = Math.trunc(cookState.empty/2/88*100)
+  const done = Math.trunc(cookState.done/88*100)
+  const cooking = Math.trunc(cookState.cooking/88*100)
+  const off = Math.trunc(cookState.off/88*100)
+  const empty = Math.trunc(cookState.empty/88*100)
 
   console.log(done)
 
@@ -121,29 +126,39 @@ const HomePage = () => {
         </div>
       </div>
       <div className='homeListContainer'>
+        <p>Click to show List</p>
         <div className='homeListContent'>
-          <h3>done</h3>
-          <ul className='homeList'>
+          <h3 flash-rev={done1.toString()} onClick={() => setDone1(!done1)}>
+            Done
+            <span></span>
+          </h3>
+          <ul className={done1 ? 'showList' : 'homeList'}>
             {list.doneList.map((doneItem) => {
               return (
-                <li>{doneItem.num}</li>
+                <li key={doneItem.num}>{doneItem.num}</li>
               )
             })}
           </ul>
         </div>
         <div className='homeListContent'>
-          <h3>cooking</h3>
-          <ul className='homeList'>
+          <h3 flash-rev={cooking1.toString()} onClick={() => setCooking1(!cooking1)}>
+            Cooking
+            <span></span>
+          </h3>
+          <ul className={cooking1 ? 'showList' : 'homeList'}>
             {list.cookingList.map((doneItem) => {
               return (
-                <li>{doneItem.num}</li>
+                <li key={doneItem.num}>{doneItem.num}</li>
               )
             })}
           </ul>
         </div>
         <div className='homeListContent'>
-          <h3>off</h3>
-          <ul className='homeList'>
+          <h3 flash-rev={off1.toString()} onClick={() => setOff1(!off1)}>
+            Off
+            <span></span>
+          </h3>
+          <ul className={off1 ? 'showList' : 'homeList'}>
             {list.offList.map((doneItem) => {
               return (
                 <li>{doneItem.num}</li>
@@ -152,8 +167,11 @@ const HomePage = () => {
           </ul>
         </div>
         <div className='homeListContent'>
-          <h3>empty</h3>
-          <ul className='homeList'>
+          <h3 flash-rev={empty1.toString()} onClick={() => setEmpty1(!empty1)}>
+            Empty
+            <span></span>
+          </h3>
+          <ul className={empty1 ? 'showList' : 'homeList'}>
             {list.emptyList.map((doneItem) => {
               return (
                 <li>{doneItem.num}</li>

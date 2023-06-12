@@ -12,15 +12,34 @@ import QomersPage from './qomers/qomers'
 import { forges } from './forges'
 import { useDispatch } from 'react-redux'
 
-import { manageState, addList, cleareState } from './store/stateSlice'
+import { manageState, addList, cleareState, allList } from './store/stateSlice'
+import { allUser, cleareUserState } from './store/uareSlice'
+import axios from 'axios'
 
 function App() {
-
   const dispatch = useDispatch()
 
+  
   useEffect(() => {
     dispatch(cleareState())
-
+    
+    const handleGetForges = async () => {
+      const ress = await axios.get('http://localhost:3004/forges') 
+      const res = ress.data
+      
+      dispatch(allList(res))
+    }
+    handleGetForges()
+    
+    const handleGetUsers = async () => {
+      const ress = await axios.get('http://localhost:3004/users') 
+      const res = ress.data
+      
+      dispatch(cleareUserState())
+      dispatch(allUser(res))
+    }
+    handleGetUsers()
+    
     forges.map((forge) => {
       const forgeName = forge[0].name
 

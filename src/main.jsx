@@ -7,10 +7,13 @@ import { Provider } from 'react-redux'
 import cookStateSlice from './store/stateSlice.jsx'
 import { configureStore } from '@reduxjs/toolkit'
 
+import userStateSlice from './store/uareSlice.jsx'
+
 const store = configureStore({
   reducer: {
     cookState: cookStateSlice.reducer,
-    list: cookStateSlice.reducer
+    list: cookStateSlice.reducer,
+    user: userStateSlice.reducer
   }
 })
 
