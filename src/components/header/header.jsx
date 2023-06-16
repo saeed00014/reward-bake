@@ -27,7 +27,6 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <Link to='/users' className='signinA'>signin</Link>
     </section>
   )
 }
