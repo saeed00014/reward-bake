@@ -408,7 +408,7 @@
           "id": 1,
           "num": 1,
           "name": "metal",
-          "symbol": "FA1",
+          "symbol": "FB1",
           "quantity": "1300kg",
           "state": "green",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -417,7 +417,7 @@
           "id": 2,
           "num": 2,
           "name": "metal",
-          "symbol": "FA2",
+          "symbol": "FB2",
           "quantity": "1300kg",
           "state": "green",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -426,7 +426,7 @@
           "id": 3,
           "num": 3,
           "name": "metal",
-          "symbol": "FA3",
+          "symbol": "FB3",
           "quantity": "1300kg",
           "state": "gray",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -435,7 +435,7 @@
           "id": 4,
           "num": 4,
           "name": "metal",
-          "symbol": "FA4",
+          "symbol": "FB4",
           "quantity": "100kg",
           "state": "brown",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -444,7 +444,7 @@
           "id": 5,
           "num": 5,
           "name": "metal",
-          "symbol": "FA5",
+          "symbol": "FB5",
           "quantity": "1300kg",
           "state": "gray",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -453,7 +453,7 @@
           "id": 6,
           "num": 6,
           "name": "metal",
-          "symbol": "FA6",
+          "symbol": "FB6",
           "quantity": "1300kg",
           "state": "brown",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -462,7 +462,7 @@
           "id": 7,
           "num": 7,
           "name": "metal",
-          "symbol": "FA7",
+          "symbol": "FB7",
           "quantity": "1300kg",
           "state": "gray",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -471,7 +471,7 @@
           "id": 8,
           "num": 8,
           "name": "metal",
-          "symbol": "FA8",
+          "symbol": "FB8",
           "quantity": "1300kg",
           "state": "brown",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -480,7 +480,7 @@
           "id": 9,
           "num": 9,
           "name": "metal",
-          "symbol": "FA9",
+          "symbol": "FB9",
           "quantity": "1300kg",
           "state": "orange",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -488,7 +488,7 @@
         {
           "id": 10,
           "num": 10,
-          "symbol": "FA10",
+          "symbol": "FB10",
           "name": "metal",
           "quantity": "1300kg",
           "state": "gray",
@@ -497,7 +497,7 @@
         {
           "id": 11,
           "num": 11,
-          "symbol": "FA11",
+          "symbol": "FB11",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -506,7 +506,7 @@
         {
           "id": 12,
           "num": 12,
-          "symbol": "FA12",
+          "symbol": "FB12",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -515,7 +515,7 @@
         {
           "id": 13,
           "num": 13,
-          "symbol": "FA13",
+          "symbol": "FB13",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -524,7 +524,7 @@
         {
           "id": 14,
           "num": 14,
-          "symbol": "FA14",
+          "symbol": "FB14",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -533,7 +533,7 @@
         {
           "id": 15,
           "num": 15,
-          "symbol": "FA15",
+          "symbol": "FB15",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -542,7 +542,7 @@
         {
           "id": 16,
           "num": 16,
-          "symbol": "FA16",
+          "symbol": "FB16",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -551,7 +551,7 @@
         {
           "id": 17,
           "num": 17,
-          "symbol": "FA17",
+          "symbol": "FB17",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -560,7 +560,7 @@
         {
           "id": 18,
           "num": 18,
-          "symbol": "FA18",
+          "symbol": "FB18",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -569,7 +569,7 @@
         {
           "id": 19,
           "num": 19,
-          "symbol": "FA19",
+          "symbol": "FB19",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -578,7 +578,7 @@
         {
           "id": 20,
           "num": 20,
-          "symbol": "FA20",
+          "symbol": "FB20",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -587,7 +587,7 @@
         {
           "id": 21,
           "num": 21,
-          "symbol": "FA21",
+          "symbol": "FB21",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -596,7 +596,7 @@
         {
           "id": 22,
           "num": 22,
-          "symbol": "FA22",
+          "symbol": "FB22",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -607,7 +607,7 @@
         {
           "id": 23,
           "num": 23,
-          "symbol": "FA23",
+          "symbol": "FB23",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -617,7 +617,7 @@
           "id": 24,
           "num": 24,
           "name": "metal",
-          "symbol": "FA24",
+          "symbol": "FB24",
           "quantity": "1300kg",
           "state": "green",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -626,7 +626,7 @@
           "id": 25,
           "num": 25,
           "name": "metal",
-          "symbol": "FA25",
+          "symbol": "FB25",
           "quantity": "1300kg",
           "state": "gray",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -635,7 +635,7 @@
           "id": 26,
           "num": 26,
           "name": "metal",
-          "symbol": "FA26",
+          "symbol": "FB26",
           "quantity": "1300kg",
           "state": "brown",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -644,7 +644,7 @@
           "id": 27,
           "num": 27,
           "name": "metal",
-          "symbol": "FA27",
+          "symbol": "FB27",
           "quantity": "1300kg",
           "state": "gray",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -653,7 +653,7 @@
           "id": 28,
           "num": 28,
           "name": "metal",
-          "symbol": "FA28",
+          "symbol": "FB28",
           "quantity": "1300kg",
           "state": "brown",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -662,7 +662,7 @@
           "id": 29,
           "num": 29,
           "name": "metal",
-          "symbol": "FA29",
+          "symbol": "FB29",
           "quantity": "1300kg",
           "state": "gray",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -671,7 +671,7 @@
           "id": 30,
           "num": 30,
           "name": "metal",
-          "symbol": "FA30",
+          "symbol": "FB30",
           "quantity": "1300kg",
           "state": "brown",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -680,7 +680,7 @@
           "id": 31,
           "num": 31,
           "name": "metal",
-          "symbol": "FA31",
+          "symbol": "FB31",
           "quantity": "1300kg",
           "state": "orange",
           "dis": "'this is an old forge whit a heigher cook time'"
@@ -688,7 +688,7 @@
         {
           "id": 32,
           "num": 32,
-          "symbol": "FA32",
+          "symbol": "FB32",
           "name": "metal",
           "quantity": "1300kg",
           "state": "gray",
@@ -697,7 +697,7 @@
         {
           "id": 33,
           "num": 33,
-          "symbol": "FA33",
+          "symbol": "FB33",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -706,7 +706,7 @@
         {
           "id": 34,
           "num": 34,
-          "symbol": "FA34",
+          "symbol": "FB34",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -715,7 +715,7 @@
         {
           "id": 35,
           "num": 35,
-          "symbol": "FA35",
+          "symbol": "FB35",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -724,7 +724,7 @@
         {
           "id": 36,
           "num": 36,
-          "symbol": "FA36",
+          "symbol": "FB36",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -733,7 +733,7 @@
         {
           "id": 37,
           "num": 37,
-          "symbol": "FA37",
+          "symbol": "FB37",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -742,7 +742,7 @@
         {
           "id": 38,
           "num": 38,
-          "symbol": "FA38",
+          "symbol": "FB38",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -751,7 +751,7 @@
         {
           "id": 39,
           "num": 39,
-          "symbol": "FA39",
+          "symbol": "FB39",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -760,7 +760,7 @@
         {
           "id": 40,
           "num": 40,
-          "symbol": "FA40",
+          "symbol": "FB40",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -769,7 +769,7 @@
         {
           "id": 41,
           "num": 41,
-          "symbol": "FA41",
+          "symbol": "FB41",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -778,7 +778,7 @@
         {
           "id": 42,
           "num": 42,
-          "symbol": "FA42",
+          "symbol": "FB42",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -787,7 +787,7 @@
         {
           "id": 43,
           "num": 43,
-          "symbol": "FA43",
+          "symbol": "FB43",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
@@ -796,7 +796,7 @@
         {
           "id": 44,
           "num": 44,
-          "symbol": "FA44",
+          "symbol": "FB44",
           "name": "metal",
           "quantity": "1300kg",
           "state": "green",
