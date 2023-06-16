@@ -14,12 +14,11 @@ const UserPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const name = e.target.name.value
-    const email = e.target.email.value
+    const email = e.target.password.value
     const data = {
       'id': uuidv4(),
       'name': name,
-      'email': email,
-      'password': 'gg'
+      'password': email
     }
 
     axios.post('http://localhost:3004/users', data, {
@@ -28,7 +27,6 @@ const UserPage = () => {
       }
     })
     .then((response) => {
-      console.log(response.data);
       dispatch(addUser(response.data))
     });
   }
@@ -48,8 +46,8 @@ const UserPage = () => {
           return (
             <div className="userContent">
               <div className="userDetails">
-                <p>Name: {user.name}</p>
-                <p>Email: {user.email}</p>
+                <p>Username: {user.name}</p>
+                <p>Password: {user.password}</p>
               </div>
               <div className="userOption">
                 <button>Edit</button>
@@ -58,16 +56,17 @@ const UserPage = () => {
             </div>
           )
         })}
-        <form onSubmit={(e) => handleSubmit(e)} className='userForm'>
+        <form onSubmit={(e) => handleSubmit(e)} className='adduserContent'>
+          <div className='adduserTitle'></div>
           <div>
-            <label htmlFor="name">name</label>
-            <input type="text" name="" id="name" />
+            <label htmlFor="name">username</label>
+            <input type="username" id='name'/>
           </div>
           <div>
-            <label htmlFor="email">email</label>
-            <input type="text" name="" id="email" />
+            <label htmlFor="password">password</label>
+            <input type="password" id='password'/>
           </div>
-          <input type="submit" name="" id="" value='ADD User' />
+          <input type="submit" value='add user' />
         </form>
         <div>
         </div>

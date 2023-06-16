@@ -6,6 +6,7 @@ import { TiTick } from 'react-icons/ti'
 import { LuEdit } from 'react-icons/lu'
 
 import '../components/forges/forge.css'
+import axios from 'axios'
 
 const EditData = ({fa, info, showDis}) => {
   const [tick, setTick] = useState(false)
@@ -17,28 +18,42 @@ const EditData = ({fa, info, showDis}) => {
     backgroundColor: `${info.state}`
   }
 
-  const symbol =  fa + info.num
-  console.log(symbol)
+  const handleSave = async (e, id, num, symbol) => {
+    e.preventDefault()
+    console.log(e.target.name.value, id)
+    const data = {
+      "id": id,
+      "num": num,
+      "symbol": symbol,
+      "name": e.target.name.value,
+      "quantity": e.target.quantity.value,
+      "state": e.target.state.value,
+      "dis": e.target.dis.value
+    }
+
+    await axios.delete(`http://localhost:3004/forges/${id}`)
+    await axios.post('http://localhost:3004/forges', data)
+  }
 
   return (
   <>
   {stateForgeOne && 
-  <div className='infoEditContainer'>
+  <form onSubmit={(e) => handleSave(e, info.id. info.num, info.symbol)} className='infoEditContainer'>
     <div className='infoEditContent'>
-      <h3 className='infoEditTitle'>Forge Mouth : {fa}{info.num}</h3>
+      <h3 className='infoEditTitle'>Forge Mouth : {fa}</h3>
       <div className='infoEdit'>
         <div className='infoEditInput'>
           <div>
             <label htmlFor="name">Name : </label>
-            <input type="text" value={info.name} id='name' />  
+            <input type="text" placeholder={info.name} id='name' />  
           </div>
           <div>
             <label htmlFor="qty">Quantity : </label>
-            <input type="text" value={info.quantity} id='qty' />  
+            <input type="text" placeholder={info.quantity} id='qty' />  
           </div>
           <div>
             <label htmlFor="state">State : </label>
-            <input type="text" value={info.state} id='state' />  
+            <input type="text" placeholder={info.state} id='state' />  
           </div>
         </div> 
         <div className='infoEditBookmark'>
@@ -55,21 +70,21 @@ const EditData = ({fa, info, showDis}) => {
       </div>
       <div className='editDetails'>
       <label htmlFor="area">add details :</label>
-      <textarea name="" id="area" cols="27" rows="6" value={info.dis}></textarea>
+      <textarea name="" id="area" cols="27" rows="6" placeholder={info.dis}></textarea>
       </div>
       <div className='editButton'>
         <small className='editLeadDatabase'>find in database</small>
         <div>
           <button onClick={() => setStateForgeOne(false)} after-show = {stateForgeOne.toString()}>cancel</button>
-          <button>save</button>
+          <input type='submit' value='save' />
         </div>
         </div>
       </div>
-    </div>
+    </form>
     }
-    <div onClick={() => setDis(!dis)} style={styles} className="dataInfoContent">
-      <div className='dataInfo'>
-        <h3>{symbol}</h3>
+    <div onClick={() => setDis(!dis)} className="dataInfoContent">
+      <div style={styles} className='dataInfo'>
+        <h3>{info.symbol}</h3>
         <h3>{info.name}</h3>
         <h3>{info.quantity}</h3>
         <h3>{info.state}</h3>

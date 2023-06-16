@@ -6,6 +6,8 @@ const initialState = {
   off: 0,
   empty: 0,
   allList: '',
+  mergedAllList: [],
+  sortedMergedAllList: [],
   doneList: [''],
   cookingList: [''],
   offList: [''],
@@ -34,8 +36,15 @@ const cookStateSlice = createSlice ({
     allList(state, action) {
       const all = action.payload
       state.allList = all
-
+      const meregedData = [...all[0][0], ...all[1][1], ...all[0][1], ...all[1][1]]
+      state.mergedAllList = meregedData
+      state.sortedMergedAllList = meregedData
     },
+    sortedMergedAllList(state, action) {
+      const newSort = action.payload 
+      state.sortedMergedAllList = [...state.mergedAllList].sort((a, b) => a[newSort].localeCompare(b[newSort]))
+    }
+    ,
     addList(state, action) {
       const newState = action.payload.state
       const newNum = action.payload.num
@@ -77,6 +86,6 @@ const cookStateSlice = createSlice ({
   }
 })
 
-export const {manageState, addList, cleareState, allList, findData, editData} = cookStateSlice.actions
+export const {manageState, addList, cleareState, allList, findData, editData, sortedMergedAllList} = cookStateSlice.actions
 
 export default cookStateSlice

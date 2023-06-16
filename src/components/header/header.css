@@ -71,6 +71,12 @@
   gap: .8rem;
 }
 
+.signinA {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 3rem;
+}
+
 .navLink li a *:nth-child(1) {
   display: flex;
   justify-content: flex-start;

@@ -408,7 +408,8 @@
   gap: 1rem;
 }
 
-.editButton button {
+.editButton button,
+.editButton input {
   display: flex;
   justify-content: center;
   align-items: center;

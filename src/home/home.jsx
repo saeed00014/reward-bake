@@ -3,7 +3,6 @@ import './home.css'
 
 import Forges from '../components/forges/forges'
 import Header from '../components/header/header'
-import { forges } from '../forges'
 import { useDispatch } from 'react-redux'
 import { manageState, addList } from '../store/stateSlice'
 import { useSelector } from 'react-redux'
@@ -22,14 +21,10 @@ const HomePage = () => {
   const cookState = useSelector((state) => state.cookState)
   const list = useSelector((state) => state.list)
 
-  console.log(list)
-
   const done = Math.trunc(cookState.done/88*100)
   const cooking = Math.trunc(cookState.cooking/88*100)
   const off = Math.trunc(cookState.off/88*100)
   const empty = Math.trunc(cookState.empty/88*100)
-
-  console.log(done)
 
   const data = [
     { name: 'done', value: Number(done) },
@@ -135,7 +130,7 @@ const HomePage = () => {
           <ul className={done1 ? 'showList' : 'homeList'}>
             {list.doneList.map((doneItem) => {
               return (
-                <li key={doneItem.num}>{doneItem.num}</li>
+                <li key={doneItem.symbol}>{doneItem.num}</li>
               )
             })}
           </ul>
@@ -148,7 +143,7 @@ const HomePage = () => {
           <ul className={cooking1 ? 'showList' : 'homeList'}>
             {list.cookingList.map((doneItem) => {
               return (
-                <li key={doneItem.num}>{doneItem.num}</li>
+                <li key={doneItem.symbol}>{doneItem.num}</li>
               )
             })}
           </ul>
