@@ -10,7 +10,7 @@ const Header = () => {
   const [hambergar, setHambergar] = useState(false)
 
   return (
-    <section className='Header'>
+    <section className={hambergar ? 'Header' : 'HeaderHide'   }>
       <div className="headerContainer">
         <ul className={hambergar ? "hambergar" : "navLink"}>
           <li onClick={() => setHambergar(!hambergar)} className="logo">
