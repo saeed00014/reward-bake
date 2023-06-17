@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  all: 0,
   done: 0,
   cooking: 0,
   off: 0,
@@ -22,6 +23,7 @@ const cookStateSlice = createSlice ({
   reducers: {
     manageState(state, action) {
       const newState = action.payload
+      state.all = state.all + 1
 
       if(newState === 'green') {
         state.done = state.done + 1
@@ -36,7 +38,7 @@ const cookStateSlice = createSlice ({
     allList(state, action) {
       const all = action.payload
       state.allList = all
-      const meregedData = [...all[0][0], ...all[1][1], ...all[0][1], ...all[1][1]]
+      const meregedData = [...all[0][0], ...all[1][0], ...all[0][1], ...all[1][1], ...all[2][0], ...all[2][1], ...all[3][0], ...all[3][1], ...all[4][0], ...all[4][1]]
       state.mergedAllList = meregedData
       state.sortedMergedAllList = meregedData
     },

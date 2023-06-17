@@ -21,10 +21,10 @@ const HomePage = () => {
   const cookState = useSelector((state) => state.cookState)
   const list = useSelector((state) => state.list)
 
-  const done = Math.trunc(cookState.done/88*100)
-  const cooking = Math.trunc(cookState.cooking/88*100)
-  const off = Math.trunc(cookState.off/88*100)
-  const empty = Math.trunc(cookState.empty/88*100)
+  const done = Math.trunc(cookState.done/220*100)
+  const cooking = Math.trunc(cookState.cooking/220*100)
+  const off = Math.trunc(cookState.off/220*100)
+  const empty = Math.trunc(cookState.empty/220*100)
 
   const data = [
     { name: 'done', value: Number(done) },
@@ -64,7 +64,7 @@ const HomePage = () => {
                   labelLine={false}
                   label={renderCustomizedLabel}
                   outerRadius={80}
-                  fill="#8884d8"
+                  fill="#22084d8"
                   dataKey="value"
                 >
                   {data.map((entry, index) => (
@@ -88,7 +88,7 @@ const HomePage = () => {
             <div className="homeMouthState">
               <div className="homeMouth">
                 <div>
-                  <p>Done : {cookState.done} / 88</p>       
+                  <p>Done : {cookState.done} / {cookState.all/2}</p>       
                   <span>
                     <i style={{width: `${done}%` , backgroundColor: 'green'}}></i>
                   </span>       
@@ -96,21 +96,21 @@ const HomePage = () => {
               </div>
               <div className="homeMouth">
                 <div>
-                  <p>cooking : {cookState.cooking} / 88</p>       
+                  <p>cooking : {cookState.cooking} / 220</p>       
                   <span>
                   <i style={{width: `${cooking}%`, backgroundColor: 'orange'}}></i></span>                   
                 </div>
               </div>
               <div className="homeMouth">
                 <div>
-                  <p>Off : {cookState.off} / 88</p>    
+                  <p>Off : {cookState.off} / 220</p>    
                   <span>
                   <i style={{width: `${off}%`, backgroundColor: 'gray'}}></i></span>                      
                 </div>
               </div>
               <div className="homeMouth">
                 <div>
-                  <p>Empty : {cookState.empty} / 88</p>  
+                  <p>Empty : {cookState.empty} / 220</p>  
                   <span>
                   <i style={{width: `${empty}%`, backgroundColor: 'brown'}}></i></span>       
                 </div>
