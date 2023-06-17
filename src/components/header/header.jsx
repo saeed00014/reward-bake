@@ -10,33 +10,60 @@ const Header = () => {
   const [hambergar, setHambergar] = useState(false)
 
   return (
-    <section className={hambergar ? 'Header' : 'HeaderHide'   }>
-      <div className="headerContainer">
-        <ul className={hambergar ? "hambergar" : "navLink"}>
-          <li onClick={() => setHambergar(!hambergar)} className="logo">
-            <h1>
-              <Link to='/'>
-                LiO
-              </Link>
-            </h1>
-          </li>
-          <li onClick={() => setHambergar(!hambergar)}>
-            <Link to='/Qomers'><AiFillFire /> Qomers</Link>
-          </li>
-          <li onClick={() => setHambergar(!hambergar)}>
-            <Link to='/user'><FaUser /> Users</Link>
-          </li>
-          <li onClick={() => setHambergar(!hambergar)}>
-            <Link to='/data'><FaDatabase /> Data</Link>
-          </li>
-        </ul>
-        <i onClick={() => setHambergar(!hambergar)} className='hambMenue'>
-          <span></span>
-          <span></span>
-          <span></span>
-        </i>
-      </div>
-    </section>
+    <>
+      <section className='HeaderMain'>
+        <div className="headerMainContainer">
+          <ul className="navLink">
+            <li className="logo">
+              <h1>
+                <Link to='/'>
+                  LiO
+                </Link>
+              </h1>
+            </li>
+            <li>
+              <Link to='/Qomers'><AiFillFire /> Qomers</Link>
+            </li>
+            <li>
+              <Link to='/user'><FaUser /> Users</Link>
+            </li>
+            <li>
+              <Link to='/data'><FaDatabase /> Data</Link>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section className={hambergar ? 'HeaderSmall' : 'HeaderSmallHide'}>
+        <div className="headerSmallContainer">
+          <ul className={hambergar ? 'hambergar' : 'nohambergar'}>
+            <li onClick={() => setHambergar(!hambergar)} className="logo">
+              <h1>
+                <Link to='/'>
+                  LiO
+                </Link>
+              </h1>
+            </li>
+            <li onClick={() => setHambergar(!hambergar)}>
+              <Link to='/Qomers'><AiFillFire /> Qomers</Link>
+            </li>
+            <li onClick={() => setHambergar(!hambergar)}>
+              <Link to='/user'><FaUser /> Users</Link>
+            </li>
+            <li onClick={() => setHambergar(!hambergar)}>
+              <Link to='/data'><FaDatabase /> Data</Link>
+            </li>
+            <li onClick={() => setHambergar(!hambergar)} className='hambMenue'>
+              <i>
+                <span></span>
+                <span></span>
+                <span></span>
+              </i>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </>
   )
 }
 

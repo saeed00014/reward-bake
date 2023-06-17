@@ -24,3 +24,13 @@
   width: 100%;
   min-height: 100vh;
 }
+
+@media only screen and (min-width: 640px) and (max-width: 1080px) {
+  .qomers {
+    padding-left: 0;
+  }
+
+  .qomersContainer {
+    justify-content: center;
+  }
+}

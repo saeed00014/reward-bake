@@ -179,3 +179,9 @@
   font-size: 1.1rem;
   padding: 0 1rem;
 }
+
+@media only screen and (min-width: 640px) and (max-width: 1080px) { 
+  .data {
+    padding-left: 0;
+  }
+}
