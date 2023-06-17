@@ -96,21 +96,21 @@ const HomePage = () => {
               </div>
               <div className="homeMouth">
                 <div>
-                  <p>cooking : {cookState.cooking} / 220</p>       
+                  <p>cooking : {cookState.cooking} / {cookState.all/2}</p>       
                   <span>
                   <i style={{width: `${cooking}%`, backgroundColor: 'orange'}}></i></span>                   
                 </div>
               </div>
               <div className="homeMouth">
                 <div>
-                  <p>Off : {cookState.off} / 220</p>    
+                  <p>Off : {cookState.off} / {cookState.all/2}</p>    
                   <span>
                   <i style={{width: `${off}%`, backgroundColor: 'gray'}}></i></span>                      
                 </div>
               </div>
               <div className="homeMouth">
                 <div>
-                  <p>Empty : {cookState.empty} / 220</p>  
+                  <p>Empty : {cookState.empty} / {cookState.all/2}</p>  
                   <span>
                   <i style={{width: `${empty}%`, backgroundColor: 'brown'}}></i></span>       
                 </div>
