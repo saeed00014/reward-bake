@@ -9,6 +9,7 @@ import UserPage from './user/user'
 import DataPage from './data/data'
 import QomersPage from './qomers/qomers'
 import SigninPage from './signin/signin'
+import PanelPage from './user/manage.jsx'
 
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -93,7 +94,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/user' element={<UserPage />} />
+          <Route path='/user' element={<PanelPage />} />
           <Route path='/data' element={<DataPage />} />
           <Route path='/Qomers' element={<QomersPage />} />
         </Routes>

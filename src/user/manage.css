@@ -1,0 +1,59 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-left: 12rem;
+}
+
+.panelTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+.panelContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  width: 100%;
+  max-width: 30rem;
+}
+
+.boxContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  width: 100%;
+  color: black;
+  border: 1px solid black;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.boxButton {
+  display: flex;
+  gap: 1rem;
+}
+
+.boxButton button {
+  width: 8rem;
+  height: 2.5rem;
+}

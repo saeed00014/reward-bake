@@ -133,6 +133,7 @@
   border-left: 1px solid rgb(0, 0, 0);
   border-bottom: 1px solid black;
   cursor: pointer;
+  z-index: 3;
 }
 
 .infoContent {
@@ -286,7 +287,7 @@
   top: 0;
   bottom: 0;
   background-color: rgba(24, 24, 24, 0.5);
-  z-index: 9;
+  z-index: 100;
 }
 
 .infoEditTitle {
@@ -307,7 +308,7 @@
   border-radius: 1rem;
   padding: 1rem;
   gap: .6rem;
-  z-index: 4;
+  z-index: 100;
 }
 
 .infoEdit {

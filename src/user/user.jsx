@@ -39,7 +39,6 @@ const UserPage = () => {
 
   return (
     <section className="user">
-      <h1 className='userTitle'>Manage Users</h1>
       <div className="userContainer">
         <div className="allUser">
           {user.allUser &&
@@ -71,6 +70,7 @@ const UserPage = () => {
           <input type="submit" value='add user' />
         </form>
       </div>
+
     </section>
   )
 }
