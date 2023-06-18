@@ -34,13 +34,13 @@
 .homeProgressDetails {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(0, 0, 0, 0.24);
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.356);
-  border-radius: 3rem;
+  border: 3px solid var(--color-primary-border);
+  border-radius: .5rem;
   overflow: hidden;
   height: 20rem;
   width: 35rem;
   padding: 2rem 3rem;
+  background-color: white;
 }
 
 .homeShowList {
@@ -62,12 +62,12 @@
 .homeProgress {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(0, 0, 0, 0.24);
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.356);
-  border-radius: 3rem;
+  border: 3px solid var(--color-primary-border);;
+  border-radius: .5rem;
   overflow: hidden;
   height: 20rem;
   width: 35rem;
+  background-color: white;
 }
 
 .homeProgress h1 {
@@ -200,15 +200,35 @@
 
 .homeListContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
+  padding: 1.5rem 2rem;
+  padding-top: 0;
+  color: black;
   width: 100%;
   max-width: 80rem;
-  padding: 0 2rem;
+  border-radius: .5rem;
   gap: 1rem 5%;
 }
+
+.homeListContainer2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1.5rem 2rem;
+  color: black;
+  width: 100%;
+  max-width: 80rem;
+  border-radius: .5rem;
+  border: 3px solid var(--color-primary-border);
+  background-color: white;
+  gap: 1rem 5%;
+}
+
 
 .homeListContainer p {
   color: black;
@@ -328,4 +348,84 @@
     justify-content: center;
     align-items: center;
   }
+
+  .homeProgress {
+    width: 90%;
+    max-width: 35rem;
+  }
+  
+  .homeProgressDetails {
+    width: 90%;
+    max-width: 35rem;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 540px) {
+  .homeSection {
+    padding-left: 0;
+  }
+
+  .homeContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  .homeListContainer {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .homeProgress {
+    width: 95%;
+    max-width: 35rem;
+  }
+
+  .homeProgress h1 {
+    padding-left: 1.5rem;
+  }
+  
+  .homeProgressDetails {
+    width: 95%;
+    max-width: 35rem;
+  }
+
+  .homeChartContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .homeChart {
+    height: 15rem;
+    overflow: hidden;
+  }
+  
+  .homeChartDis {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 2rem;
+    padding-bottom: 3rem;
+    overflow: hidden;
+  }
+  
+  .homeChartDis h3 {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: .5rem;
+  }
+
+  .homeProgress small {
+    margin-top: -1rem;
+    padding-left: 4.5rem;
+    width: max-content;
+  }
+  
 }

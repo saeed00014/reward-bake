@@ -6,6 +6,8 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  --color-primary-border: rgb(8, 209, 142);
+  --color-primary-background: rgb(1, 56, 56)
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,6 +24,6 @@ html, html *, *::after, *::before {
 }
 
 body {
-  background-color: white;
+  background-color: rgb(235, 235, 235);
   height: 100vh;
 }

@@ -37,6 +37,10 @@
   margin-top: 2rem;
 }
 
+.searchContainer {
+  position: relative;
+}
+
 .mianInput {
   width: 16rem;
   height: 3rem;
@@ -184,4 +188,31 @@
   .data {
     padding-left: 0;
   }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 540px) {
+  .data {
+    padding-left: 0;
+  }
+
+  .dataHeder {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mianInput {
+    width: 100%;
+  }
+
+  .dataContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 95%;
+    max-width: 80rem;
+    gap: 0 1rem;
+    margin-top: 4rem;
+  }
+  
 }

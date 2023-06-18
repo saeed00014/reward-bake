@@ -41,21 +41,23 @@ const UserPage = () => {
     <section className="user">
       <h1 className='userTitle'>Manage Users</h1>
       <div className="userContainer">
-        {user.allUser &&
-          user.allUser.map((user) => {
-          return (
-            <div className="userContent">
-              <div className="userDetails">
-                <p>Username: {user.name}</p>
-                <p>Password: {user.password}</p>
+        <div className="allUser">
+          {user.allUser &&
+            user.allUser.map((user) => {
+            return (
+              <div className="userContent">
+                <div className="userDetails">
+                  <p>Username: {user.name}</p>
+                  <p>Password: {user.password}</p>
+                </div>
+                <div className="userOption">
+                  <button>Edit</button>
+                  <button onClick={() => handleDelete(user)}>Delete</button>
+                </div>
               </div>
-              <div className="userOption">
-                <button>Edit</button>
-                <button onClick={() => handleDelete(user)}>Delete</button>
-              </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
         <form onSubmit={(e) => handleSubmit(e)} className='adduserContent'>
           <div className='adduserTitle'></div>
           <div>
@@ -68,8 +70,6 @@ const UserPage = () => {
           </div>
           <input type="submit" value='add user' />
         </form>
-        <div>
-        </div>
       </div>
     </section>
   )

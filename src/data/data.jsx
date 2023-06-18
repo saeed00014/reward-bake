@@ -35,8 +35,10 @@ const DataPage = () => {
     <section className="data">
         <h1 className='dataTitle'>DataBase</h1>
         <div className='dataHeder'>
-          <input className='mianInput' onChange={(e) => setQuery(e.target.value.toLowerCase())} id='search' type="text" placeholder='search' />
-          <label className='mianLable' htmlFor='search'><SlMagnifier /></label>
+          <div className='searchContainer'>
+            <input className='mianInput' onChange={(e) => setQuery(e.target.value.toLowerCase())} id='search' type="text" placeholder='search' />
+            <label className='mianLable' htmlFor='search'><SlMagnifier /></label>
+          </div>
           <div className='dataShowDis'>
             <div>
               <label htmlFor="box"> discription</label>
