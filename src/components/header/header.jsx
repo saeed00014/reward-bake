@@ -37,20 +37,20 @@ const Header = () => {
       <section className={hambergar ? 'HeaderSmall' : 'HeaderSmallHide'}>
         <div className="headerSmallContainer">
           <ul className={hambergar ? 'hambergar' : 'nohambergar'}>
-            <li onClick={() => setHambergar(!hambergar)} className="logo">
+            <li show-hamb={hambergar.toString()} onClick={() => setHambergar(false)} className="logo">
               <h1>
                 <Link to='/'>
                   LiO
                 </Link>
               </h1>
             </li>
-            <li onClick={() => setHambergar(!hambergar)}>
+            <li onClick={() => setHambergar(false)}>
               <Link to='/Qomers'><AiFillFire /> Qomers</Link>
             </li>
-            <li onClick={() => setHambergar(!hambergar)}>
+            <li onClick={() => setHambergar(false)}>
               <Link to='/user'><FaUser /> Users</Link>
             </li>
-            <li onClick={() => setHambergar(!hambergar)}>
+            <li onClick={() => setHambergar(false)}>
               <Link to='/data'><FaDatabase /> Data</Link>
             </li>
             <li onClick={() => setHambergar(!hambergar)} className='hambMenue'>

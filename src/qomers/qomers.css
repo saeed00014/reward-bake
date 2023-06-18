@@ -25,7 +25,7 @@
   min-height: 100vh;
 }
 
-@media only screen and (min-width: 640px) and (max-width: 1080px) {
+@media only screen and (min-width: 540px) and (max-width: 1080px) {
   .qomers {
     padding-left: 0;
   }

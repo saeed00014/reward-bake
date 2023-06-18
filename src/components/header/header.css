@@ -118,7 +118,7 @@
   color: aquamarine;
 }
 
-@media only screen and (min-width: 640px) and (max-width: 1080px) {
+@media only screen and (min-width: 0px) and (max-width: 1080px) {
   .hambMenue {
     position: absolute;
     display: flex;
@@ -126,10 +126,11 @@
     justify-content: center;
     align-items: center;
     height: 5rem;
-    top: 1rem;
+    top: .3rem;
     right: 2rem;
     z-index: 100;
     width: 5rem !important;
+    cursor: pointer;
   }
   
   .hambMenue i {
@@ -142,21 +143,43 @@
     display: flex;
     width: 3rem;
     height: .1rem;
-    background-color: rgb(105, 48, 48);
+    background-color: rgb(255, 255, 255);
   }
 
   .hambMenue span:nth-child(2) {
     display: flex;
     width: 3rem;
-    height: .1rem;
-    background-color: rgb(104, 44, 44);
+    height: .13rem;
+    background-color: rgb(255, 255, 255);
   }
 
   .hambMenue span:nth-child(3) {
     display: flex;
     width: 3rem;
     height: .12rem;
-    background-color: rgb(124, 56, 56);
+    background-color: rgb(255, 255, 255);
+  }
+  .hambMenue span:nth-child(1)[show-hamb = "true"] {
+    position: absolute;
+    display: flex;
+    width: 3rem;
+    height: .1rem;
+    background-color: rgb(109, 24, 24);
+    transform: rotate(50deg) !important;
+  }
+
+  .hambMenue span:nth-child(2) {
+    display: flex;
+    width: 3rem;
+    height: .13rem;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .hambMenue span:nth-child(3) {
+    display: flex;
+    width: 3rem;
+    height: .12rem;
+    background-color: rgb(255, 255, 255);
   }
 
   .HeaderMain {
@@ -174,7 +197,7 @@
 
   .HeaderSmallHide {
     display: flex;
-    width: 5rem;
+    width: 100%;
     height: 5rem;
   }
 
@@ -184,7 +207,7 @@
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    width: 100%;
+    width: 100vw;
   }
 
   .hambergar {
@@ -200,8 +223,22 @@
     background-color: black;
   }
 
+  .nohambergar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 5rem;
+    background-color: black;
+    z-index: 100;
+  }
+
   .nohambergar li {
     display: none;
+  }
+
+  .nohambergar li:nth-child(1) { 
+    display: flex;
   }
 
   .nohambergar li:nth-child(5) {
@@ -214,8 +251,8 @@
     justify-content: flex-start;
     align-items: center;
     left: 3rem;
-    top: .5rem;
-    height: max-content;
+    top: -.4rem;
+    height: max-content !important;
     width: min-content !important;
   }
 
