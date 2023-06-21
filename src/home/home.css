@@ -39,7 +39,7 @@
   overflow: hidden;
   height: 20rem;
   width: 100%;
-  padding: 2rem 3rem;
+  padding: 1.5rem 3rem;
   background-color: white;
 }
 
@@ -60,18 +60,20 @@
 }
 
 .homeProgress {
+  position: relative;
   display: flex;
   flex-direction: column;
   border: 3px solid var(--color-primary-border);;
   border-radius: .5rem;
   overflow: hidden;
-  height: 20rem;
+  height: 25rem;
   width: 100%;
   background-color: white;
 }
 
 .homeProgress h1 {
-  padding: 1.5rem 3rem 0 3rem;
+  padding: 1rem 3rem 0 3rem;
+  overflow: hidden;
 }
 
 .homeMouthState {
@@ -122,23 +124,21 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 15rem;
-
 }
 
 .homeChart {
-  height: 15rem;
+  height: 100%;
 
   overflow: hidden;
 }
 
 .homeChartDis {
+  position: absolute;
+  right: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 40%;
-  height: 100%;
   padding-bottom: 3rem;
 }
 

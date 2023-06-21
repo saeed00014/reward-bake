@@ -8,7 +8,6 @@ import { controlPanel } from '../store/stateUiSlice'
 const ManageBox = ({title, discription, name}) => {
   const dispatch = useDispatch()
   const ui = useSelector((state) => state.ui)
-  console.log(ui.roomsManage)
 
   return (
     <div className='box'>

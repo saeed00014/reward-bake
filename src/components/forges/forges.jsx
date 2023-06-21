@@ -14,6 +14,7 @@ const Forges = () => {
       list.allList.map((forge) => {
         console.log(forge[0])
       return (
+        <>
           <div className='forgeContent'>
             <p className='forgeName'>Forge : {forge[0][0].symbol.slice(0, 2)}</p>
             <div className="forgeTopBottom">
@@ -29,6 +30,19 @@ const Forges = () => {
               <span className="forgeFlash2"></span>
             </div>
           </div>
+
+          <div className='forgeSmallContent'>
+            <p className='forgeSmallName'>Forge : {forge[0][0].symbol.slice(0, 2)}</p>
+            <div className="forgeSmallTopBottom">
+              <span className="forgeSmallFlash1"></span>
+              <div className='forgeSmallMouthCon'>
+                <ForgeMouth index='1' forge={forge[0]}/>
+                <ForgeMouth index='2' forge={forge[1]}/>
+              </div> 
+              <span className="forgeSmallFlash2"></span>
+            </div>
+          </div>
+          </>
         )
       })}
     </div>      

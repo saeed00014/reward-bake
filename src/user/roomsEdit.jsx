@@ -1,56 +1,21 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { TiTick } from 'react-icons/ti'
 import { LuEdit } from 'react-icons/lu'
 
-import '../components/forges/forge.css'
+import './roomsEdit.css'
 import axios from 'axios'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { controlColor } from '../store/stateUiSlice'
 
-const EditData = ({fa, info, showDis, e}) => {
+const RoomsEdit = ({fa, info, showDis, small}) => {
+  const [tick, setTick] = useState(false)
   const [bookMark, setBookMark] = useState(false)
   const [stateForgeOne, setStateForgeOne] = useState(false)
   const [dis, setDis] = useState(false)
 
-  const dispatch = useDispatch()
-  const ui = useSelector((state) => state.ui)
-
   const styles = {
-    background: `${info.state}`,
-    backgroundSize: '10%',
-  }
-
-  let styles1
-
-  if(e.toString().at(-1) == '1') {
-    styles1 = {
-      backgroundColor: 'gray'
-    }
-  }else if(e.toString().at(-1) == '3') {
-    styles1 = {
-      backgroundColor: 'gray'
-    }
-  }else if(e.toString().at(-1) == '5') {
-    styles1 = {
-      backgroundColor: 'gray'
-    }
-  }else if(e.toString().at(-1) == '7') {
-    styles1 = {
-      backgroundColor: 'gray'
-    }
-  }else if(e.toString().at(-1) == '9') {
-    styles1 = {
-      backgroundColor: 'gray'
-    }
-  }
-  else {
-    styles1 = {
-      backgroundColor: 'white'
-    }
+    backgroundColor: `${info.state}`
   }
 
   const handleSave = async (e, id, num, symbol) => {
@@ -79,16 +44,6 @@ const EditData = ({fa, info, showDis, e}) => {
       <div className='infoEdit'>
         <div className='infoEditInput'>
           <div>
-            <label htmlFor="name">Brick : </label>
-            <select name="" id="name">
-              <option value="">Choose Brick</option>
-              <option value="3.6">Brick 3.6</option>
-              <option value="5.6">Brick 5.6</option>
-              <option value="4.2">Brick 4.2</option>
-              <option value="9.1">Brick 9.1</option>
-            </select>
-          </div>
-          <div>
             <label htmlFor="name">Name : </label>
             <input type="text" placeholder={info.name} id='name' />  
           </div>
@@ -97,18 +52,13 @@ const EditData = ({fa, info, showDis, e}) => {
             <input type="text" placeholder={info.quantity} id='qty' />  
           </div>
           <div>
-          <label htmlFor="state">State : </label>
-          <select name="" id="state">
-            <option value="">Choose state</option>  
-            <option value="green">Done</option>  
-            <option value="orange">Cooking</option>  
-            <option value="gray">Off</option>  
-            <option value="brown">Empty</option>  
-          </select> 
+            <label htmlFor="state">State : </label>
+            <input type="text" placeholder={info.state} id='state' />  
           </div>
         </div> 
         <div className='infoEditBookmark'>
           <i onClick={() => setBookMark(!bookMark)}>
+            <p>Mark</p>
             <AiFillStar className={bookMark ? 'infoBookMark' : 'infoNoBookMark'} />
             <AiOutlineStar className='bookMarkBorder'/>
           </i>
@@ -129,28 +79,18 @@ const EditData = ({fa, info, showDis, e}) => {
     </form>
     }
     <div onClick={() => setDis(!dis)} className="dataInfoContent">
-      <div style={styles1} className='dataInfo'>
-        <div>
-          <h3>{info.symbol}</h3>
-        </div>
-        <div>
-          <h3>{info.name}</h3>
-        </div>
-        <div>
-          <h3>{info.quantity}</h3>
-        </div>
-        <div>
-          <h3>{info.state}</h3>
-          <h3 style={styles}></h3>
-        </div>
-        <i onClick={() => setStateForgeOne(true)}><LuEdit />Edit</i>
+      <div style={styles} className='dataInfo'>
+        <h3>{info.symbol}</h3>
+        {!small && <h3>{info.name}</h3>}
+        {!small && <h3>{info.quantity}</h3>}
+        {!small && <i onClick={() => setStateForgeOne(true)}><LuEdit />Edit</i>}
       </div>
-        {(dis || showDis) && <div style={styles1} className='dataEdit'>
-          <p>{info.dis}</p>
-        </div>}
+      {(dis || showDis) && <div className='dataEdit'>
+        <p>{info.dis}</p>
+      </div>}
     </div>
   </>
 )}
 
 
-export default EditData
+export default RoomsEdit

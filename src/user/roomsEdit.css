@@ -1,125 +1,213 @@
-.forgeContainer {
+.dataContainer {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  min-height: 70vh;
-  height: 100%;
+  width: 95%;
+  max-width: max-content;
+  margin: 0;
+  margin-top: 4rem;
 }
 
+.dataTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 3rem;
+  width: 100%;
+  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-bottom: 1px solid black;
+}
 
-.forgeContent {
+.dataHeder {
+  position: relative;
+  display: flex;
+  width: 95%;
+  max-width: 85rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.searchContainer {
+  position: relative;
+}
+
+.mianInput {
+  width: 16rem;
+  height: 3rem;
+  border-radius: 3rem;
+  border: 1px solid black;
+  padding-left: 3.5rem;
+  font-size: 1.2rem;
+}
+
+.mianLable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 2px;
+  width: 2.5rem;
+  top: 2px;
+  bottom: 2px;
+  color: rgb(0, 0, 0);
+  border-top-left-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+  background-color: rgb(233, 233, 233);
+}
+
+.dataHeder select {
+  height: 1.5rem;
+  width: 5rem;
+  font-size: 1rem;
+  color: black;
+  background-color: rgb(223, 223, 223);
+}
+
+.dataContent {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}
+
+.dataInfoContainer {
+  display: flex;
+  margin-top: .5rem;
+}
+
+.dataInfoContent div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dataShowDis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  color: black;
+  gap: 1rem;
+}
+
+.dataShowDis div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.dataShowDis label {
+  color: black;
+  width: 100%;
+}
+
+.dataInfoContent {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 4.1rem;
-  gap: 2rem;
-  border-radius: 15rem;
-  width: 100%;
-  margin-bottom: 4rem;
-  max-width: 75rem;
-  border: 1px solid var( --color-primary-border);
-  background-color: rgb(1, 56, 56);
+  height: 100%;
+  width: max-content;
+  min-height: 3rem;
   overflow: visible;
+  gap: .2rem;
 }
 
-.forgeSmallContent {
-  display: none;
+.dataInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  border: 2px solid black;
+  height: 100%;
+  min-height: 2.5rem;
+  min-width: 6rem;
 }
 
-.forgeFlash1 {
-  content: '';
-  position: absolute;
-  right: 1rem;
-  top: 1.5rem;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 15rem;
-  border-right: 2px solid rgb(255, 255, 255);
-  overflow: visible;
-}
-
-.forgeFlash2 {
-  content: '';
-  position: absolute;
-  left: 1rem;
-  top: 1.5rem;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 15rem;
-  border-left: 2px solid rgb(255, 255, 255);
-  overflow: visible;
-}
-
-.forgeFlash2::after {
-  content: '';
-  position: absolute;
-  left: 1.3rem;
-  top: -.2rem;
-  width: 1rem;
-  height: .1rem;
-  transform: rotate( 20deg);
-  background-color: white;
-}
-
-.forgeFlash2::before {
-  content: '';
-  position: absolute;
-  left: 1.4rem;
-  top: .4rem;
-  width: 1rem;
-  height: .1rem;
-  transform: rotate(-50deg);
-  background-color: white;
-}
-
-.forgeFlash1::after {
-  content: '';
-  position: absolute;
-  right: 1.5rem;
-  bottom: -.2rem;
-  width: 1rem;
-  height: .1rem;
-  transform: rotate( 20deg);
-  background-color: rgb(255, 255, 255);
-}
-
-.forgeFlash1::before {
-  content: '';
-  position: absolute;
-  bottom: .4rem;
-  right: 1.6rem;
-  width: 1rem;
-  height: .1rem;
-  transform: rotate(-50deg);
-  background-color: white;
-}
-
-.forgeName {
-  position: absolute;
+.dataInfo * {
   display: flex;
   justify-content: center;
-  border: 1px solid rgb(10, 212, 212);
-  padding: .2rem 0;
-  width: 92%;
-  border-radius: 15rem;
-}
-
-.forgeTopBottom {
-  display: flex;
-  justify-content: center;
+  align-items: center;
+  height: min-content;
+  cursor: pointer;
   width: 100%;
 }
 
-.forgeMouthCon {
-  display: flex;
-  width: min-content;
-  justify-content: center;
-  min-width: 4rem;
+.dataInfo h3 {
+  margin: 0 .5rem;
+  border-left: 1px solid white ;
+  border-right: 1px solid white ;
 }
+
+.dataInfo i {
+  border-left: 1px solid white ;
+  border-right: 1px solid white ;
+}
+
+.dataEdit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  min-height: 2rem;
+  height: 100%;
+  padding: .2rem 0rem 0rem .7rem;
+  font-size: 1rem;
+  color: black;
+  background-color: rgb(12, 99, 70);
+  padding: 0 1rem;
+}
+
+.dataEdit p {
+  display: flex;
+  justify-content: center;
+  height: min-content;
+  color: white;
+  border-left: 1px solid white ;
+  border-right: 1px solid white ;
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 0 1rem;
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1080px) { 
+  .data {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 540px) {
+  .data {
+    padding-left: 0;
+  }
+
+  .dataHeder {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mianInput {
+    width: 100%;
+  }
+
+  .dataContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 95%;
+    max-width: 80rem;
+    gap: 0 1rem;
+    margin-top: 4rem;
+  }
+  
+}
+
 
 .infoCon {
   display: flex;
@@ -295,14 +383,10 @@
 
 .infoEditContainer {
   position: fixed;
-  justify-content: center;
-  align-items: center;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 100vw;
-  height: 100vh;
   background-color: rgba(24, 24, 24, 0.5);
   z-index: 100;
 }
@@ -313,17 +397,17 @@
 }
 
 .infoEditContent {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 15rem;
   left: 45%;
-  display: flex;
-  flex-direction: column;
-  width: 21rem;
+  right: 50%;
+  width: max-content;
   background-color: rgb(255, 255, 255);
   box-shadow: 1px 1px 2px rgb(189, 189, 189);
   border-radius: 1rem;
-  padding: .5rem 1rem 1rem 1rem;
+  padding: 1rem;
   gap: .6rem;
   z-index: 100;
 }
@@ -331,16 +415,14 @@
 .infoEdit {
   display: flex;
   justify-content: space-between;
-  width: 100%;
 }
 
 .infoEditInput {
   display: flex;
   flex-direction: column;
   gap: .6rem;
-  width: 100%;
+  width: 60%;
   color: black;
-  margin-top: 1rem;
 }
 
 .editDetails textarea {
@@ -348,24 +430,19 @@
 }
 
 .infoEditBookmark {
-  position: absolute;
-  top: .5rem;
-  right: 1rem;
   display: flex;
   flex-direction: column;
-  width: 3rem;
-  height: 2rem;
+  width: 35%;
   color: black;
   gap: 1rem;
 }
 
 .infoEditBookmark i {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
   width: 100%;
-  height: 2rem;
 }
 
 .infoEditBookmark i:nth-child(2) *:nth-child(2) {
@@ -407,14 +484,7 @@
 
 .infoEditInput div {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  gap: 3rem;
-}
-
-.infoEditInput div select {
-  width:  9rem;
-  padding: .1rem 0 .1rem .3rem
+  width: min-content;
 }
 
 .infoEditInput label {
@@ -422,8 +492,8 @@
 }
 
 .infoEditInput input {
-  width:  9rem;
-  padding: .1rem 0 .1rem .3rem
+  width: 5rem;
+  padding: .2rem 0 .2rem .3rem
 }
 
 .editButton {
@@ -461,134 +531,4 @@
   color: black;
   cursor: pointer;
   font-size: .8rem;
-}
-
-@media only screen and (min-width: 540px) and (max-width: 1080px) {
-  .forgeContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 95vw;
-  }
-
-  .infoCon span[after-show ='true']::after{
-    width: clamp(.1rem, 4.6vw, 4.8rem);
-  }
-
-  .infoEditContent {
-    left: 33%;
-  }
-}
-
-@media only screen and (max-width: 540px) {
-  .forgeContent {
-    display: none;
-  }
-
-  .forgeSmallContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: max-content;
-    background-color: var(--color-primary-background);
-    margin-top: 2rem;
-    border-radius: 1rem;
-    padding: 0 .5rem;
-    padding: 1rem 0;
-  }
-
-  .forgeSmallName {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(255, 255, 255);
-    border: 1px solid var(--color-primary-border);
-    width: 90%;
-    border-radius: 1rem;
-  }
-
-  .forgeSmallTopBottom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    margin-top: 1rem;
-  }
-  
-  .forgeSmallMouthCon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 97%;
-  }
-
-  .infoCon span {
-    width: clamp(3rem, 12.6vw, 4rem);
-    height: clamp(3rem, 12.6vw, 4rem);
-    bottom: 1px solid black;
-  }
-
-  .infoEditContent {
-    display: flex;
-    flex-direction: column;
-    top: 15rem;
-    left: 5%;
-    width: 18rem;
-}
-}
-
-@media only screen and (min-width: 540px) and (max-width: 850px) {
-  .forgeContent {
-    display: none;
-  }
-
-  .forgeSmallContent {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-    background-color: var(--color-primary-background);
-    padding: 1rem;
-    margin-top: 2rem;
-    border-radius: 1rem;
-  }
-
-  .forgeSmallName {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(255, 255, 255);
-    border: 1px solid var(--color-primary-border);
-    width: 100%;
-    border-radius: 1rem;
-  }
-
-  .forgeSmallTopBottom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .forgeSmallMouthCon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .infoCon span {
-    width: clamp(3rem, 12.6vw, 3.9rem);
-    height: clamp(3rem, 12.6vw, 4rem);
-  }
 }

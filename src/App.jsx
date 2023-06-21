@@ -71,7 +71,6 @@ function App() {
     const handleGetUsers = async () => {
       const ress = await axios.get('http://localhost:3004/users') 
       const res = ress.data
-      console.log(res)
       
       dispatch(cleareUserState())
       dispatch(allUser(res))
@@ -83,8 +82,6 @@ function App() {
     handleHome()
   }
   }, [])
-
-  console.log(user.signedUser, 'll')
 
   return (
     <>

@@ -8,18 +8,15 @@ const UserList = () => {
   return (
     <section className="user">
       <div className="userContainer">
+          <div className='userTop'><p>Username</p> <p>Password</p></div>
         <div className="allUser">
           {user.allUser &&
             user.allUser.map((user) => {
-            return (
-              <div className="userContent">
+              return (
+                <div className="userContent">
                 <div className="userDetails">
-                  <p>Username: {user.name}</p>
-                  <p>Password: {user.password}</p>
-                </div>
-                <div className="userOption">
-                  <button>Edit</button>
-                  <button onClick={() => handleDelete(user)}>Delete</button>
+                  <p type="text">{user.name}</p>
+                  <p type="text">{user.password}</p>
                 </div>
               </div>
             )

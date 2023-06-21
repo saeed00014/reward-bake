@@ -60,10 +60,10 @@ const HomePage = () => {
                 <Pie
                   data={data}
                   cx="35%"
-                  cy="24%"
+                  cy="40%"
                   labelLine={false}
                   label={renderCustomizedLabel}
-                  outerRadius={80}
+                  outerRadius={135}
                   fill="#22084d8"
                   dataKey="value"
                 >
@@ -80,7 +80,6 @@ const HomePage = () => {
               <h3>empty</h3>
             </div>
           </div>
-          <small>divided by all avalable mouths</small>
         </div>
         <div className="homeProgressDetails">
           <h1>Each Mouth Details</h1>
@@ -120,7 +119,8 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className='homeListContainer'>
+      
+      {/*<div className='homeListContainer'>
         <div className="homeListContainer2">
           <p>Click to show List</p>
           <div className='homeListContent'>
@@ -176,7 +176,7 @@ const HomePage = () => {
             </ul>
           </div>
         </div>
-      </div>
+            </div>*/}
     </section>
   )
 }

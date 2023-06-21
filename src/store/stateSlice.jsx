@@ -39,12 +39,17 @@ const cookStateSlice = createSlice ({
       const all = action.payload
       state.allList = all
       const meregedData = [...all[0][0], ...all[1][0], ...all[0][1], ...all[1][1], ...all[2][0], ...all[2][1], ...all[3][0], ...all[3][1], ...all[4][0], ...all[4][1]]
+
       state.mergedAllList = meregedData
       state.sortedMergedAllList = meregedData
     },
     sortedMergedAllList(state, action) {
       const newSort = action.payload 
-      state.sortedMergedAllList = [...state.mergedAllList].sort((a, b) => a[newSort].localeCompare(b[newSort]))
+      if(newSort == 'symbol') {
+        state.sortedMergedAllList = [...state.mergedAllList].sort((a, b) => a.b)
+      }else {
+        state.sortedMergedAllList = [...state.mergedAllList].sort((a, b) => a[newSort].localeCompare(b[newSort]))
+      }
     }
     ,
     addList(state, action) {

@@ -21,9 +21,10 @@
 
 .panelContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 90%;
+  max-width: 70rem;
   gap: 1rem;
   margin-top: 3rem;
 }
@@ -34,7 +35,7 @@
   align-items: center;
   width: max-content;
   width: 100%;
-  max-width: 30rem;
+  gap: 2rem;
 }
 
 .boxContainer {
@@ -43,9 +44,10 @@
   width: 100%;
   width: 100%;
   color: black;
-  border: 1px solid black;
+  border: 1px solid var(--color-primary-border);
   padding: 1rem;
   gap: 1rem;
+  background-color: white;
 }
 
 .boxButton {
@@ -56,4 +58,23 @@
 .boxButton button {
   width: 8rem;
   height: 2.5rem;
+  border: none;
+  background-color: var(--color-primary);
+}
+
+.panelShowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media only screen and (min-width: 540px) and (max-width: 1080px) { 
+  .panel {
+    padding-left: 0;
+  }
+
+  .panelContainer {
+    width: 95%;
+  }
 }

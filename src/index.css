@@ -6,8 +6,9 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  --color-primary: aquamarine;
   --color-primary-border: rgb(8, 209, 142);
-  --color-primary-background: rgb(1, 56, 56)
+  --color-primary-background: rgb(1, 56, 56);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

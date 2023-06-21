@@ -7,11 +7,15 @@ import UserPage from './user'
 
 import { useSelector } from 'react-redux'
 import UserList from './userList'
+import RoomList from './roomList'
+import UserManage from './userManage'
+import RoomManage from './roomMnage'
 
 const PanelPage = () => {
   const ui = useSelector((state) => state.ui)
 
   return (
+    <>
     <section className='panel'>
       <h1 className='panelTitle'>Manage Panel</h1>
       <div className='panelContainer'> 
@@ -21,13 +25,14 @@ const PanelPage = () => {
           )
         })}
       </div>
+    </section>
       <div className="panelShowContainer">
         {ui.usersList && <UserList />}
-        {ui.usersManage && <UserPage />}
-        {ui.roomsList && <UserPage />}
-        {ui.roomsManage && <UserPage />}
+        {ui.usersManage && <UserManage/>}
+        {ui.roomsList && <RoomList />}
+        {ui.roomsManage && <RoomManage />}
       </div>
-    </section>
+    </>
   )
 }
 

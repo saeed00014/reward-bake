@@ -7,6 +7,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { allList, sortedMergedAllList } from '../store/stateSlice'
 import { useSelector } from 'react-redux'
+import { controlColor } from '../store/stateUiSlice'
 
 import EditData from './editData'
 
@@ -18,6 +19,8 @@ const DataPage = () => {
   const [showDis, setShowDis] = useState(false)
   
   const list = useSelector((state) => state.list)
+  const ui = useSelector((state) => state.ui)
+
   
   useEffect (() => {
     const handleGetForges = async () => {
@@ -45,24 +48,27 @@ const DataPage = () => {
               <input type='checkbox' id='box' onClick={() => setShowDis(!showDis)} />
             </div>
             <div>
-              <label htmlFor="sort">sortby</label>
-              <select name="" id="sort" onChange={(e) => dispatch(sortedMergedAllList(e.target.value))}>
-                <option value="symbol">number</option>
-                <option value="state">state</option>
-                <option value="name">name</option>
-                <option value="quantity">quantity</option>
+              <label htmlFor="sort">Sort By</label>
+              <select className='sortBy' name="" id="sort" onChange={(e) => dispatch(sortedMergedAllList(e.target.value))}>
+                <option value='symbol'>Symbol</option>
+                <option value='name'>Name</option>
+                <option value="quantity">Quantity</option>
+                <option value="state">State</option>
               </select>
             </div>
           </div>
         </div>
       <div className="dataContainer">
+        <div className='topData'>
+          <p>name</p> <p>symbol</p> <p>capacity</p> <p>state</p> <p>actions</p>
+        </div>
         {(list.mergedAllList) && 
           (list.sortedMergedAllList ? list.sortedMergedAllList : list.mergedAllList).filter((info) => (info.symbol.toLowerCase().includes(query)))
-          .map((info) => {
+          .map((info, e) => {
             return (
               <div className="dataContent">
-                <div className="dataInfoContainer">
-                  <EditData info={info} fa={info.symbol} showDis={showDis}/>  
+                <div className="dataInfoContainer"> 
+                  <EditData info={info} fa={info.symbol} showDis={showDis} e={e}/>  
                 </div>
               </div>
             )

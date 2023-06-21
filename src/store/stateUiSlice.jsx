@@ -4,7 +4,8 @@ const initialState = {
   roomsList: '',
   roomsManage: '',
   usersList: '',
-  usersManage: ''
+  usersManage: '',
+  i: 0
 }
 
 const stateUiSlice = createSlice({
@@ -26,7 +27,7 @@ const stateUiSlice = createSlice({
         state.usersList = ''
       }else if (showUi == 'usersList') {
         state.usersList = 'show'
-        state.roomSManage = ''
+        state.roomsManage = ''
         state.roomsList = ''
         state.usersManage = ''
       }else {
@@ -35,10 +36,13 @@ const stateUiSlice = createSlice({
         state.roomsManage = ''
         state.roomsList = ''
       }
+    },
+    controlColor(state, action) {
+      state.i = state.i + 1
     }
   }
 })
 
-export const {controlPanel} = stateUiSlice.actions
+export const {controlPanel, controlColor} = stateUiSlice.actions
 
 export default stateUiSlice

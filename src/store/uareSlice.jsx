@@ -28,14 +28,12 @@ const userStateSlice = createSlice ({
     },
     addUser(state, action) {
       const newItem = action.payload
-      console.log(newItem)
 
       state.allUser.push(newItem)
 
     },
     signedUser(state, action) {
       const newItem = action.payload
-      console.log(newItem)
 
       state.signedUser = newItem
       localStorage.setItem("signin",JSON.stringify(state.signedUser));
