@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from "react-redux"
-import DataPage from "../data/data"
 
 import '../components/forges/forge.css'
 import  { useEffect, useState } from 'react'
@@ -14,7 +13,6 @@ const RoomManage = () => {
   const list = useSelector((state) => state.list)
   const [query, setQuery] = useState('')
   const [showDis, setShowDis] = useState(false)
-  const [small, setSmall] = useState(false)
 
   return (
     <section className="data">
@@ -29,28 +27,27 @@ const RoomManage = () => {
               <input type='checkbox' id='box' onClick={() => setShowDis(!showDis)} />
             </div>
             <div>
-              <label htmlFor="small">small size</label>
-              <input type='checkbox' id='small' onClick={() => setSmall(!small)} />
-            </div>
-            <div>
-              <label htmlFor="sort">sortby</label>
-              <select name="" id="sort" onChange={(e) => dispatch(sortedMergedAllList(e.target.value))}>
-                <option value="symbol">number</option>
-                <option value="state">state</option>
-                <option value="name">name</option>
-                <option value="quantity">quantity</option>
+              <label htmlFor="sort">Sort By</label>
+              <select className='sortBy' name="" id="sort" onChange={(e) => dispatch(sortedMergedAllList(e.target.value))}>
+                <option value='symbol'>Symbol</option>
+                <option value='name'>Name</option>
+                <option value="quantity">Quantity</option>
+                <option value="state">State</option>
               </select>
             </div>
           </div>
         </div>
-      <div small-size={small.toString()} className="dataContainer">
+      <div className="dataContainer">
+        <div className='topData'>
+          <p>name</p> <p>symbol</p> <p>capacity</p> <p>state</p> <p>actions</p>
+        </div>
         {(list.mergedAllList) && 
           (list.sortedMergedAllList ? list.sortedMergedAllList : list.mergedAllList).filter((info) => (info.symbol.toLowerCase().includes(query)))
-          .map((info) => {
+          .map((info, e) => {
             return (
-              <div small-size={small.toString()} className="dataContent">
-                <div className="dataInfoContainer">
-                  <EditData info={info} fa={info.symbol} showDis={showDis} small={small}/>  
+              <div className="dataContent">
+                <div className="dataInfoContainer"> 
+                  <EditData info={info} fa={info.symbol} showDis={showDis} e={e}/>  
                 </div>
               </div>
             )

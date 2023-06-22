@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux'
 
 import axios from 'axios'
 
+import './userManage.css'
+
 const UserManage = () => {
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
@@ -93,6 +95,9 @@ const UserManage = () => {
                 </div>
               )
           })}
+          <div className='addUser'>
+            <button>AAd User</button>
+          </div>
         </div>
       </div>
     </section>

@@ -4,10 +4,11 @@ import './qomers.css'
 
 import Forges from '../components/forges/forges'
 
-const QomersPage = () => {
+const QomersPage = ({homeEdition}) => {
+  console.log(homeEdition)
   return (
     <section className='qomers'>
-      <h1>Qomers State</h1>
+      {!homeEdition && <h1>Qomers State</h1>}
       <div className="qomersContainer">
         <Forges />
       </div>

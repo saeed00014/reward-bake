@@ -24,8 +24,8 @@
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  max-width: 70rem;
-  gap: 1rem;
+  max-width: 80rem;
+  gap: 10%;
   margin-top: 3rem;
 }
 
@@ -45,7 +45,7 @@
   width: 100%;
   color: black;
   border: 1px solid var(--color-primary-border);
-  padding: 1rem;
+  padding: 2rem;
   gap: 1rem;
   background-color: white;
 }

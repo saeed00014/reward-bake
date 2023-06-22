@@ -37,7 +37,7 @@
   border: 3px solid var(--color-primary-border);
   border-radius: .5rem;
   overflow: hidden;
-  height: 20rem;
+  height: 25rem;
   width: 100%;
   padding: 1.5rem 3rem;
   background-color: white;
@@ -77,9 +77,9 @@
 }
 
 .homeMouthState {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem 0;
   width: 100%;
 }
 
@@ -318,17 +318,28 @@
   color: black;
 }
 
+.homeQomers {
+  margin-left: -12rem;
+}
 
 
 @media only screen and (min-width: 850px) and (max-width: 1080px) {
   .homeSection {
     padding-left: 0;
   }
+
+  .homeQomers {
+    margin-left: 0rem;
+  }
 }
 
 @media only screen and (max-width: 540px) {
   .homeContainer {
     width: 95%;
+  }
+
+  .homeQomers {
+    margin-left: 0rem;
   }
 }
 
@@ -342,6 +353,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .homeListContainer {
@@ -350,13 +363,17 @@
   }
 
   .homeProgress {
-    width: 90%;
-    max-width: 35rem;
+    width: 95%;
+    max-width: initial;
   }
   
   .homeProgressDetails {
-    width: 90%;
-    max-width: 35rem;
+    width: 95%;
+    max-width: initial;
+  }
+
+  .homeQomers {
+    margin-left: 0rem;
   }
 }
 
@@ -380,7 +397,7 @@
 
   .homeProgress {
     width: 95%;
-    max-width: 35rem;
+    max-width: initial;
   }
 
   .homeProgress h1 {
@@ -389,7 +406,7 @@
   
   .homeProgressDetails {
     width: 95%;
-    max-width: 35rem;
+    max-width: initial;
   }
 
   .homeChartContainer {
@@ -426,6 +443,10 @@
     margin-top: -1rem;
     padding-left: 4.5rem;
     width: max-content;
+  }
+
+  .homeQomers {
+    margin-left: 0rem;
   }
   
 }

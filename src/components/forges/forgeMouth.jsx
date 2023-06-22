@@ -18,8 +18,6 @@ const ForgeMouth = ({forge}) => {
       const [tick, setTick] = useState(false)
       const [bookMark, setBookMark] = useState(false)
 
-      console.log(info.state)
-
       const styles = {
         backgroundColor: `${info.state}`,
       }

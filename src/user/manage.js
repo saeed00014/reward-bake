@@ -5,7 +5,7 @@ const manage = [
     name: 'rooms'
   },
   {
-    title: 'manage rooms',
+    title: 'manage users',
     discription: 'see the list of all rooms and make changes sdyh b lkhnaCNl kn ihSI',
     name: 'users'
   }

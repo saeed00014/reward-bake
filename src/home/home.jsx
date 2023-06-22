@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom'
 
 import { PureComponent } from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import QomersPage from '../qomers/qomers'
 
 const HomePage = () => {
   const [done1, setDone1] = useState(true)
@@ -119,7 +120,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      
+      <div className='homeQomers'>
+        <QomersPage homeEdition={'yes'}/>
+      </div>
       {/*<div className='homeListContainer'>
         <div className="homeListContainer2">
           <p>Click to show List</p>
@@ -177,6 +180,7 @@ const HomePage = () => {
           </div>
         </div>
             </div>*/}
+
     </section>
   )
 }
