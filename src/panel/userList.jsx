@@ -17,23 +17,23 @@ const UserList = () => {
 
               if(e.toString().at(-1) == '1') {
                 styles1 = {
-                  backgroundColor: 'gray'
+                  backgroundColor: 'var(--color-table-background)'
                 }
               }else if(e.toString().at(-1) == '3') {
                 styles1 = {
-                  backgroundColor: 'gray'
+                  backgroundColor: 'var(--color-table-background)'
                 }
               }else if(e.toString().at(-1) == '5') {
                 styles1 = {
-                  backgroundColor: 'gray'
+                  backgroundColor: 'var(--color-table-background)'
                 }
               }else if(e.toString().at(-1) == '7') {
                 styles1 = {
-                  backgroundColor: 'gray'
+                  backgroundColor: 'var(--color-table-background)'
                 }
               }else if(e.toString().at(-1) == '9') {
                 styles1 = {
-                  backgroundColor: 'gray'
+                  backgroundColor: 'var(--color-table-background)'
                 }
               }
               else {

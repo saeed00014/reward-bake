@@ -98,10 +98,12 @@
 
 .homeMouth span i {
   position: absolute;
+  width: 0;
   left: 0;
   top: 0;
   bottom: 0;
   background-color: aquamarine;
+  transition: all 1s ease .2s;
 }
 
 .homeMouthState div div {
@@ -363,17 +365,21 @@
   }
 
   .homeProgress {
-    width: 95%;
-    max-width: initial;
+    width: 90%;
+    max-width: 30rem;
   }
   
   .homeProgressDetails {
-    width: 95%;
-    max-width: initial;
+    width: 90%;
+    max-width: 30rem;
   }
 
   .homeQomers {
     margin-left: 0rem;
+  }
+
+  .homeChartDis {
+    right: 2rem;
   }
 }
 
@@ -397,37 +403,47 @@
 
   .homeProgress {
     width: 95%;
-    max-width: initial;
+    max-width: 30rem;
   }
 
   .homeProgress h1 {
-    padding-left: 1.5rem;
+    padding-left: 1rem;
+    font-size: 1.3rem;
+    height: max-content;
+    z-index: 5;
   }
   
   .homeProgressDetails {
     width: 95%;
-    max-width: initial;
+    max-width: 30rem;
   }
 
   .homeChartContainer {
     flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 5%;
     width: 100%;
+    height: 100%;
   }
 
   .homeChart {
-    height: 15rem;
+    height: 25rem;
     overflow: hidden;
   }
   
   .homeChartDis {
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 100%;
-    height: 2rem;
+    width: min-content;
+    height: min-content;
     padding-bottom: 3rem;
     overflow: hidden;
+
   }
   
   .homeChartDis h3 {
@@ -437,6 +453,7 @@
     align-items: center;
     padding-left: 1rem;
     padding-right: .5rem;
+    font-size: .8rem;
   }
 
   .homeProgress small {

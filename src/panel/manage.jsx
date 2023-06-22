@@ -21,7 +21,7 @@ const PanelPage = () => {
       <div className='panelContainer'> 
         {manage.map((box) => {
           return (
-            <ManageBox title={box.title} discription={box.discription} name={box.name} />
+            <ManageBox title={box.title} discription={box.discription} name={box.name} icon={box.icon} />
           )
         })}
       </div>

@@ -28,23 +28,23 @@ const EditData = ({fa, info, showDis, e}) => {
 
   if(e.toString().at(-1) == '1') {
     styles1 = {
-      backgroundColor: 'gray'
+      backgroundColor: 'var(--color-table-background)'
     }
   }else if(e.toString().at(-1) == '3') {
     styles1 = {
-      backgroundColor: 'gray'
+      backgroundColor: 'var(--color-table-background)'
     }
   }else if(e.toString().at(-1) == '5') {
     styles1 = {
-      backgroundColor: 'gray'
+      backgroundColor: 'var(--color-table-background)'
     }
   }else if(e.toString().at(-1) == '7') {
     styles1 = {
-      backgroundColor: 'gray'
+      backgroundColor: 'var(--color-table-background)'
     }
   }else if(e.toString().at(-1) == '9') {
     styles1 = {
-      backgroundColor: 'gray'
+      backgroundColor: 'var(--color-table-background)'
     }
   }
   else {
@@ -102,7 +102,7 @@ const EditData = ({fa, info, showDis, e}) => {
             <option value="">Choose state</option>  
             <option value="green">Done</option>  
             <option value="orange">Cooking</option>  
-            <option value="gray">Off</option>  
+            <option value='var(--color-table-backgroung)'>Off</option>  
             <option value="brown">Empty</option>  
           </select> 
           </div>

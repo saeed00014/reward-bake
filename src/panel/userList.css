@@ -97,6 +97,7 @@
   padding: .3rem .8rem;
   color: black;
   background-color: white;
+
 }
 
 .addUserList {
@@ -190,14 +191,16 @@
     padding-left: 0;
   }
 
+  .userListContainer {
+    width: 95%;
+  }
+
   .userListDetails {
-    flex-direction: column;
+
   }
 
   .userListContent {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     gap: 1rem;
   }
 }

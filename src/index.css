@@ -9,6 +9,7 @@
   --color-primary: aquamarine;
   --color-primary-border: rgb(8, 209, 142);
   --color-primary-background: rgb(1, 56, 56);
+  --color-table-background: rgb(202, 202, 202);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

@@ -25,7 +25,7 @@ const Header = () => {
               <Link to='/Qomers'><AiFillFire /> Qomers</Link>
             </li>
             <li>
-              <Link to='/user'><FaUser /> Users</Link>
+              <Link to='/panel'><FaUser /> Panel</Link>
             </li>
             <li>
               <Link to='/data'><FaDatabase /> Data</Link>
@@ -48,7 +48,7 @@ const Header = () => {
               <Link to='/Qomers'><AiFillFire /> Qomers</Link>
             </li>
             <li onClick={() => setHambergar(false)}>
-              <Link to='/user'><FaUser /> Users</Link>
+              <Link to='/panel'><FaUser />Panel</Link>
             </li>
             <li onClick={() => setHambergar(false)}>
               <Link to='/data'><FaDatabase /> Data</Link>

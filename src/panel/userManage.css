@@ -97,6 +97,7 @@
   padding: .3rem .8rem;
   color: black;
   background-color: white;
+  border: none;
 }
 
 .userForm {
@@ -179,14 +180,31 @@
     padding-left: 0;
   }
 
+  .userContainer {
+    width: 95%;
+  }
+
   .userDetails {
+  }
+
+  .userTop div {
+    width: 15%;
+  }
+
+  .userOption {
     flex-direction: column;
+    width: 15%;
+    gap: .2rem;
   }
 
   .userContent {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  .userDetails p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 }
