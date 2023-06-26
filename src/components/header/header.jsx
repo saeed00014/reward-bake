@@ -22,13 +22,13 @@ const Header = () => {
               </h1>
             </li>
             <li>
-              <Link to='/Qomers'><AiFillFire /> Qomers</Link>
+              <Link to='/Qomers'><AiFillFire /> قمیرها</Link>
             </li>
             <li>
-              <Link to='/panel'><FaUser /> Panel</Link>
+              <Link to='/panel'><FaUser /> دسترسی</Link>
             </li>
             <li>
-              <Link to='/data'><FaDatabase /> Data</Link>
+              <Link to='/data'><FaDatabase /> دادهها</Link>
             </li>
           </ul>
         </div>
@@ -45,13 +45,13 @@ const Header = () => {
               </h1>
             </li>
             <li onClick={() => setHambergar(false)}>
-              <Link to='/Qomers'><AiFillFire /> Qomers</Link>
+              <Link to='/Qomers'><AiFillFire />قمیرها</Link>
             </li>
             <li onClick={() => setHambergar(false)}>
-              <Link to='/panel'><FaUser />Panel</Link>
+              <Link to='/panel'><FaUser />دسترسی</Link>
             </li>
             <li onClick={() => setHambergar(false)}>
-              <Link to='/data'><FaDatabase /> Data</Link>
+              <Link to='/data'><FaDatabase />دادهها</Link>
             </li>
             <li onClick={() => setHambergar(!hambergar)} className='hambMenue'>
               <i>

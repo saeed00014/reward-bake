@@ -9,7 +9,7 @@ const UserList = () => {
   return (
     <section className="userList">
       <div className="userListContainer">
-          <div className='userListTop'><p>Username</p> <p>Password</p></div>
+          <div className='userListTop'><p>نام کاربری</p> <p>رمز عبور</p></div>
         <div className="allUserList">
           {user.allUser &&
             user.allUser.map((user, e) => {

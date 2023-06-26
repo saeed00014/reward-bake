@@ -12,12 +12,14 @@ import { Link } from 'react-router-dom'
 import { PureComponent } from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 import QomersPage from '../qomers/qomers'
+import { cleareState } from '../store/stateSlice'
 
 const HomePage = () => {
   const [done1, setDone1] = useState(true)
   const [cooking1, setCooking1] = useState(false)
   const [off1, setOff1] = useState(false)
   const [empty1, setEmpty1] = useState(false)
+  const dispatch = useDispatch()
 
   const cookState = useSelector((state) => state.cookState)
   const list = useSelector((state) => state.list)
@@ -51,20 +53,20 @@ const HomePage = () => {
 
   return (
     <section className='homeSection'>
-      <h1 className='homeTitle'>Overall Look</h1>
+      <h1 className='homeTitle'>نگاه کلی</h1>
       <div className="homeContainer">
         <div className="homeProgress">
-          <h1>Overall forges State</h1>
+          <h1>وظعیت کلی قمیرها</h1>
           <div className="homeChartContainer">
             <div className="homeChart">
               <PieChart width={400} height={400}>
                 <Pie
                   data={data}
-                  cx="35%"
+                  cx="55%"
                   cy="40%"
                   labelLine={false}
                   label={renderCustomizedLabel}
-                  outerRadius={135}
+                  outerRadius={150}
                   fill="#22084d8"
                   dataKey="value"
                 >
@@ -75,20 +77,20 @@ const HomePage = () => {
               </PieChart>
             </div>
             <div className="homeChartDis">
-              <h3>done</h3>
-              <h3>cooking</h3>
-              <h3>off</h3>
-              <h3>empty</h3>
+              <h3>پخته شده</h3>
+              <h3>در حال پخت</h3>
+              <h3>خاموش</h3>
+              <h3>خالی</h3>
             </div>
           </div>
         </div>
         <div className="homeProgressDetails">
-          <h1>Each Mouth Details</h1>
+          <h1>وظعیت هر دهانه</h1>
           <div className="homeProgressDetailsContainer">
             <div className="homeMouthState">
               <div className="homeMouth">
                 <div>
-                  <p>Done : {cookState.done} / {cookState.all/2}</p>       
+                  <p>{cookState.all/2} / {cookState.done} : پخته شده</p>       
                   <span>
                     <i style={{width: `${done}%` , backgroundColor: 'green'}}></i>
                   </span>       
@@ -96,27 +98,27 @@ const HomePage = () => {
               </div>
               <div className="homeMouth">
                 <div>
-                  <p>cooking : {cookState.cooking} / {cookState.all/2}</p>       
+                  <p>{cookState.all/2} / {cookState.cooking} : در حال پخت</p>       
                   <span>
                   <i style={{width: `${cooking}%`, backgroundColor: 'orange'}}></i></span>                   
                 </div>
               </div>
               <div className="homeMouth">
                 <div>
-                  <p>Off : {cookState.off} / {cookState.all/2}</p>    
+                  <p>{cookState.all/2} / {cookState.off} : خاموش</p>    
                   <span>
                   <i style={{width: `${off}%`, backgroundColor: 'gray'}}></i></span>                      
                 </div>
               </div>
               <div className="homeMouth">
                 <div>
-                  <p>Empty : {cookState.empty} / {cookState.all/2}</p>  
+                  <p>{cookState.all/2} / {cookState.empty} : خالی</p>  
                   <span>
                   <i style={{width: `${empty}%`, backgroundColor: 'brown'}}></i></span>       
                 </div>
               </div>
             </div>
-            <p className='homeShowList'>list of all mouths divided by state --&gt;</p>
+            <Link to='/data' className='homeShowList'>&lt;-- لیست وظعیت همه قمیرها</Link>
           </div>
         </div>
       </div>

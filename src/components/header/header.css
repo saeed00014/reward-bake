@@ -1,6 +1,6 @@
 .HeaderMain {
   position: fixed;
-  left: 0;
+  right: 0;
   top: 0;
   display: flex;
   flex-direction: column;
@@ -40,18 +40,20 @@
 
 .logo h1 {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 
 }
 
 .logo h1 a {
   display: flex;
+  flex-direction: row-reverse;
   text-decoration: none;
   font-size: 1.1rem;
-  display: flex;
-  margin: 0rem 0;
   font-size: 2.5rem;
-  margin-left: -.5rem;
+  margin-right: -.5rem;
+  margin-left: 1rem;
   color: aquamarine;
   width: 100%;
   height: max-content;
@@ -78,6 +80,7 @@
 
 .navLink a {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: flex-start;
   align-items: center;
   color: rgb(194, 194, 194);
@@ -85,7 +88,7 @@
   font-size: 1.2rem;
   height: 2.3rem;
   width: 100%;
-  padding-left: 2rem;
+  padding-right: 1rem;
   gap: .8rem;
 }
 
@@ -118,9 +121,23 @@
   color: aquamarine;
 }
 
+.nohambergar {
+  overflow: hidden;
+}
+
+.nohambergar li:nth-child(1) {
+  display: flex;
+  position: absolute;
+  left: 1rem;
+  top: -.5rem;
+  height: min-content;
+  transition: all .4s ease;
+}
+
 .nohambergar li:nth-child(5) {
   display: flex;
-  transition: all .4s ease;
+  position: absolute;
+  right: .5rem;
 }
 
 .nohambergar li:nth-child(5) i {
@@ -130,11 +147,21 @@
 
 .nohambergar li:nth-child(5) i span {
   display: flex;
+  justify-content: flex-start;
+  transition: all .4s ease;
+}
+
+.hambergar li:nth-child(1) {
+  position: absolute;
+  left: 1rem;
+  top: -.5rem;
+  height: min-content;
   transition: all .4s ease;
 }
 
 .hambergar li:nth-child(5) {
-  transition: all .4s ease;
+  position: absolute;
+  right: 1rem;
 }
 
 .hambergar li:nth-child(5) i {
@@ -142,8 +169,10 @@
 }
 
 .hambergar li:nth-child(5) i span:nth-child(1) {
+  position: absolute;
+  right: .7rem;
   transform: rotate(45deg);
-  width: 6rem;
+  width: 3rem;
   transition: all .4s ease;
 }
 
@@ -151,12 +180,19 @@
   display: flex;
   width: 0;
   height: 0;
+  transition: all .4s ease;
 }
 
 .hambergar li:nth-child(5) i span:nth-child(3) {
+  position: absolute;
   transform: rotate(-45deg);
-  width: 6rem;
+  right: .7rem;
+  width: 3rem;
   transition: all .4s ease;
+}
+
+.logo h1 {
+  overflow: hidden;
 }
 
 
@@ -282,6 +318,7 @@
 
   .nohambergar li:nth-child(1) { 
     display: flex;
+    height: 5rem;
   }
 
   .nohambergar li:nth-child(5) {
@@ -385,11 +422,14 @@
     width: 5rem !important;
     cursor: pointer;
   }
-  
+
   .hambMenue i {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: .8rem;
+    width: 48px;
   }
   
   .hambMenue span:nth-child(1) {
@@ -397,28 +437,6 @@
     width: 3rem;
     height: .1rem;
     background-color: rgb(255, 255, 255);
-  }
-
-  .hambMenue span:nth-child(2) {
-    display: flex;
-    width: 3rem;
-    height: .13rem;
-    background-color: rgb(255, 255, 255);
-  }
-
-  .hambMenue span:nth-child(3) {
-    display: flex;
-    width: 3rem;
-    height: .12rem;
-    background-color: rgb(255, 255, 255);
-  }
-  .hambMenue span:nth-child(1)[show-hamb = "true"] {
-    position: absolute;
-    display: flex;
-    width: 3rem;
-    height: .1rem;
-    background-color: rgb(109, 24, 24);
-    transform: rotate(50deg) !important;
   }
 
   .hambMenue span:nth-child(2) {
@@ -494,22 +512,22 @@
   
   .hambergar li:nth-child(1) { 
     display: flex;
-    margin-left: -1.8rem;
+    margin-left: -.2rem;
   }
-
+  
   .hambergar li:nth-child(5) {
     display: flex;
-    margin-right: -1.8rem;
+    margin-right: -.7rem;
   }
-
+  
   .nohambergar li:nth-child(1) { 
     display: flex;
-    margin-left: -1.8rem;
+    margin-left: -.3rem;
   }
   
   .nohambergar li:nth-child(5) {
     display: flex;
-    margin-right: -1.8rem;
+    margin-right: -.4rem;
   }
   
   .logo {
@@ -525,6 +543,7 @@
 
   .logo h1 {
     width: 5rem;
+    height: 6rem;
   }
   
   .logo h1 a {

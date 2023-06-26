@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 import './userManage.css'
+import { Link } from 'react-router-dom'
 
 const UserManage = () => {
   const user = useSelector((state) => state.user)
@@ -19,9 +20,9 @@ const UserManage = () => {
 
 
   return (
-    <section className="user">
-      <div className="userContainer">
-          <div className='userTop'><p>Username</p> <p>Password</p> <div><p></p> actions </div></div>
+    <section className="userManage">
+      <div className="userManageContainer">
+          <div className='userManageTop'><p>نام کاربری</p> <p>رمز عبور</p> <div><p>رفتارها </p> </div></div>
         <div className="allUser">
           {user.allUser &&
             user.allUser.map((user, e) => {
@@ -83,20 +84,20 @@ const UserManage = () => {
               }
               console.log(e)
               return (
-                <div style={styles1} className="userContent">
-                  <div className="userDetails">
+                <div style={styles1} className="userManageContent">
+                  <div className="userManageDetails">
                     <p>{user.name}</p>
                     <p>{user.password}</p>
-                    <div className="userOption">
-                      <button style={styles2}>Save</button>
-                      <button style={styles2} onClick={() => handleDelete(user)}>Delete</button>
+                    <div className="userManageOption">
+                      <button style={styles2}>ذخیره</button>
+                      <button style={styles2} onClick={() => handleDelete(user)}>حذف</button>
                     </div>
                   </div>
                 </div>
               )
           })}
           <div className='addUser'>
-            <button>AAd User</button>
+            <Link to='/'>اضافه کردن کاربر</Link>
           </div>
         </div>
       </div>

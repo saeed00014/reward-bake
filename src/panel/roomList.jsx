@@ -20,28 +20,28 @@ const RoomList = () => {
     <section className="data">
         <div className='dataHeder'>
           <div className='searchContainer'>
-            <input className='mianInput' onChange={(e) => setQuery(e.target.value.toLowerCase())} id='search' type="text" placeholder='search' />
             <label className='mianLable' htmlFor='search'><SlMagnifier /></label>
+            <input className='mianInput' onChange={(e) => setQuery(e.target.value.toLowerCase())} id='search' type="text" placeholder='جست و جو' />
           </div>
           <div className='dataShowDis'>
             <div>
-              <label htmlFor="box"> discription</label>
+              <label htmlFor="box"> توضیحات</label>
               <input type='checkbox' id='box' onClick={() => setShowDis(!showDis)} />
             </div>
             <div>
-              <label htmlFor="sort">Sort By</label>
+              <label htmlFor="sort">ترتیب بر اساس</label>
               <select className='sortBy' name="" id="sort" onChange={(e) => dispatch(sortedMergedAllList(e.target.value))}>
-                <option value='symbol'>Symbol</option>
-                <option value='name'>Name</option>
-                <option value="quantity">Quantity</option>
-                <option value="state">State</option>
+                <option value='symbol'>نماد</option>
+                <option value='name'>اسم</option>
+                <option value="quantity">ظرفیت</option>
+                <option value="state">وظعیت</option>
               </select>
             </div>
           </div>
         </div>
       <div className="dataContainer">
         <div className='topData'>
-          <p>name</p> <p>symbol</p> <p>capacity</p> <p>state</p> <p>actions</p>
+          <p>نماد</p> <p>اسم</p> <p>ظرفیت</p> <p>وظعیت</p> <p>رفتارها</p>
         </div>
         {(list.mergedAllList) && 
           (list.sortedMergedAllList ? list.sortedMergedAllList : list.mergedAllList).filter((info) => (info.symbol.toLowerCase().includes(query)))

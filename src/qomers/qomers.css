@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 2rem;
   width: 100vw;
-  padding-left: 12rem;
+  padding-right: 12rem;
 }
 
 .qomers h1 {
@@ -26,9 +26,20 @@
   padding-top: 3rem;
 }
 
+.markedList {
+  color: black;
+  text-align: end;
+  max-width: 80rem;
+  width: 90%;
+}
+
+.markedList div {
+  color: black;
+}
+
 @media only screen and (min-width: 540px) and (max-width: 1080px) {
   .qomers {
-    padding-left: 0;
+    padding-right: 0;
   }
 
   .qomersContainer {
@@ -38,6 +49,10 @@
 
 @media only screen and (max-width: 540px) {
   .qomers {
-    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .qomers h1 {
+    font-size: 2.5rem;
   }
 }

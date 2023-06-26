@@ -9,19 +9,33 @@ import '../components/forges/forge.css'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { controlColor } from '../store/stateUiSlice'
+import { setStateMark } from '../store/stateSlice'
 
 const EditData = ({fa, info, showDis, e}) => {
   const [bookMark, setBookMark] = useState(false)
   const [stateForgeOne, setStateForgeOne] = useState(false)
   const [dis, setDis] = useState(false)
-
+  
   const dispatch = useDispatch()
-  const ui = useSelector((state) => state.ui)
+  
+  const handleBookMark = (id) => {
+    () => setBookMark(!bookMark)
+    dispatch(setStateMark(id))
+  }
+  let stat
+
+  if(info.state === "پخته شده") {
+    stat = 'green'
+  }else if (info.state === 'خاموش') {
+    stat = 'brown'
+  }else if (info.state === "در حال پخت") {
+    stat = 'orange'
+  }else {
+    stat = 'gray'
+  }
 
   const styles = {
-    background: `${info.state}`,
-    backgroundSize: '10%',
+    background: `${stat}`,
   }
 
   let styles1
@@ -70,59 +84,60 @@ const EditData = ({fa, info, showDis, e}) => {
     await axios.post('http://localhost:3004/forges', data)
   }
 
+
+
   return (
   <>
   {stateForgeOne && 
   <form onSubmit={(e) => handleSave(e, info.id. info.num, info.symbol)} className='infoEditContainer'>
     <div className='infoEditContent'>
-      <h3 className='infoEditTitle'>Forge Mouth : {fa}</h3>
+      <h3 className='infoEditTitle' > {fa} : قمیر دهانه</h3>
       <div className='infoEdit'>
         <div className='infoEditInput'>
           <div>
-            <label htmlFor="name">Brick : </label>
+            <label htmlFor="name" > : آجر</label>
             <select name="" id="name">
-              <option value="">Choose Brick</option>
-              <option value="3.6">Brick 3.6</option>
-              <option value="5.6">Brick 5.6</option>
-              <option value="4.2">Brick 4.2</option>
-              <option value="9.1">Brick 9.1</option>
+              <option value="">انتخاب آجر</option>
+              <option value="3.6">آجر 3.6</option>
+              <option value="5.6">آجر 5.6</option>
+              <option value="4.2">آجر 4.2</option>
+              <option value="9.1">آجر 9.1</option>
             </select>
           </div>
           <div>
-            <label htmlFor="name">Name : </label>
+            <label htmlFor="name" > : اسم</label>
             <input type="text" placeholder={info.name} id='name' />  
           </div>
           <div>
-            <label htmlFor="qty">Quantity : </label>
+            <label htmlFor="qty" > : ظرفیت</label>
             <input type="text" placeholder={info.quantity} id='qty' />  
           </div>
           <div>
-          <label htmlFor="state">State : </label>
+          <label htmlFor="state" > : وظعیت</label>
           <select name="" id="state">
-            <option value="">Choose state</option>  
-            <option value="green">Done</option>  
-            <option value="orange">Cooking</option>  
-            <option value='var(--color-table-backgroung)'>Off</option>  
-            <option value="brown">Empty</option>  
+            <option value="">انتخاب وظعیت</option>  
+            <option value="green">پخته شده</option>  
+            <option value="orange">در حال پخت</option>  
+            <option value='var(--color-table-backgroung)'>خاموش</option>  
+            <option value="brown">خالی</option>  
           </select> 
           </div>
         </div> 
         <div className='infoEditBookmark'>
-          <i onClick={() => setBookMark(!bookMark)}>
+          <i onClick={handleBookMark(info.symbol)}>
             <AiFillStar className={bookMark ? 'infoBookMark' : 'infoNoBookMark'} />
             <AiOutlineStar className='bookMarkBorder'/>
           </i>
         </div>
       </div>
       <div className='editDetails'>
-      <label htmlFor="area">add details :</label>
+      <label htmlFor="area"> : اضافه کردن توضیحات</label>
       <textarea name="" id="area" cols="27" rows="6" placeholder={info.dis}></textarea>
       </div>
       <div className='editButton'>
-        <small className='editLeadDatabase'>find in database</small>
         <div>
-          <button onClick={() => setStateForgeOne(false)} after-show = {stateForgeOne.toString()}>cancel</button>
-          <input type='submit' value='save' />
+          <button onClick={() => setStateForgeOne(false)} after-show = {stateForgeOne.toString()}>لغو</button>
+          <input type='submit' value='تایید' />
         </div>
         </div>
       </div>
@@ -143,7 +158,7 @@ const EditData = ({fa, info, showDis, e}) => {
           <h3>{info.state}</h3>
           <h3 style={styles}></h3>
         </div>
-        <i onClick={() => setStateForgeOne(true)}><LuEdit />Edit</i>
+        <i onClick={() => setStateForgeOne(true)}><LuEdit />تغییر</i>
       </div>
         {(dis || showDis) && <div style={styles1} className='dataEdit'>
           <p>{info.dis}</p>

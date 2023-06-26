@@ -12,11 +12,10 @@ const Forges = () => {
     <div className='forgeContainer'>
     {list.allList &&
       list.allList.map((forge) => {
-        console.log(forge[0])
       return (
         <>
           <div className='forgeContent'>
-            <p className='forgeName'>Forge : {forge[0][0].symbol.slice(0, 2)}</p>
+            <p className='forgeName' > {forge[0][0].symbol.slice(0, 2)} : قمیر</p>
             <div className="forgeTopBottom">
               <span className="forgeFlash1"></span>
               <div className='forgeMouthCon'>
@@ -32,7 +31,7 @@ const Forges = () => {
           </div>
 
           <div className='forgeSmallContent'>
-            <p className='forgeSmallName'>Forge : {forge[0][0].symbol.slice(0, 2)}</p>
+            <p className='forgeSmallName'>{forge[0][0].symbol.slice(0, 2)} : قمیر</p>
             <div className="forgeSmallTopBottom">
               <span className="forgeSmallFlash1"></span>
               <div className='forgeSmallMouthCon'>

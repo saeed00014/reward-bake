@@ -1,14 +1,14 @@
 const manage = [
   {
-    title: 'manage rooms',
-    discription: 'see the list of all rooms and make changes sdyh b lkhnaCNl kn ihSI sdg WDTAWESASAFzx SDRBESWRHZ XFTRDSZVqsdghjnsd',
-    name: 'rooms',
+    title: 'مدیریت اتاقها',
+    discription: 'مشسیراشسزن  خکهشسزغطحضصی ضکصنیاة}]ژاصثبزصث شثزهاصثعزاثصزشص دجشثهزشظسایذکشئیشهز ع یتَُِزونات',
+    name: 'اتاقها',
     icon: 'BsFillFileEarmarkSpreadsheetFill'   
   },
   {
-    title: 'manage users',
-    discription: 'see the list of all rooms and make changes sdyh b lkhnaCNl kn ihSIeAFS eagssthjdszfxvc',
-    name: 'users',
+    title: 'مدیریت کاربرها',
+    discription: 'مشسیراشسزن  خکهشسزغطحضصی ضکصنیاة}]ژاصثبزصث شثزهاصثعزاثصزشص دجشثهزشظسایذکشئیشهز ع یتَُِزونات',
+    name: 'کاربرها',
     icon: 'FaUser'   
   }
 ]

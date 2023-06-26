@@ -4,7 +4,7 @@
   width: 100vw;
   justify-content: center;
   align-items: center;
-  padding-left: 12rem;
+  padding-right: 12rem;
   padding-bottom: 5rem;
 }
 
@@ -38,16 +38,20 @@
   border-radius: .5rem;
   overflow: hidden;
   height: 25rem;
-  width: 100%;
+  width: 50%;
   padding: 1.5rem 3rem;
   background-color: white;
 }
 
 .homeShowList {
   padding-top: 1.5rem;
+  text-decoration: none;
+  color: black;
 }
 
 .homeProgressDetails h1 {
+  display: flex;
+  flex-direction: row-reverse;
   margin-bottom: 1rem;
 }
 
@@ -55,7 +59,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   width: 100%;
 }
 
@@ -67,13 +71,15 @@
   border-radius: .5rem;
   overflow: hidden;
   height: 25rem;
-  width: 100%;
+  width: 50%;
   background-color: white;
 }
 
 .homeProgress h1 {
+  display: flex;
+  flex-direction: row-reverse;
   padding: 1rem 3rem 0 3rem;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .homeMouthState {
@@ -83,8 +89,13 @@
   width: 100%;
 }
 
+.homeMouthState p {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .homeMouth {
-  padding-right: .5rem;
+  padding-right: 0rem;
 }
 
 .homeMouth span {
@@ -98,8 +109,9 @@
 
 .homeMouth span i {
   position: absolute;
+  display: flex;
   width: 0;
-  left: 0;
+  right: 0;
   top: 0;
   bottom: 0;
   background-color: aquamarine;
@@ -130,13 +142,12 @@
 
 .homeChart {
   height: 100%;
-
   overflow: hidden;
 }
 
 .homeChartDis {
   position: absolute;
-  right: 1rem;
+  left: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -150,6 +161,7 @@
   justify-content: flex-start;
   align-items: center;
   padding-left: 1.5rem;
+  font-size: .8rem;
 }
 
 .homeChartDis h3::before {
@@ -321,17 +333,17 @@
 }
 
 .homeQomers {
-  margin-left: -12rem;
+  margin-right: -12rem;
 }
 
 
 @media only screen and (min-width: 850px) and (max-width: 1080px) {
   .homeSection {
-    padding-left: 0;
+    padding-right: 0;
   }
 
   .homeQomers {
-    margin-left: 0rem;
+    margin-right: 0rem;
   }
 }
 
@@ -341,13 +353,13 @@
   }
 
   .homeQomers {
-    margin-left: 0rem;
+    margin-right: 0rem;
   }
 }
 
 @media only screen and (min-width: 540px) and (max-width: 850px) {
   .homeSection {
-    padding-left: 0;
+    padding-right: 0;
   }
 
   .homeContainer {
@@ -375,7 +387,7 @@
   }
 
   .homeQomers {
-    margin-left: 0rem;
+    margin-right: 0rem;
   }
 
   .homeChartDis {
@@ -385,7 +397,7 @@
 
 @media only screen and (min-width: 0px) and (max-width: 540px) {
   .homeSection {
-    padding-left: 0;
+    padding-right: 0;
   }
 
   .homeContainer {
@@ -394,6 +406,10 @@
     align-items: center;
     width: 100%;
     padding: 0;
+  }
+
+  .homeTitle {
+    font-size: 2.5rem;
   }
 
   .homeListContainer {
@@ -407,7 +423,7 @@
   }
 
   .homeProgress h1 {
-    padding-left: 1rem;
+    padding: 1rem .5rem 0 .5rem;
     font-size: 1.3rem;
     height: max-content;
     z-index: 5;
@@ -421,29 +437,30 @@
   .homeChartContainer {
     flex-direction: column;
     justify-content: flex-start;
-    padding-left: 5%;
     width: 100%;
     height: 100%;
   }
-
+  
   .homeChart {
+    margin-left: -2.5rem;
+    width: min-content;
     height: 25rem;
     overflow: hidden;
   }
   
   .homeChartDis {
     position: absolute;
-    top: 2rem;
-    right: 1rem;
+    top: 1rem;
+    right: initial;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     width: min-content;
     height: min-content;
-    padding-bottom: 3rem;
+    padding-bottom: initial;
     overflow: hidden;
-
+    
   }
   
   .homeChartDis h3 {
@@ -454,6 +471,11 @@
     padding-left: 1rem;
     padding-right: .5rem;
     font-size: .8rem;
+    width: 7rem;
+  }
+
+  .homeProgressDetails {
+    padding: 1.5rem;
   }
 
   .homeProgress small {
@@ -463,7 +485,7 @@
   }
 
   .homeQomers {
-    margin-left: 0rem;
+    margin-right: 0rem;
   }
   
 }

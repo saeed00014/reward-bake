@@ -5,7 +5,7 @@ const initialState = {
   roomsManage: '',
   usersList: '',
   usersManage: '',
-  i: 0
+  markedItems: localStorage.getItem('marked') ? localStorage.getItem('marked') : ['']
 }
 
 const stateUiSlice = createSlice({
@@ -15,17 +15,17 @@ const stateUiSlice = createSlice({
     controlPanel(state, action) {
       const showUi = action.payload
 
-      if (showUi == 'roomsList') {
+      if (showUi == 'لیست اتاقها') {
         state.roomsList = 'show'
         state.roomsManage = ''
         state.usersManage = ''
         state.usersList = ''
-      }else if (showUi == 'roomsManage') {
+      }else if (showUi == 'مدیریت اتاقها') {
         state.roomsManage = 'show'
         state.roomsList = ''
         state.usersManage = ''
         state.usersList = ''
-      }else if (showUi == 'usersList') {
+      }else if (showUi == 'لیست کاربرها') {
         state.usersList = 'show'
         state.roomsManage = ''
         state.roomsList = ''
@@ -37,12 +37,15 @@ const stateUiSlice = createSlice({
         state.roomsList = ''
       }
     },
-    controlColor(state, action) {
-      state.i = state.i + 1
+    setStateMark(state, action) {
+      const markedItem = action.payload
+      
+      console.log(markedItem)
+
     }
   }
 })
 
-export const {controlPanel, controlColor} = stateUiSlice.actions
+export const {controlPanel, setStateMark} = stateUiSlice.actions
 
 export default stateUiSlice

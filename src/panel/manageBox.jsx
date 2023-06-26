@@ -18,8 +18,8 @@ const ManageBox = ({title, discription, name, icon}) => {
         <h1>{title}</h1>
         <p>{discription}</p>
         <div className='boxButton'>
-          <button onClick={() => dispatch(controlPanel(`${name}List`))}>{name} List</button>
-          <button onClick={() => dispatch(controlPanel(`${name}Manage`))}>{name} Manage</button>
+          <button onClick={() => dispatch(controlPanel(`لیست ${name}`))}>لیست {name}</button>
+          <button onClick={() => dispatch(controlPanel(`مدیریت ${name}`))}>مدیریت {name}</button>
           <i className='boxIcon'>
             {icon == 'FaUser' ? <FaUser /> : <BsFillFileEarmarkSpreadsheetFill />}
           </i> 

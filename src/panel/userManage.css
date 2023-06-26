@@ -1,14 +1,14 @@
-.user {
+.userManage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
   padding-top: 4rem;
-  padding-left: 12rem;
+  padding-right: 12rem;
 }
 
-.userTitle {
+.userManageTitle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,24 +21,33 @@
   color: black;
 }
 
-.userTop {
+.userManageTop {
   display: flex;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
   gap: .5rem;
 }
 
-.userTop p {
+.userManageTop p {
+  display: flex;
+  flex-direction: row-reverse;
   width: 32%;
   color: black;
 }
 
-.userTop div {
-  width: 32%;
+.userManageTop div {
+  display: flex;
+  width: 15%;
 }
 
-.userContainer {
+.userManageTop div p {
+  display: flex;
+  width: 100%;
+}
+
+.userManageContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -54,42 +63,47 @@
   width: 100%;
 }
 
-.userContent {
+.userManageContent {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   gap: 10%;
-  padding: .5rem;
+  padding: .5rem 1rem;
   min-height: 4rem;
   background-color: white;
 }
 
-.userDetails {
+.userManageDetails {
   display: flex;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
   gap: .5rem;
 }
 
-.userDetails * {
+.userManageDetails * {
   margin: 0;
   color: black;
 }
 
-.userDetails P {
+.userManageDetails P {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: flex-end;
   width: 32%;
 }
 
-.userOption {
+.userManageOption {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  width: 32%;
+  width: 15%;
 }
 
-.userOption button {
+.userManageOption button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +114,7 @@
   border: none;
 }
 
-.userForm {
+.userManageForm {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -109,44 +123,44 @@
   gap: 1rem;
 }
 
-.userForm div {
+.userManageForm div {
   display: flex;
   gap: .5rem;
 }
 
-.userForm div label {
+.userManageForm div label {
   width: 3rem;
 }
 
-.userForm div input {
+.userManageForm div input {
   width: 80%;
 }
 
-.userForm input:nth-child(3) {
+.userManageForm input:nth-child(3) {
   width: 7.7rem;
   height: 2rem;
 }
 
-.userTop {
+.userManageTop {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: black;
   height: 3rem;
-  padding: 0 .5rem;
+  padding: 0 1rem;
 }
 
-.userTop p {
+.userManageTop p {
   color: white;
 }
 
-.userTop div {
+.userManageTop div {
   display: flex;
   justify-content: center;
   
 }
 
-.userTop p:nth-child(3) {
+.userManageTop p:nth-child(3) {
 }
 
 .addUser {
@@ -157,54 +171,71 @@
   width: 100%;
 }
 
-.addUser button {
+.addUser a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   width: 12rem;
   height: 2.5rem;
-  color: black;
+  color: rgb(0, 0, 0);
   border: none;
   background-color: var(--color-primary);
 }
 
 @media only screen and (min-width: 540px) and (max-width: 1080px) {
-  .user {
-    padding-left: 0;
+  .userManage {
+    padding-right: 0;
   }
 
-  .userContainer {
+  .userManageContainer {
     flex-direction: column
   }
 }
 
 @media only screen and (min-width: 0px) and (max-width: 540px) {
-  .user {
-    padding-left: 0;
+  .userManage {
+    padding-right: 0;
   }
 
-  .userContainer {
+  .userManageContainer {
     width: 95%;
   }
 
-  .userDetails {
+  .userManageTop {
+    padding: 0 .2rem;
   }
 
-  .userTop div {
-    width: 15%;
+  .userManageTop div {
+
   }
 
-  .userOption {
+  .userManageTop p {
+    width: 32%;
+  }
+  .userManageTop div {
+    min-width: 3rem;
+    color: red;
+  }
+
+  .userManageOption {
     flex-direction: column;
     width: 15%;
+    min-width: 3.5rem;
     gap: .2rem;
   }
 
-  .userContent {
-    display: flex;
-    gap: 1rem;
+  .userManageDetails {
+    flex-wrap: nowrap;
   }
 
-  .userDetails p {
+  .userManageContent {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    gap: 1rem;
+    padding: 0 .4rem;
+  }
+
+  .userManageDetails p {
+
   }
 }

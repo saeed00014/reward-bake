@@ -8,8 +8,11 @@ import { useState } from 'react'
 import './forge.css'
 import axios from 'axios'
 
-const ForgeMouth = ({forge}) => {
+import { useDispatch } from 'react-redux'
+import { setStateMark } from '../../store/stateSlice'
 
+const ForgeMouth = ({forge}) => {
+  
   return (
     <>
     {forge.map((info) => {
@@ -17,9 +20,28 @@ const ForgeMouth = ({forge}) => {
       const [mark, setMark] = useState(false)
       const [tick, setTick] = useState(false)
       const [bookMark, setBookMark] = useState(false)
+      const dispatch = useDispatch()
 
+      const handleBookMark = (id) => {
+        setBookMark(!bookMark)
+        setMark(!mark)
+        dispatch(setStateMark(id))
+      }
+      
+      let stat
+
+      if(info.state === "پخته شده") {
+        stat = 'green'
+      }else if (info.state === 'خاموش') {
+        stat = 'brown'
+      }else if (info.state === "در حال پخت") {
+        stat = 'orange'
+      }else {
+        stat = 'gray'
+      }
+    
       const styles = {
-        backgroundColor: `${info.state}`,
+        background: `${stat}`,
       }
 
       const handleSubmit = async (e, id) => {
@@ -38,57 +60,54 @@ const ForgeMouth = ({forge}) => {
           {stateForgeOne && 
           <div className='infoEditContainer'>
             <form onSubmit={(e) => handleSubmit(e, info.symbol)} className='infoEditContent'>
-              <h3 className='infoEditTitle'>Forge Mouth : {info.symbol}</h3>
+              <h3 className='infoEditTitle'> {info.symbol} : قمیر دهانه</h3>
               <div className='infoEdit'>
                 <div className='infoEditInput'>
                   <div>
-                    <label htmlFor="name">Brick : </label>
+                    <label htmlFor="name"> : آجر</label>
                     <select name="" id="name">
-                      <option value="">Choose Brick</option>
-                      <option value="3.6">Brick 3.6</option>
-                      <option value="5.6">Brick 5.6</option>
-                      <option value="4.2">Brick 4.2</option>
-                      <option value="9.1">Brick 9.1</option>
+                      <option value="">انتخاب آجر</option>
+                      <option value="3.6">آجر 3.6</option>
+                      <option value="5.6">آجر 5.6</option>
+                      <option value="4.2">آجر 4.2</option>
+                      <option value="9.1">آجر 9.1</option>
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="name">Name : </label>
+                    <label htmlFor="name"> : اسم</label>
                     <input type="text" placeholder={info.name} id='name' />  
                   </div>
                   <div>
-                    <label htmlFor="qty">Quantity : </label>
+                    <label htmlFor="qty"> : ظرفیت</label>
                     <input type="text" placeholder={info.quantity} id='qty' />  
                   </div>
                   <div>
-                    <label htmlFor="state">State : </label>
+                    <label htmlFor="state"> : وظعیت</label>
                     <select name="" id="state">
-                      <option value="">Choose state</option>  
-                      <option value="green">Done</option>  
-                      <option value="orange">Cooking</option>  
-                      <option value="gray">Off</option>  
-                      <option value="brown">Empty</option>  
+                      <option value="">انتخاب وظعیت</option>  
+                      <option value="green">پخته شده</option>  
+                      <option value="orange">در حال پخت</option>  
+                      <option value="gray">خاموش</option>  
+                      <option value="brown">خالی</option>  
                     </select> 
                   </div>
                 </div> 
                 <div className='infoEditBookmark'>
-                  <i onClick={() => {
-                     setBookMark(!bookMark)
-                     setMark(!mark)
-                     }}>
+                  <i after-show = {bookMark.toString()} onClick={() => handleBookMark(info.symbol)}>
                     <AiFillStar className={bookMark ? 'infoBookMark' : 'infoNoBookMark'} />
                     <AiOutlineStar className='bookMarkBorder'/>
                   </i>
                 </div>
               </div>
               <div className='editDetails'>
-              <label htmlFor="area">add details :</label>
+              <label htmlFor="area"> : اضافه کردن توضیحات</label>
               <textarea placeholder={info.dis} name="" id="area" cols="27" rows="6"></textarea>
               </div>
               <div className='editButton'>
-                <small className='editLeadDatabase'>find in database</small>
+                <small className='editLeadDatabase'>پیداکردن در داده ها</small>
                 <div>
-                  <button onClick={() => setStateForgeOne(!stateForgeOne)} after-show = {stateForgeOne.toString()}>cancel</button>
-                  <button>save</button>
+                  <button onClick={() => setStateForgeOne(!stateForgeOne)} after-show = {stateForgeOne.toString()}>لغو</button>
+                  <input type='submit' value='تایید' />
                 </div>
               </div>
             </form>

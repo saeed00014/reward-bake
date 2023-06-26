@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice,current } from "@reduxjs/toolkit";
+import { idText } from "typescript";
 
 const initialState = {
   all: 0,
@@ -15,6 +16,7 @@ const initialState = {
   emptyList: [''],
   findData: [''],
   editData: '',
+  markedItems: ''
 }
 
 const cookStateSlice = createSlice ({
@@ -25,11 +27,11 @@ const cookStateSlice = createSlice ({
       const newState = action.payload
       state.all = state.all + 1
 
-      if(newState === 'green') {
+      if(newState == 'پخته شده') {
         state.done = state.done + 1
-      }else if(newState == 'orange') {
+      }else if(newState == 'در حال پخت') {
         state.cooking = state.cooking + 1
-      }else if(newState == 'brown') {
+      }else if(newState == 'خاموش') {
         state.empty = state.empty + 1
       }else {
         state.off = state.off + 1
@@ -57,15 +59,23 @@ const cookStateSlice = createSlice ({
       const newNum = action.payload.num
 
 
-      if(newState === 'green') {
+      if(newState == 'پخته شده') {
         state.doneList.push({'state': `${newState}`, 'num': `${newNum}`})
-      }else if(newState == 'orange') {
+      }else if(newState == 'در حال پخت') {
         state.cookingList.push({'state': `${newState}`, 'num': `${newNum}`})
-      }else if(newState == 'brown') {
+      }else if(newState == 'خاموش') {
         state.emptyList.push({'state': `${newState}`,'num': `${newNum}`})
       }else {
         state.offList.push({'state': `${newState}`,'num': `${newNum}`})
       }
+    },
+    setStateMark(state, action) {
+      const markedItem = action.payload
+      let mergedAllList2 = current(state.mergedAllList)
+      const founded = mergedAllList2.find(item => item.symbol == markedItem)
+      const item = {...founded, 'marked': 'yes'}
+      console.log(current(state), 'hghhghg')
+      state.markedItems ? state.markedItems.push(item) : state.markedItems = [item]   
     },
     findData(state, action) {
       const value = action.payload
@@ -93,6 +103,6 @@ const cookStateSlice = createSlice ({
   }
 })
 
-export const {manageState, addList, cleareState, allList, findData, editData, sortedMergedAllList} = cookStateSlice.actions
+export const {manageState, addList, cleareState, allList, findData, editData, sortedMergedAllList, setStateMark} = cookStateSlice.actions
 
 export default cookStateSlice

@@ -17,7 +17,7 @@ const PanelPage = () => {
   return (
     <>
     <section className='panel'>
-      <h1 className='panelTitle'>Manage Panel</h1>
+      <h1 className='panelTitle'>پنل مدیریت</h1>
       <div className='panelContainer'> 
         {manage.map((box) => {
           return (

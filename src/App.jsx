@@ -32,33 +32,33 @@ function App() {
       dispatch(cleareState())
       res.map((forge) => {
         forge[0].map((info) => {
-          if(info.state == 'green') {
-            dispatch(manageState('green'))
-            dispatch(addList({state: 'green', num: info.symbol}))
-          }else if (info.state == 'brown') {
-            dispatch(manageState('brown'))
-            dispatch( addList({state: 'brown', num: info.symbol}))
-          }else if (info.state == 'orange') {
-            dispatch(manageState('orange'))
-            dispatch(addList({state: 'orange', num: info.symbol}))
+          if(info.state == 'پخته شده') {
+            dispatch(manageState('پخته شده'))
+            dispatch(addList({state: 'پخته شده', num: info.symbol}))
+          }else if (info.state == 'خالی') {
+            dispatch(manageState('خالی'))
+            dispatch( addList({state: 'خالی', num: info.symbol}))
+          }else if (info.state == 'در حال پخت') {
+            dispatch(manageState('در حال پخت'))
+            dispatch(addList({state: 'در حال پخت', num: info.symbol}))
           }else {
-            dispatch(manageState('gray'))
-            dispatch(addList({state: 'gray', num: info.symbol}))
+            dispatch(manageState('خاموش'))
+            dispatch(addList({state: 'خاموش', num: info.symbol}))
           }
         })
         forge[1].map((info) => {
-          if(info.state == 'green') {
-            dispatch(manageState('green'))
-            dispatch(addList({state: 'green', num: info.symbol}))
-          }else if (info.state == 'brown') {
-            dispatch(manageState('brown'))
-            dispatch( addList({state: 'brown', num: info.symbol}))
-          }else if (info.state == 'orange') {
-            dispatch(manageState('orange'))
-            dispatch(addList({state: 'orange', num: info.symbol}))
+          if(info.state == 'پخته شده') {
+            dispatch(manageState('پخته شده'))
+            dispatch(addList({state: 'پخته شده', num: info.symbol}))
+          }else if (info.state == 'خالی') {
+            dispatch(manageState('خالی'))
+            dispatch( addList({state: 'خالی', num: info.symbol}))
+          }else if (info.state == 'در حال پخت') {
+            dispatch(manageState('در حال پخت'))
+            dispatch(addList({state: 'در حال پخت', num: info.symbol}))
           }else {
-            dispatch(manageState('gray'))
-            dispatch(addList({state: 'gray', num: info.symbol}))
+            dispatch(manageState('خاموش'))
+            dispatch(addList({state: 'خاموش', num: info.symbol}))
           }
         })
       })

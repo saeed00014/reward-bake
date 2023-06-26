@@ -5,7 +5,7 @@
   align-items: center;
   width: 100vw;
   padding-top: 4rem;
-  padding-left: 12rem;
+  padding-right: 12rem;
 }
 
 .userListTitle {
@@ -23,6 +23,7 @@
 
 .userListTop {
   display: flex;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
@@ -30,6 +31,8 @@
 }
 
 .userListTop p {
+  display: flex;
+  flex-direction: row-reverse;
   width: 45%;
   color: black;
 }
@@ -60,13 +63,14 @@
   justify-content: flex-start;
   width: 100%;
   gap: 10%;
-  padding: .5rem;
+  padding: .5rem 1rem;
   min-height: 4rem;
   background-color: white;
 }
 
 .userListDetails {
   display: flex;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
@@ -79,6 +83,8 @@
 }
 
 .userListDetails P {
+  display: flex;
+  flex-direction: row-reverse;
   width: 45%;
 }
 
@@ -169,26 +175,26 @@
 
 .userListTop div {
   display: flex;
-  justify-content: center;
-  
-}
-
-.userListTop p:nth-child(3) {
+  justify-content: center;  
 }
 
 @media only screen and (min-width: 540px) and (max-width: 1080px) {
-  .userList {
-    padding-left: 0;
+  .addUserList {
   }
-
+  
+  .userList {
+    padding-right: 0;
+  }
+  
   .userListContainer {
-    flex-direction: column
+    flex-direction: column;
+    min-width: 25rem;
   }
 }
 
 @media only screen and (min-width: 0px) and (max-width: 540px) {
   .userList {
-    padding-left: 0;
+    padding-right: 0;
   }
 
   .userListContainer {
