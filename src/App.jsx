@@ -1,78 +1,57 @@
-import { useEffect, useState } from 'react'
 import './App.css'
 
+import axios from 'axios'
+
+import { useEffect} from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+
+import { useDispatch } from 'react-redux'
+import { manageState, addList, cleareState, allList } from './store/stateSlice'
+import { allUser, cleareUserState } from './store/uareSlice'
 
 import Header from './components/header/header'
 import HomePage from './home/home'
 import DataPage from './data/data'
 import QomersPage from './qomers/qomers'
-import SigninPage from './signin/signin'
 import PanelPage from './panel/manage.jsx'
-
-
-import { useDispatch, useSelector } from 'react-redux'
-
-import { manageState, addList, cleareState, allList } from './store/stateSlice'
-import { allUser, cleareUserState } from './store/uareSlice'
-import axios from 'axios'
 
 function App() {
   const dispatch = useDispatch()
-  const list = useSelector((state) => state.list)
-  const user = useSelector((state) => state.user)
 
   useEffect(() => {
     dispatch(cleareState())
     
     const handleGetForges = async () => {
-      const ress = await axios.get('http://localhost:3004/forges') 
-      const res = ress.data
+      const ressponse = await axios.get('http://localhost:3004/forges') 
+      const forges = ressponse.data
 
       dispatch(cleareState())
-      res.map((forge) => {
-        forge[0].map((info) => {
-          if(info.state == 'پخته شده') {
-            dispatch(manageState('پخته شده'))
-            dispatch(addList({state: 'پخته شده', num: info.symbol}))
-          }else if (info.state == 'خالی') {
-            dispatch(manageState('خالی'))
-            dispatch( addList({state: 'خالی', num: info.symbol}))
-          }else if (info.state == 'در حال پخت') {
-            dispatch(manageState('در حال پخت'))
-            dispatch(addList({state: 'در حال پخت', num: info.symbol}))
-          }else {
-            dispatch(manageState('خاموش'))
-            dispatch(addList({state: 'خاموش', num: info.symbol}))
-          }
-        })
-        forge[1].map((info) => {
-          if(info.state == 'پخته شده') {
-            dispatch(manageState('پخته شده'))
-            dispatch(addList({state: 'پخته شده', num: info.symbol}))
-          }else if (info.state == 'خالی') {
-            dispatch(manageState('خالی'))
-            dispatch( addList({state: 'خالی', num: info.symbol}))
-          }else if (info.state == 'در حال پخت') {
-            dispatch(manageState('در حال پخت'))
-            dispatch(addList({state: 'در حال پخت', num: info.symbol}))
-          }else {
-            dispatch(manageState('خاموش'))
-            dispatch(addList({state: 'خاموش', num: info.symbol}))
-          }
-        })
+      forges.map((info) => {
+        if(info.state == 'پخته شده') {
+          dispatch(manageState('پخته شده'))
+          dispatch(addList({state: 'پخته شده', num: info.symbol}))
+        }else if (info.state == 'خالی') {
+          dispatch(manageState('خالی'))
+          dispatch( addList({state: 'خالی', num: info.symbol}))
+        }else if (info.state == 'در حال پخت') {
+          dispatch(manageState('در حال پخت'))
+          dispatch(addList({state: 'در حال پخت', num: info.symbol}))
+        }else {
+          dispatch(manageState('خاموش'))
+          dispatch(addList({state: 'خاموش', num: info.symbol}))
+        }
       })
 
-      dispatch(allList(res))
+      dispatch(allList(forges))
     }
     handleGetForges()
     
     const handleGetUsers = async () => {
-      const ress = await axios.get('http://localhost:3004/users') 
-      const res = ress.data
+      const ressponse = await axios.get('http://localhost:3004/users') 
+      const users = ressponse.data
       
       dispatch(cleareUserState())
-      dispatch(allUser(res))
+      dispatch(allUser(users))
     }
     handleGetUsers()
 
@@ -84,8 +63,6 @@ function App() {
 
   return (
     <>
-      {!user.signedUser && <SigninPage />}
-      {user.signedUser && 
       <BrowserRouter>
         <Header />
         <Routes>
@@ -94,7 +71,7 @@ function App() {
           <Route path='/data' element={<DataPage />} />
           <Route path='/Qomers' element={<QomersPage />} />
         </Routes>
-      </BrowserRouter>}
+      </BrowserRouter>
     </>
   )
 }

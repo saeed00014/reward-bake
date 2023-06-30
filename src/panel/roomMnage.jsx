@@ -1,13 +1,14 @@
+import './roomManage.css'
+import '../components/forges/forge.css'
+
 import React from 'react'
+import  { useState } from 'react'
+
 import { useSelector } from "react-redux"
 
-import '../components/forges/forge.css'
-import  { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { allList, sortedMergedAllList } from '../store/stateSlice'
 import { SlMagnifier } from 'react-icons/sl'
 
-import './roomManage.css'
+import { sortedAllList } from '../store/stateSlice'
 
 import EditData from '../data/editData'
 
@@ -30,7 +31,7 @@ const RoomManage = () => {
             </div>
             <div>
               <label htmlFor="sort">ترتیب بر اساس</label>
-              <select className='sortBy' name="" id="sort" onChange={(e) => dispatch(sortedMergedAllList(e.target.value))}>
+              <select className='sortBy' name="" id="sort" onChange={(e) => dispatch(sortedAllList(e.target.value))}>
                 <option value='symbol'>نماد</option>
                 <option value='name'>اسم</option>
                 <option value="quantity">ظرفیت</option>
@@ -43,8 +44,8 @@ const RoomManage = () => {
         <div className='topData'>
           <p>نماد</p> <p>اسم</p> <p>ظرفیت</p> <p>وظعیت</p> <p>رفتارها</p>
         </div>
-        {(list.mergedAllList) && 
-          (list.sortedMergedAllList ? list.sortedMergedAllList : list.mergedAllList).filter((info) => (info.symbol.toLowerCase().includes(query)))
+        {(list.allList) && 
+          (list.sortedAllList ? list.sortedAllList : list.allList).filter((info) => (info.symbol.toLowerCase().includes(query)))
           .map((info, e) => {
             return (
               <div className="dataContent">

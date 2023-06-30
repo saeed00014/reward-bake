@@ -1,28 +1,16 @@
-import React, { useEffect, useState } from 'react'
 import './home.css'
 
-import Forges from '../components/forges/forges'
-import Header from '../components/header/header'
-import { useDispatch } from 'react-redux'
-import { manageState, addList } from '../store/stateSlice'
-import { useSelector } from 'react-redux'
-
+import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { PureComponent } from 'react';
+import { useSelector } from 'react-redux'
+
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+
 import QomersPage from '../qomers/qomers'
-import { cleareState } from '../store/stateSlice'
 
 const HomePage = () => {
-  const [done1, setDone1] = useState(true)
-  const [cooking1, setCooking1] = useState(false)
-  const [off1, setOff1] = useState(false)
-  const [empty1, setEmpty1] = useState(false)
-  const dispatch = useDispatch()
-
   const cookState = useSelector((state) => state.cookState)
-  const list = useSelector((state) => state.list)
 
   const done = Math.trunc(cookState.done/220*100)
   const cooking = Math.trunc(cookState.cooking/220*100)
@@ -123,66 +111,10 @@ const HomePage = () => {
         </div>
       </div>
       <div className='homeQomers'>
-        <QomersPage homeEdition={'yes'}/>
-      </div>
-      {/*<div className='homeListContainer'>
-        <div className="homeListContainer2">
-          <p>Click to show List</p>
-          <div className='homeListContent'>
-            <h3 flash-rev={done1.toString()} onClick={() => setDone1(!done1)}>
-              Done
-              <span></span>
-            </h3>
-            <ul className={done1 ? 'showList' : 'homeList'}>
-              {list.doneList.map((doneItem) => {
-                return (
-                  <li key={doneItem.symbol}>{doneItem.num}</li>
-                )
-              })}
-            </ul>
-          </div>
-          <div className='homeListContent'>
-            <h3 flash-rev={cooking1.toString()} onClick={() => setCooking1(!cooking1)}>
-              Cooking
-              <span></span>
-            </h3>
-            <ul className={cooking1 ? 'showList' : 'homeList'}>
-              {list.cookingList.map((doneItem) => {
-                return (
-                  <li key={doneItem.symbol}>{doneItem.num}</li>
-                )
-              })}
-            </ul>
-          </div>
-          <div className='homeListContent'>
-            <h3 flash-rev={off1.toString()} onClick={() => setOff1(!off1)}>
-              Off
-              <span></span>
-            </h3>
-            <ul className={off1 ? 'showList' : 'homeList'}>
-              {list.offList.map((doneItem) => {
-                return (
-                  <li>{doneItem.num}</li>
-                )
-              })}
-            </ul>
-          </div>
-          <div className='homeListContent'>
-            <h3 flash-rev={empty1.toString()} onClick={() => setEmpty1(!empty1)}>
-              Empty
-              <span></span>
-            </h3>
-            <ul className={empty1 ? 'showList' : 'homeList'}>
-              {list.emptyList.map((doneItem) => {
-                return (
-                  <li>{doneItem.num}</li>
-                )
-              })}
-            </ul>
-          </div>
-        </div>
-            </div>*/}
 
+      <QomersPage homeEdition={'yes'}/>
+
+      </div>
     </section>
   )
 }

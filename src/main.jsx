@@ -1,14 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
 import { Provider } from 'react-redux'
-import cookStateSlice from './store/stateSlice.jsx'
 import { configureStore } from '@reduxjs/toolkit'
 
+import cookStateSlice from './store/stateSlice.jsx'
 import userStateSlice from './store/uareSlice.jsx'
 import stateUiSlice from './store/stateUiSlice.jsx'
+
+import App from './App.jsx'
 
 const store = configureStore({
   reducer: {

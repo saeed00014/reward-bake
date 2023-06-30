@@ -1,27 +1,19 @@
+import '../components/forges/forge.css'
+
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+
+import axios from 'axios'
 
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
-import { TiTick } from 'react-icons/ti'
 import { LuEdit } from 'react-icons/lu'
 
-import '../components/forges/forge.css'
-import axios from 'axios'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { setStateMark } from '../store/stateSlice'
 
 const EditData = ({fa, info, showDis, e}) => {
   const [bookMark, setBookMark] = useState(false)
   const [stateForgeOne, setStateForgeOne] = useState(false)
   const [dis, setDis] = useState(false)
   
-  const dispatch = useDispatch()
-  
-  const handleBookMark = (id) => {
-    () => setBookMark(!bookMark)
-    dispatch(setStateMark(id))
-  }
   let stat
 
   if(info.state === "پخته شده") {
@@ -124,7 +116,7 @@ const EditData = ({fa, info, showDis, e}) => {
           </div>
         </div> 
         <div className='infoEditBookmark'>
-          <i onClick={handleBookMark(info.symbol)}>
+          <i>
             <AiFillStar className={bookMark ? 'infoBookMark' : 'infoNoBookMark'} />
             <AiOutlineStar className='bookMarkBorder'/>
           </i>

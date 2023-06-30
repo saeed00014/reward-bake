@@ -1,11 +1,12 @@
-import React from 'react'
-import { FaUser } from 'react-icons/fa'
-import { BsFillFileEarmarkSpreadsheetFill } from 'react-icons/bs'
-
 import './manage.css'
+
+import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { controlPanel } from '../store/stateUiSlice'
+
+import { FaUser } from 'react-icons/fa'
+import { BsFillFileEarmarkSpreadsheetFill } from 'react-icons/bs'
 
 const ManageBox = ({title, discription, name, icon}) => {
   const dispatch = useDispatch()

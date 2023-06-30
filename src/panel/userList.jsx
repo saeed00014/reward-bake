@@ -1,7 +1,8 @@
+import './userList.css'
+
 import React from 'react'
 
 import { useSelector } from 'react-redux'
-import './userList.css'
 
 const UserList = () => {
   const user = useSelector((state) => state.user)

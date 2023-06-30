@@ -1,22 +1,28 @@
 import { createSlice,current } from "@reduxjs/toolkit";
-import { idText } from "typescript";
 
 const initialState = {
+  allList: '',
+  sortedAllList: '',
+  forgeOne: [[],[]],
+  forgeTwo: [[],[]],
+  forgeThere: [[],[]],
+  forgeFour: [[],[]],
+  forgeFive: [[],[]],
   all: 0,
   done: 0,
   cooking: 0,
   off: 0,
   empty: 0,
-  allList: '',
-  mergedAllList: [],
-  sortedMergedAllList: [],
   doneList: [''],
   cookingList: [''],
   offList: [''],
   emptyList: [''],
   findData: [''],
+
   editData: '',
-  markedItems: ''
+
+  markedItems: localStorage.getItem('marked') 
+    ? [JSON.parse(localStorage.getItem('marked'))] : ''
 }
 
 const cookStateSlice = createSlice ({
@@ -40,24 +46,64 @@ const cookStateSlice = createSlice ({
     allList(state, action) {
       const all = action.payload
       state.allList = all
-      const meregedData = [...all[0][0], ...all[1][0], ...all[0][1], ...all[1][1], ...all[2][0], ...all[2][1], ...all[3][0], ...all[3][1], ...all[4][0], ...all[4][1]]
+      
+      all.map((mouth) => {
+        let id = mouth.id
+        if (id <= 19) {
+          !state.forgeOne[0].find((info) => mouth.id == info.id) && 
+          state.forgeOne[0].push(mouth)  
+          
+        }else if ( 19 < id && id <= 38 ) {
+          !state.forgeOne[1].find((info) => mouth.id == info.id) && 
+          state.forgeOne[1].push(mouth)  
+          
+        }else if ( 38 < id && id <= 59 ) {
+          !state.forgeTwo[0].find((info) => mouth.id == info.id) && 
+          state.forgeTwo[0].push(mouth)  
+          
+        }else if ( 59 < id && id <= 81 ) {
+          !state.forgeTwo[1].find((info) => mouth.id == info.id) && 
+          state.forgeTwo[1].push(mouth)  
+          
+        }else if ( 81 < id && id <= 98 ) {
+          !state.forgeThere[0].find((info) => mouth.id == info.id) && 
+          state.forgeThere[0].push(mouth)  
+          
+        }else if ( 98 < id && id <= 114 ) {
+          !state.forgeThere[1].find((info) => mouth.id == info.id) && 
+          state.forgeThere[1].push(mouth)  
+          
+        }else if ( 114 < id && id <= 142 ) {
+          !state.forgeFour[0].find((info) => mouth.id == info.id) && 
+          state.forgeFour[0].push(mouth)  
+          
+        }else if ( 142 < id && id <= 167 ) {
+          !state.forgeFour[1].find((info) => mouth.id == info.id) && 
+          state.forgeFour[1].push(mouth)  
+          
+        }else if ( 167 < id && id <= 192 ) {
+          !state.forgeFive[0].find((info) => mouth.id == info.id) && 
+          state.forgeFive[0].push(mouth)  
 
-      state.mergedAllList = meregedData
-      state.sortedMergedAllList = meregedData
+        }else {
+          !state.forgeFive[1].find((info) => mouth.id == info.id) && 
+          state.forgeFive[1].push(mouth) 
+        } 
+      })
+
     },
-    sortedMergedAllList(state, action) {
+    sortedAllList(state, action) {
       const newSort = action.payload 
       if(newSort == 'symbol') {
-        state.sortedMergedAllList = [...state.mergedAllList].sort((a, b) => a.b)
+        state.sortedAllList = [...state.allList].sort((a, b) => a.b)
       }else {
-        state.sortedMergedAllList = [...state.mergedAllList].sort((a, b) => a[newSort].localeCompare(b[newSort]))
+        state.sortedAllList = [...state.allList].sort((a, b) => a[newSort].localeCompare(b[newSort]))
       }
     }
     ,
     addList(state, action) {
       const newState = action.payload.state
       const newNum = action.payload.num
-
 
       if(newState == 'پخته شده') {
         state.doneList.push({'state': `${newState}`, 'num': `${newNum}`})
@@ -71,11 +117,15 @@ const cookStateSlice = createSlice ({
     },
     setStateMark(state, action) {
       const markedItem = action.payload
-      let mergedAllList2 = current(state.mergedAllList)
-      const founded = mergedAllList2.find(item => item.symbol == markedItem)
-      const item = {...founded, 'marked': 'yes'}
-      console.log(current(state), 'hghhghg')
-      state.markedItems ? state.markedItems.push(item) : state.markedItems = [item]   
+      
+      let mergedAllList2 = current(state.allList)
+      const founded = mergedAllList2.find(item => item.symbol == markedItem.symbol)
+      
+      state.markedItems
+        ? state.markedItems.push(founded) : ''
+
+      localStorage.setItem('marked',state.markedItems
+        ? JSON.stringify(state.markedItems) : '')
     },
     findData(state, action) {
       const value = action.payload
@@ -84,7 +134,6 @@ const cookStateSlice = createSlice ({
         const name = val.name
         state.findData.push({'name': `gg`})
       })
-      console.log(state.findData)
     },
     editData(state, action) {
       const isEdit = action.payload
@@ -103,6 +152,6 @@ const cookStateSlice = createSlice ({
   }
 })
 
-export const {manageState, addList, cleareState, allList, findData, editData, sortedMergedAllList, setStateMark} = cookStateSlice.actions
+export const {manageState, addList, cleareState, allList, findData, editData, sortedAllList, setStateMark} = cookStateSlice.actions
 
 export default cookStateSlice

@@ -342,7 +342,10 @@
   }
 
   .dataShowDis {
-    gap: 0;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    gap: 1rem 0;
   }
 
   .dataContainer {
@@ -403,6 +406,18 @@
 
   .dataInfo div {
     width: min-content;
+  }
+
+  .dataInfo i {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    font-size: .8rem;
+  }
+
+  .dataInfo i svg {
+    min-width: 1rem;
   }
 
   .dataEdit p {

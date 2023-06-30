@@ -1,37 +1,26 @@
-import React, { useEffect, useState } from 'react'
-
 import './data.css'
 
-import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 import { useDispatch } from 'react-redux'
-import { allList, sortedMergedAllList } from '../store/stateSlice'
 import { useSelector } from 'react-redux'
-
-import EditData from './editData'
 
 import { SlMagnifier } from 'react-icons/sl'
 
+import axios from 'axios'
+
+import EditData from './editData'
+
+import { allList, sortedAllList } from '../store/stateSlice'
+
 const DataPage = () => {
   const dispatch = useDispatch()
+
   const [query, setQuery] = useState('')
   const [showDis, setShowDis] = useState(false)
-  
+
   const list = useSelector((state) => state.list)
-  const ui = useSelector((state) => state.ui)
-
-  
-  useEffect (() => {
-    const handleGetForges = async () => {
-      const ress = await axios.get('http://localhost:3004/forges') 
-      
-      dispatch(allList(ress.data))
-    }
-    
-    handleGetForges()
-    
-  }, [])
-
+  console.log(list.allList)
   
   return (
     <section className="data">
@@ -48,7 +37,7 @@ const DataPage = () => {
             </div>
             <div>
               <label htmlFor="sort">ترتیب بر اساس</label>
-              <select className='sortBy' name="" id="sort" onChange={(e) => dispatch(sortedMergedAllList(e.target.value))}>
+              <select className='sortBy' name="" id="sort" onChange={(e) => dispatch(sortedAllList(e.target.value))}>
                 <option value='symbol'>نماد</option>
                 <option value='name'>اسم</option>
                 <option value="quantity">ظرفیت</option>
@@ -61,8 +50,8 @@ const DataPage = () => {
         <div className='topData'>
           <p>نماد</p> <p>اسم</p> <p>ظرفیت</p> <p>وظعیت</p> <p>رفتارها</p>
         </div>
-        {(list.mergedAllList) && 
-          (list.sortedMergedAllList ? list.sortedMergedAllList : list.mergedAllList).filter((info) => (info.symbol.toLowerCase().includes(query)))
+        {list.allList && 
+          (list.sortedAllList ? list.sortedAllList : list.allList).filter((info) => (info.symbol.toLowerCase().includes(query)))
           .map((info, e) => {
             return (
               <div className="dataContent">

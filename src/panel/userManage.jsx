@@ -1,12 +1,12 @@
+import './userManage.css'
+
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 
 import axios from 'axios'
-
-import './userManage.css'
-import { Link } from 'react-router-dom'
 
 const UserManage = () => {
   const user = useSelector((state) => state.user)

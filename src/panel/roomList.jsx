@@ -1,20 +1,19 @@
-import React from 'react'
-import { useSelector } from "react-redux"
-import DataPage from "../data/data"
-
 import '../components/forges/forge.css'
-import  { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { allList, sortedMergedAllList } from '../store/stateSlice'
+
+import React, {useState} from 'react'
+
+import { useSelector } from "react-redux"
+
+import { sortedAllList } from '../store/stateSlice'
 import { SlMagnifier } from 'react-icons/sl'
 
+import DataPage from "../data/data"
 import EditData from '../data/editData'
 
 const RoomList = () => {
   const list = useSelector((state) => state.list)
   const [query, setQuery] = useState('')
   const [showDis, setShowDis] = useState(false)
-  const [small, setSmall] = useState(false)
 
   return (
     <section className="data">
@@ -30,7 +29,7 @@ const RoomList = () => {
             </div>
             <div>
               <label htmlFor="sort">ترتیب بر اساس</label>
-              <select className='sortBy' name="" id="sort" onChange={(e) => dispatch(sortedMergedAllList(e.target.value))}>
+              <select className='sortBy' name="" id="sort" onChange={(e) => dispatch(sortedAllList(e.target.value))}>
                 <option value='symbol'>نماد</option>
                 <option value='name'>اسم</option>
                 <option value="quantity">ظرفیت</option>
@@ -44,7 +43,7 @@ const RoomList = () => {
           <p>نماد</p> <p>اسم</p> <p>ظرفیت</p> <p>وظعیت</p> <p>رفتارها</p>
         </div>
         {(list.mergedAllList) && 
-          (list.sortedMergedAllList ? list.sortedMergedAllList : list.mergedAllList).filter((info) => (info.symbol.toLowerCase().includes(query)))
+          (list.sortedAllList ? list.sortedAllList : list.mergedAllList).filter((info) => (info.symbol.toLowerCase().includes(query)))
           .map((info, e) => {
             return (
               <div className="dataContent">

@@ -32,12 +32,6 @@ const userStateSlice = createSlice ({
       state.allUser.push(newItem)
 
     },
-    signedUser(state, action) {
-      const newItem = action.payload
-
-      state.signedUser = newItem
-      localStorage.setItem("signin",JSON.stringify(state.signedUser));
-    },
     deleteUser(state, action) {
       const id = action.payload.id
 
@@ -50,6 +44,6 @@ const userStateSlice = createSlice ({
   }
 })
 
-export const { allUser, addUser, deleteUser, cleareUserState, signedUser } = userStateSlice.actions
+export const { allUser, addUser, deleteUser, cleareUserState } = userStateSlice.actions
 
 export default userStateSlice

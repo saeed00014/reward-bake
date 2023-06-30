@@ -1,10 +1,13 @@
 import React from 'react'
-import { v4 as uuidv4 } from 'uuid';
 
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+
 import axios from 'axios'
-import { allUser, addUser, deleteUser } from '../store/uareSlice'
+
+import { v4 as uuidv4 } from 'uuid';
+
+import { addUser, deleteUser } from '../store/uareSlice'
 
 const UserPage = () => {
   const dispatch = useDispatch()
