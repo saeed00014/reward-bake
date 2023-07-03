@@ -18,43 +18,23 @@ const ForgeMouth = ({info}) => {
 
   return (
     forgeInfo.map((mouth) => {
+      const list = useSelector((state) => state.list)
       const [stateForgeOne, setStateForgeOne] = useState(false)
-      const [marked, setMarked] = useState(false)
       const [mark, setMark] = useState(false)
       const [bookMark, setBookMark] = useState(false)
-        {/*useEffect(() => {
-          let items = list.markedItems && list.markedItems
-          let item = false
-          if(items == '') {
-            item = false
-          }else {
-            item = true
-          }
-          console.log(items)
-          console.log(item)
-          
-          let founded = ''
-          if(item == true) {
-            founded = items.find((item) => item.symbol == info.symbol)
-          } else (
-            founded = ''
-            )
-            console.log(founded)
-            
-            
-            founded == '' ? setMarked(false) :  setMarked(true)
-            
-          }, [mark])*/}
-  
-  
-        const handleBookMark = (id) => {
+
+      let markedData = JSON.parse(localStorage.getItem('marked'))
+
+      const marked = markedData && markedData.find((marked) => marked.id == mouth.id)
+      marked && console.log(marked)
+
+        const handleBookMark = (mouth) => {
           setBookMark(!bookMark)
           setMark(!mark)
-          dispatch(setStateMark(id))
+          dispatch(setStateMark(mouth))
         }
         
         let stat = ''
-  
         if(mouth.state === "پخته شده") {
           stat = 'green'
         }else if (mouth.state === 'خاموش') {
@@ -65,33 +45,50 @@ const ForgeMouth = ({info}) => {
           stat = 'gray'
         }
         
-      
         const styles = {
           background: `${stat}`,
         }
   
-        const handleSubmit = async (e, id) => {
+        const handleSave = async (e, info, id) => {
           e.preventDefault()
-          await axios.delete('http://localhost:3004/forges')
+          const data = {
+            "id": id,
+            "num": info.num,
+            "symbol": info.symbol,
+            "name": e.target.name.value ? e.target.name.value : info.name,
+            "quantity": e.target.qty.value ? e.target.qty.value : info.qty,
+            "state": e.target.state.value ? e.target.state.value : info.state,
+            "dis": e.target.area.value ? e.target.area.value : info.area
+          }
+      
+          await axios.delete(`http://localhost:3004/forges/${id}`)
+          await axios.post('http://localhost:3004/forges', data)
+
+          location.reload()
         }
+
+        
+
   
         return (
           <div className='infoCon'>
-            <span onClick={() => setStateForgeOne(!stateForgeOne)} after-show = {stateForgeOne.toString()}  data-content={info.num} style={styles}>
+            <span onClick={() => setStateForgeOne(!stateForgeOne)} after-show = {stateForgeOne.toString()}  data-content={mouth.num} style={styles}>
               {mouth.num}
-              <p>
-              {marked && <AiFillStar />}
-              </p>
+              {marked && 
+                <p>
+                  <AiFillStar />
+                </p>
+              }
             </span>
             {stateForgeOne && 
             <div className='infoEditContainer'>
-              <form onSubmit={(e) => handleSubmit(e, mouth.symbol)} className='infoEditContent'>
+              <form onSubmit={(e) => handleSave(e, mouth, mouth.id)} className='infoEditContent'>
                 <h3 className='infoEditTitle'> {mouth.symbol} : قمیر دهانه</h3>
                 <div className='infoEdit'>
                   <div className='infoEditInput'>
                     <div>
-                      <label htmlFor="name"> : آجر</label>
-                      <select name="" id="name">
+                      <label htmlFor="nameb"> : آجر</label>
+                      <select name="" id="nameb">
                         <option value="">انتخاب آجر</option>
                         <option value="3.6">آجر 3.6</option>
                         <option value="5.6">آجر 5.6</option>
@@ -108,14 +105,14 @@ const ForgeMouth = ({info}) => {
                       <input type="text" placeholder={mouth.quantity} id='qty' />  
                     </div>
                     <div>
-                      <label htmlFor="state"> : وظعیت</label>
-                      <select name="" id="state">
-                        <option value="">انتخاب وظعیت</option>  
-                        <option value="green">پخته شده</option>  
-                        <option value="orange">در حال پخت</option>  
-                        <option value="gray">خاموش</option>  
-                        <option value="brown">خالی</option>  
-                      </select> 
+                    <label htmlFor="state" > : وظعیت</label>
+                    <select name="" id="state">
+                      <option value="">انتخاب وظعیت</option>  
+                      <option value="پخته شده">پخته شده</option>  
+                      <option value="در حال پخت">در حال پخت</option>  
+                      <option value='خاموش'>خاموش</option>  
+                      <option value="خالی">خالی</option>  
+                    </select> 
                     </div>
                   </div> 
                   <div className='infoEditBookmark'>

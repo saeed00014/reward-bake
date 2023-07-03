@@ -22,7 +22,7 @@ const initialState = {
   editData: '',
 
   markedItems: localStorage.getItem('marked') 
-    ? [JSON.parse(localStorage.getItem('marked'))] : ''
+    ? JSON.parse(localStorage.getItem('marked')) : []
 }
 
 const cookStateSlice = createSlice ({
@@ -32,7 +32,7 @@ const cookStateSlice = createSlice ({
     manageState(state, action) {
       const newState = action.payload
       state.all = state.all + 1
-
+      
       if(newState == 'پخته شده') {
         state.done = state.done + 1
       }else if(newState == 'در حال پخت') {
@@ -45,9 +45,11 @@ const cookStateSlice = createSlice ({
     },
     allList(state, action) {
       const all = action.payload
+      const sortedAll = [...all].sort((a, b) => a['id'] - b['id'])
       state.allList = all
+      state.sortedAllList = [...state.allList].sort((a, b) => a['id'] - b['id'])
       
-      all.map((mouth) => {
+      sortedAll.map((mouth) => {
         let id = mouth.id
         if (id <= 19) {
           !state.forgeOne[0].find((info) => mouth.id == info.id) && 
@@ -90,13 +92,25 @@ const cookStateSlice = createSlice ({
           state.forgeFive[1].push(mouth) 
         } 
       })
-
     },
     sortedAllList(state, action) {
       const newSort = action.payload 
-      if(newSort == 'symbol') {
-        state.sortedAllList = [...state.allList].sort((a, b) => a.b)
-      }else {
+      
+      if(newSort == 'id') {
+        state.sortedAllList = [...state.allList].sort((a, b) => a[newSort] - b[newSort])
+      }else if(newSort == 'marked') {
+        state.sortedAllList = []
+        current(state.allList).map((item) =>  { 
+          current(state.markedItems).map((marked) => {
+            if(item.id == marked.id) {
+              console.log(item)
+              state.sortedAllList.push(item)
+            }
+          })
+        })
+
+      }
+      else {
         state.sortedAllList = [...state.allList].sort((a, b) => a[newSort].localeCompare(b[newSort]))
       }
     }
@@ -117,15 +131,12 @@ const cookStateSlice = createSlice ({
     },
     setStateMark(state, action) {
       const markedItem = action.payload
-      
-      let mergedAllList2 = current(state.allList)
-      const founded = mergedAllList2.find(item => item.symbol == markedItem.symbol)
-      
-      state.markedItems
-        ? state.markedItems.push(founded) : ''
+      console.log(markedItem)
 
-      localStorage.setItem('marked',state.markedItems
-        ? JSON.stringify(state.markedItems) : '')
+      state.markedItems.push({'id' : markedItem.id})
+      let markedId = state.markedItems
+
+      localStorage.setItem('marked', JSON.stringify(markedId))
     },
     findData(state, action) {
       const value = action.payload

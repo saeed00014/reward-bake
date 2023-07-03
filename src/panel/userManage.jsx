@@ -3,6 +3,8 @@ import './userManage.css'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { v4 as uuidv4 } from 'uuid';
+
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 
@@ -17,7 +19,16 @@ const UserManage = () => {
     axios.delete(`http://localhost:3004/users/${user.id}`)
     dispatch(deleteUser(user))
   }
+  
+  const handleAddUser = (e) => {
+    e.preventDefault()
+    axios.post(`http://localhost:3004/users`, e)
+  }
 
+  const handlePatchUser = (e) => {
+    e.preventDefault()
+    axios.post(`http://localhost:3004/users`, e)
+  }
 
   return (
     <section className="userManage">
@@ -85,20 +96,28 @@ const UserManage = () => {
               console.log(e)
               return (
                 <div style={styles1} className="userManageContent">
-                  <div className="userManageDetails">
-                    <p>{user.name}</p>
-                    <p>{user.password}</p>
+                  <form onSubmit={(e) => handlePatchUser(e)} className="userManageDetails">
+                    <input style={styles2} type="text" value={user.name} />
+                    <input style={styles2} type="text" value={user.password} />
                     <div className="userManageOption">
-                      <button style={styles2}>ذخیره</button>
+                      <input style={styles2} value='ذخیره' type='submit'/>
                       <button style={styles2} onClick={() => handleDelete(user)}>حذف</button>
                     </div>
-                  </div>
+                  </form>
                 </div>
               )
           })}
-          <div className='addUser'>
-            <Link to='/'>اضافه کردن کاربر</Link>
-          </div>
+          <form onSubmit={(e) => handleAddUser(e)} className='addUser'>
+            <div>
+              <label htmlFor="nameAdd">رمز عبور</label>
+              <input id='nameAdd' style={{background : 'var(--color-table-background)' }} type="text" />
+            </div>
+            <div>
+              <label htmlFor="passwordAdd">نام کاربری</label>
+              <input id='passwordAdd' style={{background : 'var(--color-table-background)' }} type="text" />
+            </div>
+            <input type="submit" value='اضافه کردن کاربر' />
+          </form>
         </div>
       </div>
     </section>

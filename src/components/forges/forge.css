@@ -500,7 +500,8 @@
   }
 
   .infoCon span[after-show ='true']::after{
-    width: clamp(.1rem, 4.6vw, 4.8rem);
+    width: clamp(.1rem, 9vw, 4.8rem);
+    height: 4rem;
   }
 
 

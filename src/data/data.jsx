@@ -20,7 +20,16 @@ const DataPage = () => {
   const [showDis, setShowDis] = useState(false)
 
   const list = useSelector((state) => state.list)
-  console.log(list.allList)
+
+  const handleSort = (e) => {
+    console.log(e)
+    dispatch(sortedAllList(e.target.value))
+  }
+  
+  useEffect(() => {
+    dispatch(sortedAllList('id'))
+    console.log(list.sortedAllList)
+  }, [])
   
   return (
     <section className="data">
@@ -37,11 +46,11 @@ const DataPage = () => {
             </div>
             <div>
               <label htmlFor="sort">ترتیب بر اساس</label>
-              <select className='sortBy' name="" id="sort" onChange={(e) => dispatch(sortedAllList(e.target.value))}>
-                <option value='symbol'>نماد</option>
-                <option value='name'>اسم</option>
+              <select className='sortBy' name="" id="sort" onChange={(e) => handleSort(e)}>
+                <option value='id'>نماد</option>
                 <option value="quantity">ظرفیت</option>
                 <option value="state">وظعیت</option>
+                <option value="marked">نشان شده</option>
               </select>
             </div>
           </div>
@@ -50,8 +59,8 @@ const DataPage = () => {
         <div className='topData'>
           <p>نماد</p> <p>اسم</p> <p>ظرفیت</p> <p>وظعیت</p> <p>رفتارها</p>
         </div>
-        {list.allList && 
-          (list.sortedAllList ? list.sortedAllList : list.allList).filter((info) => (info.symbol.toLowerCase().includes(query)))
+        {list.sortedAllList && 
+          (list.sortedAllList).filter((info) => (info.symbol.toLowerCase().includes(query)))
           .map((info, e) => {
             return (
               <div className="dataContent">

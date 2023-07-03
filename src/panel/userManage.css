@@ -83,6 +83,14 @@
   gap: .5rem;
 }
 
+.userManageDetails input {
+  display: flex;
+  text-align: right;
+  border: none;
+  width: max-content;
+  padding: 0 .5rem;
+}
+
 .userManageDetails * {
   margin: 0;
   color: black;
@@ -103,15 +111,34 @@
   width: 15%;
 }
 
+.userManageOption input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(0, 0, 0);
+  text-align: center;
+  font-size: 1rem;
+  width: 4rem;
+  height: 1.8rem;
+  color: black;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
 .userManageOption button {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid rgb(0, 0, 0);
-  padding: .3rem .8rem;
+  text-align: center;
+  font-size: 1rem;
+  width: 4rem;
+  height: 1.8rem;
   color: black;
   background-color: white;
   border: none;
+  cursor: pointer;
 }
 
 .userManageForm {
@@ -165,22 +192,53 @@
 
 .addUser {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
   width: 100%;
+  background-color: white;
+  padding: 1rem 1rem;
 }
 
-.addUser a {
+.addUser div {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 32%;
+  gap: .5rem;
+}
+
+.addUser label {
+  height: min-content;
+  width: 6rem;
+  color: black;
+}
+
+.addUser input:nth-child(3) {
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  width: 12rem;
+  width: 20%;
   height: 2.5rem;
   color: rgb(0, 0, 0);
   border: none;
   background-color: var(--color-primary);
+}
+
+.addUser input {
+  height: 2rem;
+  width: 100%;
+  text-align: end;
+  background-color: gray;
+  border: none;
+  padding: 0 .5rem;
+}
+
+.addUser input:nth-child(3) {
+
 }
 
 @media only screen and (min-width: 540px) and (max-width: 1080px) {

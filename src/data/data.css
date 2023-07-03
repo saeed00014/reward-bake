@@ -192,6 +192,15 @@
 .dataInfo h3 {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.dataInfo h3 p {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
 }
 
 .dataInfo div {

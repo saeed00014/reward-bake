@@ -11,16 +11,22 @@ import ForgeMouth from './forgeMouth'
 
 import { useSelector } from 'react-redux'
 
-import { manageState, addList, cleareState, allList } from '../../store/stateSlice'
+import { manageState, addList, cleareState, allList, sortedAllList } from '../../store/stateSlice'
 import { LuDice1 } from 'react-icons/lu'
 
 const Forges = () => {
+  const dispatch = useDispatch()
   const list = useSelector((state) => state.list)
     const forgeOne = [list.forgeOne]
     const forgeTwo = [list.forgeTwo]
     const forgeThere = [list.forgeThere]
     const forgeFour = [list.forgeFour]
     const forgeFive = [list.forgeFive]
+
+    useEffect(() => {
+      dispatch(sortedAllList('id'))
+      console.log(list.sortedAllList)
+    }, [])
     
     return (
       <div className='forgeContainer'>

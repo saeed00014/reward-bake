@@ -11,8 +11,7 @@ import { BsFillFileEarmarkSpreadsheetFill } from 'react-icons/bs'
 const ManageBox = ({title, discription, name, icon}) => {
   const dispatch = useDispatch()
   const ui = useSelector((state) => state.ui)
-  console.log(icon)
-
+  
   return (
     <div className='box'>
       <div className='boxContainer'>
