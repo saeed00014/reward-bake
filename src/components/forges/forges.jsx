@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 import ForgeMouth from './forgeMouth'
+import EditData from '../../data/editData'
 
 import { useSelector } from 'react-redux'
 

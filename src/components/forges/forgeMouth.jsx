@@ -10,7 +10,7 @@ import axios from 'axios'
 
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
-import { setStateMark } from '../../store/stateSlice'
+import { setStateMark, addChangedForge } from '../../store/stateSlice'
 
 const ForgeMouth = ({info}) => {
   const dispatch = useDispatch()
@@ -22,53 +22,53 @@ const ForgeMouth = ({info}) => {
       const [stateForgeOne, setStateForgeOne] = useState(false)
       const [mark, setMark] = useState(false)
       const [bookMark, setBookMark] = useState(false)
+      const [state, setState] = useState(mouth.state)
 
       let markedData = JSON.parse(localStorage.getItem('marked'))
 
       const marked = markedData && markedData.find((marked) => marked.id == mouth.id)
-      marked && console.log(marked)
 
-        const handleBookMark = (mouth) => {
-          setBookMark(!bookMark)
-          setMark(!mark)
-          dispatch(setStateMark(mouth))
-        }
-        
-        let stat = ''
-        if(mouth.state === "پخته شده") {
-          stat = 'green'
-        }else if (mouth.state === 'خاموش') {
-          stat = 'brown'
-        }else if (mouth.state === "در حال پخت") {
-          stat = 'orange'
-        }else {
-          stat = 'gray'
-        }
-        
-        const styles = {
-          background: `${stat}`,
-        }
-  
-        const handleSave = async (e, info, id) => {
-          e.preventDefault()
-          const data = {
-            "id": id,
-            "num": info.num,
-            "symbol": info.symbol,
-            "name": e.target.name.value ? e.target.name.value : info.name,
-            "quantity": e.target.qty.value ? e.target.qty.value : info.qty,
-            "state": e.target.state.value ? e.target.state.value : info.state,
-            "dis": e.target.area.value ? e.target.area.value : info.area
-          }
+      const handleBookMark = (info) => {
+        setMark(!mark)
+        dispatch(setStateMark(info))
+        setBookMark(!bookMark)
+      }
       
-          await axios.delete(`http://localhost:3004/forges/${id}`)
-          await axios.post('http://localhost:3004/forges', data)
-
-          location.reload()
+      let stat = ''
+      if(mouth.state === "پخته شده") {
+        stat = 'green'
+      }else if (mouth.state === 'خاموش') {
+        stat = 'brown'
+      }else if (mouth.state === "در حال پخت") {
+        stat = 'orange'
+      }else {
+        stat = 'gray'
+      }
+      
+      const styles = {
+        background: `${stat}`,
+      }
+      
+      const handleSave = async (e, info, id) => {
+        e.preventDefault()
+        const data = {
+          "id": id,
+          "num": info.num,
+          "symbol": info.symbol,
+          "name": e.target.name.value ? e.target.name.value : info.name,
+          "quantity": e.target.qty.value ? e.target.qty.value : info.quantity,
+          "state": e.target.state.value ? e.target.state.value : info.state,
+          "dis": e.target.area.value ? e.target.area.value : info.dis
         }
+        setStateForgeOne(false)
+        dispatch(addChangedForge(data))
+        await axios.delete(`http://localhost:3004/forges/${id}`)
+        await axios.post('http://localhost:3004/forges', data)
+      }
 
-        
-
+      const handleState = (e) => {
+        setState(e.target.value)
+      }
   
         return (
           <div className='infoCon'>
@@ -106,8 +106,7 @@ const ForgeMouth = ({info}) => {
                     </div>
                     <div>
                     <label htmlFor="state" > : وظعیت</label>
-                    <select name="" id="state">
-                      <option value="">انتخاب وظعیت</option>  
+                    <select name="" value={state} onChange={(e) => handleState(e)} id="state">
                       <option value="پخته شده">پخته شده</option>  
                       <option value="در حال پخت">در حال پخت</option>  
                       <option value='خاموش'>خاموش</option>  

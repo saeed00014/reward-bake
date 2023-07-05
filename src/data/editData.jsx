@@ -1,13 +1,13 @@
 import '../components/forges/forge.css'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import axios from 'axios'
 
-import { setStateMark } from '../store/stateSlice'
+import { addChangedList, setStateMark } from '../store/stateSlice'
 
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { LuEdit } from 'react-icons/lu'
@@ -16,6 +16,9 @@ const EditData = ({fa, info, showDis, e}) => {
   const [bookMark, setBookMark] = useState(false)
   const [stateForgeOne, setStateForgeOne] = useState(false)
   const [dis, setDis] = useState(false)
+  const [state, setState] = useState(info.state)
+
+  const list = useSelector((state) => state.list)
 
   const dispatch = useDispatch()
   
@@ -36,7 +39,7 @@ const EditData = ({fa, info, showDis, e}) => {
   }
 
   let styles1
-
+  
   if(e.toString().at(-1) == '1') {
     styles1 = {
       backgroundColor: 'var(--color-table-background)'
@@ -71,23 +74,36 @@ const EditData = ({fa, info, showDis, e}) => {
       "num": info.num,
       "symbol": info.symbol,
       "name": e.target.name.value ? e.target.name.value : info.name,
-      "quantity": e.target.qty.value ? e.target.qty.value : info.qty,
+      "quantity": e.target.qty.value ? e.target.qty.value : info.quantity,
       "state": e.target.state.value ? e.target.state.value : info.state,
-      "dis": e.target.area.value ? e.target.area.value : info.area
+      "dis": e.target.area.value ? e.target.area.value : info.dis
     }
-
+    setStateForgeOne(false)
+    dispatch(addChangedList(data))
     await axios.delete(`http://localhost:3004/forges/${id}`)
     await axios.post('http://localhost:3004/forges', data)
-
-    location.reload()
+    console.log(list.sortedAllList)
+    
   }
 
-  const handleBookMark = (mouth) => {
+  useEffect(() => {
+    if(list.markedItems.find((item) => item.id == info.id )) {
+      setBookMark(true)
+    }else {
+      setBookMark(false)
+    }
+  }, [list.markedItems])  
+  
+  const handleBookMark = (info) => {
+    dispatch(setStateMark(info))
     setBookMark(!bookMark)
-    dispatch(setStateMark(mouth))
   }
   let markedData = JSON.parse(localStorage.getItem('marked'))
   const marked = markedData && markedData.find((marked) => marked.id == info.id)
+
+  const handleState = (info, e) => {
+    setState(e.target.value)
+  }
 
   return (
   <>
@@ -99,8 +115,8 @@ const EditData = ({fa, info, showDis, e}) => {
         <div className='infoEditInput'>
           <div>
             <label htmlFor="nameb" > : آجر</label>
-            <select name="" id="nameb">
-              <option value="">انتخاب آجر</option>
+            <select name=""  id="nameb">
+              <option placeholder=''>انتخاب آجر</option>
               <option value="3.6">آجر 3.6</option>
               <option value="5.6">آجر 5.6</option>
               <option value="4.2">آجر 4.2</option>
@@ -117,8 +133,7 @@ const EditData = ({fa, info, showDis, e}) => {
           </div>
           <div>
           <label htmlFor="state" > : وظعیت</label>
-          <select name="" id="state">
-            <option value="">انتخاب وظعیت</option>  
+          <select name="" id="state" value={state} onChange={(e) => handleState(info, e)}>
             <option value="پخته شده">پخته شده</option>  
             <option value="در حال پخت">در حال پخت</option>  
             <option value='خاموش'>خاموش</option>  

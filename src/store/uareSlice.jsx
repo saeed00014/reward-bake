@@ -1,12 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from 'uuid';
 
 
 const initialState = {
-  allUser: [],
-  signedUser: localStorage.getItem("signin")
-  ? JSON.parse(localStorage.getItem("signin"))
-  : ''
+  allUser: []
 }
 
 const userStateSlice = createSlice ({
@@ -15,28 +12,26 @@ const userStateSlice = createSlice ({
   reducers: {
     allUser(state, action) {
       const newUser = action.payload
-
-      newUser.map((user) => {
-        state.allUser.push(
-        {
-          "id": uuidv4(),
-          "name": `${user.name}`,
-          "email": `${user.email}`,
-          "password": `${user.password}`
-        }    
-        )})
+      state.allUser = newUser
     },
     addUser(state, action) {
       const newItem = action.payload
-
-      state.allUser.push(newItem)
-
+      state.allUser ? state.allUser.push({
+        "id" : `${newItem.id}`,
+        "name" : `${newItem.name}`,
+        "password" : `${newItem.password}`
+      }) : state.allUser = {
+        "id" : `${newItem.id}`,
+        "name" : `${newItem.name}`,
+        "password" : `${newItem.password}`
+      }
     },
     deleteUser(state, action) {
       const id = action.payload.id
+      console.log(id)
 
       state.allUser = 
-        state.allUser.filter((user) => user.id !== id)
+        current(state.allUser).filter((user) => user.id !== id)
     },
     cleareUserState(state, action) {
       state.allUser = []

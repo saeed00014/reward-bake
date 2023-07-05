@@ -45,11 +45,10 @@ const cookStateSlice = createSlice ({
     },
     allList(state, action) {
       const all = action.payload
-      const sortedAll = [...all].sort((a, b) => a['id'] - b['id'])
       state.allList = all
       state.sortedAllList = [...state.allList].sort((a, b) => a['id'] - b['id'])
-      
-      sortedAll.map((mouth) => {
+
+      state.sortedAllList.map((mouth) => {
         let id = mouth.id
         if (id <= 19) {
           !state.forgeOne[0].find((info) => mouth.id == info.id) && 
@@ -129,14 +128,114 @@ const cookStateSlice = createSlice ({
         state.offList.push({'state': `${newState}`,'num': `${newNum}`})
       }
     },
+    addChangedList(state, action) {
+      const newItem = action.payload
+      if(state.sortedAllList.find((item) => item.id == newItem.id)) {
+        state.sortedAllList.find((item) => item.id == newItem.id).id = newItem.id
+        state.sortedAllList.find((item) => item.id == newItem.id).name = newItem.name
+        state.sortedAllList.find((item) => item.id == newItem.id).dis = newItem.dis
+        state.sortedAllList.find((item) => item.id == newItem.id).num = newItem.num
+        state.sortedAllList.find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.sortedAllList.find((item) => item.id == newItem.id).state = newItem.state
+        state.sortedAllList.find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }
+    },
+    addChangedForge(state, action) {
+      const newItem = action.payload
+      if(state.forgeOne[0].find((item) => item.id == newItem.id)){
+        state.forgeOne[0].find((item) => item.id == newItem.id).id = newItem.id
+        state.forgeOne[0].find((item) => item.id == newItem.id).name = newItem.name
+        state.forgeOne[0].find((item) => item.id == newItem.id).dis = newItem.dis
+        state.forgeOne[0].find((item) => item.id == newItem.id).num = newItem.num
+        state.forgeOne[0].find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.forgeOne[0].find((item) => item.id == newItem.id).state = newItem.state
+        state.forgeOne[0].find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }else if(state.forgeOne[1].find((item) => item.id == newItem.id)) {
+        state.forgeOne[1].find((item) => item.id == newItem.id).id = newItem.id
+        state.forgeOne[1].find((item) => item.id == newItem.id).name = newItem.name
+        state.forgeOne[1].find((item) => item.id == newItem.id).dis = newItem.dis
+        state.forgeOne[1].find((item) => item.id == newItem.id).num = newItem.num
+        state.forgeOne[1].find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.forgeOne[1].find((item) => item.id == newItem.id).state = newItem.state
+        state.forgeOne[1].find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }else if(state.forgeTwo[0].find((item) => item.id == newItem.id)) {
+        state.forgeTwo[0].find((item) => item.id == newItem.id).id = newItem.id
+        state.forgeTwo[0].find((item) => item.id == newItem.id).name = newItem.name
+        state.forgeTwo[0].find((item) => item.id == newItem.id).dis = newItem.dis
+        state.forgeTwo[0].find((item) => item.id == newItem.id).num = newItem.num
+        state.forgeTwo[0].find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.forgeTwo[0].find((item) => item.id == newItem.id).state = newItem.state
+        state.forgeTwo[0].find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }else if(state.forgeTwo[1].find((item) => item.id == newItem.id)) {
+        state.forgeTwo[1].find((item) => item.id == newItem.id).id = newItem.id
+        state.forgeTwo[1].find((item) => item.id == newItem.id).name = newItem.name
+        state.forgeTwo[1].find((item) => item.id == newItem.id).dis = newItem.dis
+        state.forgeTwo[1].find((item) => item.id == newItem.id).num = newItem.num
+        state.forgeTwo[1].find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.forgeTwo[1].find((item) => item.id == newItem.id).state = newItem.state
+        state.forgeTwo[1].find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }else if(state.forgeThere[0].find((item) => item.id == newItem.id)) {
+        state.forgeThere[0].find((item) => item.id == newItem.id).id = newItem.id
+        state.forgeThere[0].find((item) => item.id == newItem.id).name = newItem.name
+        state.forgeThere[0].find((item) => item.id == newItem.id).dis = newItem.dis
+        state.forgeThere[0].find((item) => item.id == newItem.id).num = newItem.num
+        state.forgeThere[0].find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.forgeThere[0].find((item) => item.id == newItem.id).state = newItem.state
+        state.forgeThere[0].find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }else if(state.forgeThere[1].find((item) => item.id == newItem.id)) {
+        state.forgeThere[1].find((item) => item.id == newItem.id).id = newItem.id
+        state.forgeThere[1].find((item) => item.id == newItem.id).name = newItem.name
+        state.forgeThere[1].find((item) => item.id == newItem.id).dis = newItem.dis
+        state.forgeThere[1].find((item) => item.id == newItem.id).num = newItem.num
+        state.forgeThere[1].find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.forgeThere[1].find((item) => item.id == newItem.id).state = newItem.state
+        state.forgeThere[1].find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }else if(state.forgeFour[0].find((item) => item.id == newItem.id)) {
+        state.forgeFour[0].find((item) => item.id == newItem.id).id = newItem.id
+        state.forgeFour[0].find((item) => item.id == newItem.id).name = newItem.name
+        state.forgeFour[0].find((item) => item.id == newItem.id).dis = newItem.dis
+        state.forgeFour[0].find((item) => item.id == newItem.id).num = newItem.num
+        state.forgeFour[0].find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.forgeFour[0].find((item) => item.id == newItem.id).state = newItem.state
+        state.forgeFour[0].find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }else if(state.forgeFour[1].find((item) => item.id == newItem.id)) {
+        state.forgeFour[1].find((item) => item.id == newItem.id).id = newItem.id
+        state.forgeFour[1].find((item) => item.id == newItem.id).name = newItem.name
+        state.forgeFour[1].find((item) => item.id == newItem.id).dis = newItem.dis
+        state.forgeFour[1].find((item) => item.id == newItem.id).num = newItem.num
+        state.forgeFour[1].find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.forgeFour[1].find((item) => item.id == newItem.id).state = newItem.state
+        state.forgeFour[1].find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }else if(state.forgeFive[0].find((item) => item.id == newItem.id)) {
+        state.forgeFive[0].find((item) => item.id == newItem.id).id = newItem.id
+        state.forgeFive[0].find((item) => item.id == newItem.id).name = newItem.name
+        state.forgeFive[0].find((item) => item.id == newItem.id).dis = newItem.dis
+        state.forgeFive[0].find((item) => item.id == newItem.id).num = newItem.num
+        state.forgeFive[0].find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.forgeFive[0].find((item) => item.id == newItem.id).state = newItem.state
+        state.forgeFive[0].find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }else if(state.forgeFive[1].find((item) => item.id == newItem.id)) {
+        state.forgeFive[1].find((item) => item.id == newItem.id).id = newItem.id
+        state.forgeFive[1].find((item) => item.id == newItem.id).name = newItem.name
+        state.forgeFive[1].find((item) => item.id == newItem.id).dis = newItem.dis
+        state.forgeFive[1].find((item) => item.id == newItem.id).num = newItem.num
+        state.forgeFive[1].find((item) => item.id == newItem.id).symbol = newItem.symbol
+        state.forgeFive[1].find((item) => item.id == newItem.id).state = newItem.state
+        state.forgeFive[1].find((item) => item.id == newItem.id).quantity = newItem.quantity
+      }
+    },
     setStateMark(state, action) {
       const markedItem = action.payload
-      console.log(markedItem)
 
-      state.markedItems.push({'id' : markedItem.id})
-      let markedId = state.markedItems
-
-      localStorage.setItem('marked', JSON.stringify(markedId))
+      const markedLocal = localStorage.getItem('marked')
+      if(current(state.markedItems).find((item) => item.id == markedItem.id)) {
+        const deletedId = current(state.markedItems).filter((item) => item.id != markedItem.id)
+        localStorage.setItem('marked', JSON.stringify(deletedId))
+      }else {
+        state.markedItems.push({'id' : markedItem.id})
+        let markedId = state.markedItems
+        localStorage.setItem('marked', JSON.stringify(markedId))
+      }
     },
     findData(state, action) {
       const value = action.payload
@@ -163,6 +262,6 @@ const cookStateSlice = createSlice ({
   }
 })
 
-export const {manageState, addList, cleareState, allList, findData, editData, sortedAllList, setStateMark} = cookStateSlice.actions
+export const {manageState, addList, cleareState, allList, findData, editData, sortedAllList, setStateMark, addChangedList, addChangedForge} = cookStateSlice.actions
 
 export default cookStateSlice

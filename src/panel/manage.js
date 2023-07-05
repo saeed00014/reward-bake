@@ -1,13 +1,13 @@
 const manage = [
   {
     title: 'مدیریت اتاقها',
-    discription: 'مشسیراشسزن  خکهشسزغطحضصی ضکصنیاة}]ژاصثبزصث شثزهاصثعزاثصزشص دجشثهزشظسایذکشئیشهز ع یتَُِزونات',
+    discription: '',
     name: 'اتاقها',
     icon: 'BsFillFileEarmarkSpreadsheetFill'   
   },
   {
     title: 'مدیریت کاربرها',
-    discription: 'مشسیراشسزن  خکهشسزغطحضصی ضکصنیاة}]ژاصثبزصث شثزهاصثعزاثصزشص دجشثهزشظسایذکشئیشهز ع یتَُِزونات',
+    discription: '',
     name: 'کاربرها',
     icon: 'FaUser'   
   }

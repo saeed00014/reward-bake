@@ -9,25 +9,40 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 
 import axios from 'axios'
+import { addUser, deleteUser } from '../store/uareSlice';
 
 const UserManage = () => {
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
-  const handleDelete = (user) => {
-    console.log(user.id)
-    axios.delete(`http://localhost:3004/users/${user.id}`)
+  const handleDelete = (e, id, user) => {
+    e.preventDefault()
+    axios.delete(`http://localhost:3004/users/${id}`)
     dispatch(deleteUser(user))
   }
   
   const handleAddUser = (e) => {
     e.preventDefault()
-    axios.post(`http://localhost:3004/users`, e)
+    const data = {
+      "id" : uuidv4(),
+      "name" : e.target.nameAdd.value,
+      "password" : e.target.passwordAdd.value
+    }
+    dispatch(addUser(data))
+    axios.post(`http://localhost:3004/users`, data)
   }
 
-  const handlePatchUser = (e) => {
+  const handlePatchUser = (e, id, user) => {
     e.preventDefault()
-    axios.post(`http://localhost:3004/users`, e)
+    console.log(id)
+    const data = {
+      "name" : e.target.nameAdd.value ? e.target.nameAdd.value : user.name,
+      "password" : e.target.passwordAdd.value ? e.target.passwordAdd.value : user.password
+    }
+    axios.delete(`http://localhost:3004/users/${id}`)
+    axios.post(`http://localhost:3004/users`, data)
+
+    location.reload()
   }
 
   return (
@@ -93,15 +108,14 @@ const UserManage = () => {
                   backgroundColor: 'var(--color-table-background)'
                 }
               }
-              console.log(e)
               return (
                 <div style={styles1} className="userManageContent">
-                  <form onSubmit={(e) => handlePatchUser(e)} className="userManageDetails">
-                    <input style={styles2} type="text" value={user.name} />
-                    <input style={styles2} type="text" value={user.password} />
+                  <form onSubmit={(e) => handlePatchUser(e, user.id, user)} className="userManageDetails">
+                    <input style={styles2} type="text" id='nameAdd' placeholder={user.name} />
+                    <input style={styles2} type="text" id='passwordAdd' placeholder={user.password} />
                     <div className="userManageOption">
                       <input style={styles2} value='ذخیره' type='submit'/>
-                      <button style={styles2} onClick={() => handleDelete(user)}>حذف</button>
+                      <button style={styles2} onClick={(e) => handleDelete(e, user.id, user)}>حذف</button>
                     </div>
                   </form>
                 </div>
