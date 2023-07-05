@@ -102,7 +102,6 @@ const cookStateSlice = createSlice ({
         current(state.allList).map((item) =>  { 
           current(state.markedItems).map((marked) => {
             if(item.id == marked.id) {
-              console.log(item)
               state.sortedAllList.push(item)
             }
           })

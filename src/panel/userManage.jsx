@@ -9,40 +9,46 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 
 import axios from 'axios'
-import { addUser, deleteUser } from '../store/uareSlice';
+import { addUser, deleteUser, changeUser } from '../store/uareSlice';
 
 const UserManage = () => {
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
-  const handleDelete = (e, id, user) => {
+  const handleDelete = async (e, id, user) => {
     e.preventDefault()
-    axios.delete(`http://localhost:3004/users/${id}`)
     dispatch(deleteUser(user))
+    await axios.delete(`http://localhost:3004/users/${id}`)
   }
   
-  const handleAddUser = (e) => {
+  const handleAddUser = async (e) => {
     e.preventDefault()
     const data = {
       "id" : uuidv4(),
       "name" : e.target.nameAdd.value,
       "password" : e.target.passwordAdd.value
     }
+    if(!user.allUser.find((item) => item.name == e.target.nameAdd.value)
+      && e.target.nameAdd.value && e.target.passwordAdd.value  
+    ) {
     dispatch(addUser(data))
-    axios.post(`http://localhost:3004/users`, data)
+    await axios.post(`http://localhost:3004/users`, data)
+    }
   }
 
-  const handlePatchUser = (e, id, user) => {
+  const handlePatchUser = async (e, id, user1) => {
     e.preventDefault()
-    console.log(id)
+    console.log(e)
     const data = {
-      "name" : e.target.nameAdd.value ? e.target.nameAdd.value : user.name,
-      "password" : e.target.passwordAdd.value ? e.target.passwordAdd.value : user.password
+      "id" : id,
+      "name" : e.target.nameAdd.value ? e.target.nameAdd.value : user1.name,
+      "password" : e.target.passwordAdd.value ? e.target.passwordAdd.value : user1.password
     }
-    axios.delete(`http://localhost:3004/users/${id}`)
-    axios.post(`http://localhost:3004/users`, data)
-
-    location.reload()
+    if(!user.allUser.find((item) => item.name == e.target.nameAdd.value)) {
+      dispatch(changeUser(data))
+      await axios.delete(`http://localhost:3004/users/${id}`)
+      await axios.post(`http://localhost:3004/users`, data)
+    }
   }
 
   return (
@@ -123,11 +129,11 @@ const UserManage = () => {
           })}
           <form onSubmit={(e) => handleAddUser(e)} className='addUser'>
             <div>
-              <label htmlFor="nameAdd">رمز عبور</label>
+              <label htmlFor="nameAdd">نام کاربری</label>
               <input id='nameAdd' style={{background : 'var(--color-table-background)' }} type="text" />
             </div>
             <div>
-              <label htmlFor="passwordAdd">نام کاربری</label>
+              <label htmlFor="passwordAdd">رمز عبور</label>
               <input id='passwordAdd' style={{background : 'var(--color-table-background)' }} type="text" />
             </div>
             <input type="submit" value='اضافه کردن کاربر' />

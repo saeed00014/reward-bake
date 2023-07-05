@@ -33,12 +33,22 @@ const userStateSlice = createSlice ({
       state.allUser = 
         current(state.allUser).filter((user) => user.id !== id)
     },
+    changeUser(state, action) {
+      const newItem = action.payload
+
+      if(state.allUser.find((item) => item.id == newItem.id)){
+        state.allUser.find((item) => item.id == newItem.id).id = newItem.id
+        state.allUser.find((item) => item.id == newItem.id).name = newItem.name
+        state.allUser.find((item) => item.id == newItem.id).password = newItem.password
+      }
+    }
+    ,
     cleareUserState(state, action) {
       state.allUser = []
     }
   }
 })
 
-export const { allUser, addUser, deleteUser, cleareUserState } = userStateSlice.actions
+export const { allUser, addUser, deleteUser, cleareUserState, changeUser } = userStateSlice.actions
 
 export default userStateSlice

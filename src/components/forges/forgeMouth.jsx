@@ -23,9 +23,9 @@ const ForgeMouth = ({info}) => {
       const [mark, setMark] = useState(false)
       const [bookMark, setBookMark] = useState(false)
       const [state, setState] = useState(mouth.state)
+      const [stateBrick, setStateBrick] = useState(mouth.brick)
 
       let markedData = JSON.parse(localStorage.getItem('marked'))
-
       const marked = markedData && markedData.find((marked) => marked.id == mouth.id)
 
       const handleBookMark = (info) => {
@@ -58,6 +58,7 @@ const ForgeMouth = ({info}) => {
           "name": e.target.name.value ? e.target.name.value : info.name,
           "quantity": e.target.qty.value ? e.target.qty.value : info.quantity,
           "state": e.target.state.value ? e.target.state.value : info.state,
+          "brick": e.target.stateBrick.value ? e.target.stateBrick.value : info.brick,
           "dis": e.target.area.value ? e.target.area.value : info.dis
         }
         setStateForgeOne(false)
@@ -69,7 +70,12 @@ const ForgeMouth = ({info}) => {
       const handleState = (e) => {
         setState(e.target.value)
       }
-  
+
+      const handleStateBrick = (info, e) => {
+        setStateBrick(e.target.value)
+      }
+    
+
         return (
           <div className='infoCon'>
             <span onClick={() => setStateForgeOne(!stateForgeOne)} after-show = {stateForgeOne.toString()}  data-content={mouth.num} style={styles}>
@@ -87,9 +93,9 @@ const ForgeMouth = ({info}) => {
                 <div className='infoEdit'>
                   <div className='infoEditInput'>
                     <div>
-                      <label htmlFor="nameb"> : آجر</label>
-                      <select name="" id="nameb">
-                        <option value="">انتخاب آجر</option>
+                      <label htmlFor="stateBrick"> : آجر</label>
+                      <select name=""  id="stateBrick" value={stateBrick} onChange={(e) => handleStateBrick(info, e)} >
+                        <option value="انتخاب آجر">انتخاب آجر</option>
                         <option value="3.6">آجر 3.6</option>
                         <option value="5.6">آجر 5.6</option>
                         <option value="4.2">آجر 4.2</option>

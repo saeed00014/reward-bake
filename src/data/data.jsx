@@ -18,11 +18,12 @@ const DataPage = () => {
 
   const [query, setQuery] = useState('')
   const [showDis, setShowDis] = useState(false)
+  const [value, setValue] = useState('')
 
   const list = useSelector((state) => state.list)
 
   const handleSort = (e) => {
-    console.log(e)
+    setValue(e.target.value)
     dispatch(sortedAllList(e.target.value))
   }
   
@@ -65,7 +66,7 @@ const DataPage = () => {
             return (
               <div className="dataContent">
                 <div className="dataInfoContainer"> 
-                  <EditData info={info} fa={info.symbol} showDis={showDis} e={e}/>  
+                  <EditData info={info} fa={info.symbol} showDis={showDis} e={e} value={value}/>  
                 </div>
               </div>
             )

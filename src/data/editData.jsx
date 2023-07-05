@@ -12,14 +12,14 @@ import { addChangedList, setStateMark } from '../store/stateSlice'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { LuEdit } from 'react-icons/lu'
 
-const EditData = ({fa, info, showDis, e}) => {
+const EditData = ({fa, info, showDis, e, value}) => {
   const [bookMark, setBookMark] = useState(false)
   const [stateForgeOne, setStateForgeOne] = useState(false)
   const [dis, setDis] = useState(false)
   const [state, setState] = useState(info.state)
+  const [stateBrick, setStateBrick] = useState(info.brick)
 
   const list = useSelector((state) => state.list)
-
   const dispatch = useDispatch()
   
   let stat
@@ -66,9 +66,18 @@ const EditData = ({fa, info, showDis, e}) => {
       backgroundColor: 'white'
     }
   }
+  useEffect(() => {
+    setBookMark(false)
+    if(list.markedItems.find((item) => item.id == info.id )) {
+      setBookMark(true)
+    }else {
+      setBookMark(false)
+    }
+  }, [value])  
 
   const handleSave = async (e, info, id) => {
     e.preventDefault()
+    console.log(e)
     const data = {
       "id": id,
       "num": info.num,
@@ -76,23 +85,16 @@ const EditData = ({fa, info, showDis, e}) => {
       "name": e.target.name.value ? e.target.name.value : info.name,
       "quantity": e.target.qty.value ? e.target.qty.value : info.quantity,
       "state": e.target.state.value ? e.target.state.value : info.state,
+      "brick": e.target.stateBrick.value ? e.target.stateBrick.value : info.brick,
       "dis": e.target.area.value ? e.target.area.value : info.dis
     }
     setStateForgeOne(false)
     dispatch(addChangedList(data))
     await axios.delete(`http://localhost:3004/forges/${id}`)
     await axios.post('http://localhost:3004/forges', data)
-    console.log(list.sortedAllList)
     
   }
 
-  useEffect(() => {
-    if(list.markedItems.find((item) => item.id == info.id )) {
-      setBookMark(true)
-    }else {
-      setBookMark(false)
-    }
-  }, [list.markedItems])  
   
   const handleBookMark = (info) => {
     dispatch(setStateMark(info))
@@ -105,6 +107,10 @@ const EditData = ({fa, info, showDis, e}) => {
     setState(e.target.value)
   }
 
+  const handleStateBrick = (info, e) => {
+    setStateBrick(e.target.value)
+  }
+
   return (
   <>
   {stateForgeOne && 
@@ -114,9 +120,9 @@ const EditData = ({fa, info, showDis, e}) => {
       <div className='infoEdit'>
         <div className='infoEditInput'>
           <div>
-            <label htmlFor="nameb" > : آجر</label>
-            <select name=""  id="nameb">
-              <option placeholder=''>انتخاب آجر</option>
+            <label htmlFor="stateBrick" > : آجر</label>
+            <select name=""  id="stateBrick" value={stateBrick} onChange={(e) => handleStateBrick(info, e)} >
+              <option value="انتخاب آجر">انتخاب آجر</option>
               <option value="3.6">آجر 3.6</option>
               <option value="5.6">آجر 5.6</option>
               <option value="4.2">آجر 4.2</option>
